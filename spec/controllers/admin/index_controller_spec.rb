@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe AdminIndexController, type: :controller do
+RSpec.describe Admin::IndexController, type: :controller do
   describe "GET #show" do
     it "returns http success" do
-      get :index
+      get :show
       expect(response).to have_http_status(:success)
     end
 

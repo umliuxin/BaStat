@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe PlayersController, type: :controller do
+RSpec.describe Admin::PlayersController, type: :controller do
 
   describe "GET #index" do
     it "returns http success" do

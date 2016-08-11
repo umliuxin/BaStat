@@ -5,9 +5,7 @@ RSpec.describe Season, type: :model do
     subject do
       described_class.new()
     end
-    it 'be_truthy' do
-      expect(subject.results).to be_truthy
-    end
+    it 'be_truthy'
   end
 
   context 'validate' do
@@ -16,6 +14,6 @@ RSpec.describe Season, type: :model do
     it 'start_date should not be nil'
     it 'end_date should be later than start_date'
     it 'is_current_season should be false by default'
-    
+
   end
 end

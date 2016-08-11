@@ -5,9 +5,7 @@ RSpec.describe Team, type: :model do
     subject do
       described_class.new()
     end
-    it 'be_truthy' do
-      expect(subject.results).to be_truthy
-    end
+    it 'be_truthy'
   end
 
 end
