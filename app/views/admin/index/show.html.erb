@@ -1,0 +1,22 @@
+<h1>Index</h1>
+
+<%= @team.team_name %>
+<%= image_tag(@team.team_logo)%>
+
+
+<section>
+  <h3>Season</h3>
+  <div>Season List</div>
+  <div>
+    <h5>Add new Season</h5>
+    <%= form_for :season, url: new_season_path do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date %>
+
+      <%= f.submit("Add new season") %>
+    <% end %>
+  </div>
+</section>
