@@ -1,5 +1,5 @@
-<h1>Edit Player</h1>
-<%= form_for :player, url: player_path, method: :patch do |f| %>
+<h1>Create New Player</h1>
+<%= form_for :player, url: admin_players_path do |f| %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -36,6 +36,6 @@
   </p>
 
   <p>
-    <%= f.submit("Update Player") %>
+    <%= f.submit("Create Player") %>
   </p>
 <% end %>

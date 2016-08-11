@@ -1,5 +1,5 @@
 <h1>Player#index</h1>
-<p><%= link_to "Create player", new_player_path%></p>
+<p><%= link_to "Create player", new_admin_player_path%></p>
 
 <table>
   <thead>
@@ -16,8 +16,8 @@
   <% @players.each do |player| %>
     <tr>
       <td><%= player.id %></td>
-      <td><%= link_to "Edit", edit_player_path(player) %></td>
-      <td><%= link_to player.name, player_path(player)%></td>
+      <td><%= link_to "Edit", edit_admin_player_path(player) %></td>
+      <td><%= link_to player.name, admin_player_path(player)%></td>
       <td><%= player.position %></td>
       <td><%= player.number %></td>
       <td><%= player.height %></td>
