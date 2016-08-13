@@ -1,4 +1,5 @@
 class Player < ActiveRecord::Base
+  has_many :rosters
   validates :name, length: { minimum: 2, maximum: 55 }, presence: true, uniqueness: true
   validates :number, numericality: {only_integer: true}, presence: true, uniqueness: true
   validates :height, numericality: true
