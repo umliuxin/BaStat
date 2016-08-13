@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resources :players
 
     # Roster section
+    get '/rosters', to: 'rosters#show', as: 'rosters'
+    get '/rosters/:id/manage', to: 'rosters#manage', as: 'manage_roster'
+    post 'rosters/add/:season_id/:player_id', to: 'rosters#add', as:'add_roster'
+    delete 'rosters/delete/:season_id/:player_id', to: 'rosters#delete', as:'delete_roster'
   end
 
 

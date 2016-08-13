@@ -1,0 +1,12 @@
+<h1>Manage Roster</h1>
+
+<div>
+  <h5>Season List:</h5>
+  <ul>
+    <% @seasons.each do |season| %>
+      <li><%= season.name %> <%= link_to 'Edit', admin_manage_roster_path(season.id) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<!-- Should be ajax call when changing season -->
