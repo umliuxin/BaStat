@@ -1,24 +1,35 @@
-<h1>Season Admin</h1>
-
+<h1>Season</h1>
+<%= @season.name %>
 <section>
-  <h3>Add new Season</h5>
-  <%= form_for :season, url: admin_new_season_path do |f| %>
+  <h3>Change Season</h3>
+  <%= form_for :season, url: admin_update_season_path, method: :patch do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
     <%= f.label :start_date %>
     <%= f.date_field :start_date %>
 
-    <%= f.submit("Add new season") %>
+    <%= f.submit("Update new season") %>
+  <% end %>
+</section>
+<section>
+  <h3>Schedule</h3>
+  <%= form_for :game, url: admin_create_game_path do |f| %>
+    <%= f.label :opponent %>
+    <%= f.text_field :opponent %>
+
+    <%= f.label :gametime %>
+    <%= f.datetime_local_field :gametime %>
+
+    <%= f.hidden_field :season_id, value: @season.id %>
+
+    <%= f.submit("Add new game") %>
   <% end %>
 </section>
 
 <section>
-  <h3>Season List</h3>
-  <ul>
-    <% @seasons.each do |season| %>
-
-      <li class="<%= season.is_current_season%>"><%= season.name %> Start Date:<%= season.start_date %>  CTA: <%= link_to 'delete', admin_delete_season_path(season), method: :delete, data: { confirm: 'Are you sure?' } %> <%= link_to 'set current season', admin_set_current_season_path(season), method: :patch %></li>
-    <% end %>
-  </ul>
+  <h3>Game Schedule</h3>
+  <% @games.each do |game| %>
+    <div> <%= game.opponent%> <%=game.gametime %> <%= game.season%> <%= link_to 'Remove', admin_delete_game_path(game), method: :delete, data: { confirm: 'Are you sure?' }%> <%= link_to 'Track', admin_game_path(game) %></div>
+  <% end %>
 </section>

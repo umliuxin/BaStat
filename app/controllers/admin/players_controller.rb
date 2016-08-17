@@ -36,8 +36,8 @@ module Admin
     end
 
     def destroy
-      @article = Article.find(params[:id])
-      @article.destroy
+      @player = Player.find(params[:id])
+      @player.destroy
 
       redirect_to admin_player_path
     end

@@ -1,0 +1,19 @@
+<h1>GAME Record</h1>
+<section><%= @game.id %> <%= @game.opponent %></section>
+<section>
+  <%= @rosters %>
+</section>
+
+<section>
+  <%= form_tag('url', method: "post", class: "sth") %>
+  <% @rosters.each do |roster| %>
+    <%= radio_button_tag(:roster, roster.player.name) %>
+    <%= label_tag(:roster, roster.player.name) %>
+  <% end %>
+  <br>
+  <% GAME_ACTION_LIST.each do |action| %>
+    <%= radio_button_tag(:play_action, action )%>
+    <%= label_tag(:play_action, action) %>
+  <% end %>
+
+</section>

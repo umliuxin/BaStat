@@ -1,8 +1,13 @@
 module Admin
   class SeasonsController < ApplicationController
 
-    def show
+    def index
       @seasons = Season.all.order('start_date')
+    end
+
+    def show
+      @season = Season.find(params[:id])
+      @games = Game.where(season_id: @season.id).order('gametime')
     end
 
     def create
@@ -10,7 +15,7 @@ module Admin
       unless @season.save
         flash[:danger] = @season.errors.messages
       end
-      redirect_to(admin_season_path)
+      redirect_to(admin_seasons_path)
 
     end
 
@@ -23,14 +28,22 @@ module Admin
       unless @season.update(is_current_season: true)
         flash[:danger] = @season.errors.full_messages[0]
       end
-      redirect_to(admin_season_path)
+      redirect_to(admin_seasons_path)
     end
 
     def delete
       @season = Season.find(params[:id])
       flash[:success] = @season.name + ' removed'
       @season.destroy
-      redirect_to(admin_season_path)
+      redirect_to(admin_seasons_path)
+    end
+
+    def update
+      @season = Season.find(params[:id])
+      unless @season.update(season_params)
+        flash[:danger] = @season.errors.full_messages[0]
+      end
+      redirect_to admin_season_path(@season)
     end
 
 
