@@ -12,8 +12,7 @@ module Admin
     end
 
     def create
-      @player = Player.new(player_params)
-      if @player.save
+      if @player = Player.create(player_params)
         redirect_to admin_player_path(@player)
       else
         flash[:danger] = @player.errors.full_messages[0]

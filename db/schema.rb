@@ -69,14 +69,14 @@ ActiveRecord::Schema.define(version: 20160818064719) do
   end
 
   create_table "rosters", force: :cascade do |t|
-    t.integer  "player_id_id"
-    t.integer  "season_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "player_id"
+    t.integer  "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "rosters", ["player_id_id"], name: "index_rosters_on_player_id_id"
-  add_index "rosters", ["season_id_id"], name: "index_rosters_on_season_id_id"
+  add_index "rosters", ["player_id"], name: "index_rosters_on_player_id"
+  add_index "rosters", ["season_id"], name: "index_rosters_on_season_id"
 
   create_table "seasons", force: :cascade do |t|
     t.string   "name"

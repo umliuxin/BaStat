@@ -3,13 +3,12 @@ module Admin
 
     def show
       @game = Game.find(params[:id])
-      @rosters = @game.season.rosters
+      @player_collection = @game.players
 
     end
 
     def create
-      @game = Game.new(game_params)
-      unless @game.save
+      unless @game = Game.create(game_params)
         flash[:danger] = @game.errors.messages[0]
       end
       redirect_to admin_season_path(params[:game][:season_id])

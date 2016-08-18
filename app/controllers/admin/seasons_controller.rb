@@ -7,27 +7,20 @@ module Admin
 
     def show
       @season = Season.find(params[:id])
-      @games = Game.where(season_id: @season.id).order('gametime')
+      @games = @season.games.order('gametime')
     end
 
     def create
-      @season = Season.new(season_params)
-      unless @season.save
+      unless @season = Season.create(season_params)
         flash[:danger] = @season.errors.messages
       end
       redirect_to(admin_seasons_path)
-
     end
 
     def set_current
-      @current_season = Season.find_by(is_current_season: true)
-      unless @current_season.blank?
-        @current_season.update(is_current_season: false)
-      end
       @season = Season.find(params[:id])
-      unless @season.update(is_current_season: true)
-        flash[:danger] = @season.errors.full_messages[0]
-      end
+      @season.set_default_season
+      
       redirect_to(admin_seasons_path)
     end
 

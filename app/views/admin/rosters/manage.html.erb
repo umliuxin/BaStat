@@ -2,14 +2,14 @@
 
 <h5>In-season Players</h5>
 <ul>
-  <% @in_players.each do |player| %>
+  <% @in_season_player_collection.each do |player| %>
     <li><%= player.name%> <%= link_to 'Remove from season', admin_delete_roster_path(@season, player), :method => :delete%></li>
   <% end %>
 </ul>
 
 <h5>Out-of-seaon Players</h5>
 <ul>
-  <% @out_players.each do |player| %>
+  <% @out_season_player_collection.each do |player| %>
     <li><%= player.name%> <%= link_to 'Add to season', admin_add_roster_path(@season, player), :method => :post %></li>
   <% end %>
 </ul>

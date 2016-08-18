@@ -2,15 +2,13 @@ module Admin
   class RostersController < ApplicationController
     def show
       @seasons = Season.all
-      @current_season = @seasons.find_by(is_current_season:true)
     end
 
     def manage
-      season_id = params[:id]
-      @season = Season.find(season_id)
-      @in_season_rosters = Roster.where(season: @season)
-      @in_players = Player.where(id: @in_season_rosters.pluck(:player_id))
-      @out_players = Player.where.not(id: @in_season_rosters.pluck(:player_id))
+      @season = Season.find(params[:id])
+      @in_season_player_collection = @season.players
+      @out_season_player_collection = Player.where.not(id: @in_season_player_collection.pluck(:id))
+      # @out_season_player_collection = Player.all - @in_season_player_collection
     end
 
     def add
