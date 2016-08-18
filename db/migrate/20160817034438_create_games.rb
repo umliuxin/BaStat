@@ -3,8 +3,7 @@ class CreateGames < ActiveRecord::Migration
     create_table :games do |t|
       t.string :opponent
       t.datetime :gametime, null: false
-      t.integer :season_id, null: false
-      t.integer :score_id
+      t.belongs_to :season, index: true
 
       t.timestamps null: false
     end
