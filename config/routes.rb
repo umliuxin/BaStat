@@ -21,10 +21,11 @@ Rails.application.routes.draw do
     post 'rosters/add/:season_id/:player_id', to: 'rosters#add', as:'add_roster'
     delete 'rosters/delete/:season_id/:player_id', to: 'rosters#delete', as:'delete_roster'
 
-    # Schedule Section
+    # Game/Schedule Section
     post '/games/create', to: 'games#create', as: 'create_game'
     delete '/games/:id/delete', to:'games#delete', as:'delete_game'
     get 'games/:id', to:'games#show', as: 'game'
+    post 'games/:id/init', to:'games#init', as: 'game_init'
 
   end
 

@@ -1,4 +1,7 @@
 <h1>GAME Record</h1>
+<div>
+  <%= link_to 'Generate empty obj in Database', admin_game_init_path(@game), :method => "post"%>
+</div>
 <section><%= @game.id %> <%= @game.opponent %></section>
 
 
