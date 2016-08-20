@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812052725) do
+ActiveRecord::Schema.define(version: 20160818064719) do
+
+  create_table "actions", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "actions", ["game_id"], name: "index_actions_on_game_id"
+  add_index "actions", ["player_id"], name: "index_actions_on_player_id"
+
+  create_table "games", force: :cascade do |t|
+    t.string   "opponent"
+    t.datetime "gametime",   null: false
+    t.integer  "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "games", ["season_id"], name: "index_games_on_season_id"
+
+  create_table "player_stats", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "player_id"
+    t.integer  "fgm",        default: 0
+    t.integer  "fga",        default: 0
+    t.integer  "tpm",        default: 0
+    t.integer  "tpa",        default: 0
+    t.integer  "ftm",        default: 0
+    t.integer  "fta",        default: 0
+    t.integer  "oreb",       default: 0
+    t.integer  "dreb",       default: 0
+    t.integer  "ast",        default: 0
+    t.integer  "tov",        default: 0
+    t.integer  "stl",        default: 0
+    t.integer  "blk",        default: 0
+    t.integer  "foul",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "player_stats", ["game_id"], name: "index_player_stats_on_game_id"
+  add_index "player_stats", ["player_id"], name: "index_player_stats_on_player_id"
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -26,11 +69,14 @@ ActiveRecord::Schema.define(version: 20160812052725) do
   end
 
   create_table "rosters", force: :cascade do |t|
-    t.integer  "player_id",  null: false
-    t.integer  "season_id",  null: false
+    t.integer  "player_id"
+    t.integer  "season_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "rosters", ["player_id"], name: "index_rosters_on_player_id"
+  add_index "rosters", ["season_id"], name: "index_rosters_on_season_id"
 
   create_table "seasons", force: :cascade do |t|
     t.string   "name"
@@ -40,5 +86,30 @@ ActiveRecord::Schema.define(version: 20160812052725) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
   end
+
+  create_table "team_stats", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "fgm",        default: 0
+    t.integer  "fga",        default: 0
+    t.integer  "tpm",        default: 0
+    t.integer  "tpa",        default: 0
+    t.integer  "ftm",        default: 0
+    t.integer  "fta",        default: 0
+    t.integer  "oreb",       default: 0
+    t.integer  "dreb",       default: 0
+    t.integer  "ast",        default: 0
+    t.integer  "tov",        default: 0
+    t.integer  "stl",        default: 0
+    t.integer  "blk",        default: 0
+    t.integer  "foul",       default: 0
+    t.integer  "q1_point",   default: 0
+    t.integer  "q2_point",   default: 0
+    t.integer  "q3_point",   default: 0
+    t.integer  "q4_point",   default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "team_stats", ["game_id"], name: "index_team_stats_on_game_id"
 
 end
