@@ -18,7 +18,6 @@ GAME_ACTION_LIST = [
   'DEF_REB',
   'STEAL',
   'FOUL',
-  'FOULED',
   'TURNOVER',
   'BLOCK',
   'QUATER_ENDS'

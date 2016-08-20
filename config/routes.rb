@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     get 'games/:id', to:'games#show', as: 'game'
     post 'games/:id/init', to:'games#init', as: 'game_init'
 
+    # Action Section
+    post '/actions', to: 'actions#create', as: 'create_action'
+
   end
 
 

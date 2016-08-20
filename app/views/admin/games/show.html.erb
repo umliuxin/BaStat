@@ -6,16 +6,27 @@
 
 
 <section>
-  <%= form_tag('url', method: "post", class: "sth") %>
-  <% @player_collection.each do |player| %>
-    <%= radio_button_tag(:player, player.name) %>
-    <%= label_tag(:player, player.name) %>
-  <% end %>
-  <br>
-  <% GAME_ACTION_LIST.each do |action| %>
-    <%= radio_button_tag(:play_action, action )%>
-    <%= label_tag(:play_action, action) %>
+  <%= form_for :move, url: admin_create_action_path do |f| %>
+    <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
+
+    <%#= f.radio_button :player_id,'0'%> Oppo <br/>
+
     <br>
+    <% GAME_ACTION_LIST.each_with_index do |val,index| %>
+      <%= f.radio_button :action_index, index %> <%= val %><br />
+    <% end %>
+
+    <%= f.hidden_field :game_id, value: @game.id %>
+
+    <%= f.submit %>
+
   <% end %>
 
+</section>
+
+<section>
+  <h5>Action List</h5>
+  <% @action_list.each do |action| %>
+    <p>Player: <%= action.player.name %>, Action: <%=GAME_ACTION_LIST[action.action_index]%>, Move Up, Move Down, Edit, Remove</p>
+  <% end %>
 </section>

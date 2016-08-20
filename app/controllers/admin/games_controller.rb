@@ -4,7 +4,7 @@ module Admin
     def show
       @game = Game.find(params[:id])
       @player_collection = @game.players
-
+      @action_list = Action.where(game: @game).order('position')
     end
 
     def create
