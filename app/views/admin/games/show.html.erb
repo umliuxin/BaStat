@@ -9,7 +9,7 @@
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
 
-    <%#= f.radio_button :player_id,'0'%> Oppo <br/>
+    <%= f.radio_button :player_id,'0'%> Oppo <br/>
 
     <br>
     <% GAME_ACTION_LIST.each_with_index do |val,index| %>
@@ -27,6 +27,6 @@
 <section>
   <h5>Action List</h5>
   <% @action_list.each do |action| %>
-    <p>Player: <%= action.player.name %>, Action: <%=GAME_ACTION_LIST[action.action_index]%>, Move Up, Move Down, Edit, Remove</p>
+    <p>Player: <%= action.player_name %>, Action: <%=GAME_ACTION_LIST[action.action_index]%>, Move Up, Move Down, Edit, Remove</p>
   <% end %>
 </section>

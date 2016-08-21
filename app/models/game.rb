@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   belongs_to :season
   has_one :team_stat
+  has_one :score
   has_many :actions
   has_many :player_stats
   has_many :players, through: :season
@@ -10,6 +11,10 @@ class Game < ActiveRecord::Base
   def init_stat_obj
     init_player_stats
     init_team_stat
+  end
+
+  def init_score_obj
+    Score.create(game: self)
   end
 
   private

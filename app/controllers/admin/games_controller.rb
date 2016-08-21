@@ -24,6 +24,7 @@ module Admin
     def init
       @game = Game.find(params[:id])
       @game.init_stat_obj
+      @game.init_score_obj
       redirect_to admin_game_path(@game)
     end
 

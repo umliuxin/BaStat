@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820045143) do
+ActiveRecord::Schema.define(version: 20160820231820) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -80,6 +80,25 @@ ActiveRecord::Schema.define(version: 20160820045143) do
   add_index "rosters", ["player_id"], name: "index_rosters_on_player_id"
   add_index "rosters", ["season_id"], name: "index_rosters_on_season_id"
 
+  create_table "scores", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "point_q1",          default: 0
+    t.integer  "point_q2",          default: 0
+    t.integer  "point_q3",          default: 0
+    t.integer  "point_q4",          default: 0
+    t.integer  "point_total",       default: 0
+    t.integer  "point_op_q1",       default: 0
+    t.integer  "point_op_q2",       default: 0
+    t.integer  "point_op_q3",       default: 0
+    t.integer  "point_op_q4",       default: 0
+    t.integer  "point_op_total",    default: 0
+    t.integer  "recording_quarter", default: 1
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  add_index "scores", ["game_id"], name: "index_scores_on_game_id"
+
   create_table "seasons", force: :cascade do |t|
     t.string   "name"
     t.date     "start_date"
@@ -104,10 +123,6 @@ ActiveRecord::Schema.define(version: 20160820045143) do
     t.integer  "stl",        default: 0
     t.integer  "blk",        default: 0
     t.integer  "foul",       default: 0
-    t.integer  "q1_point",   default: 0
-    t.integer  "q2_point",   default: 0
-    t.integer  "q3_point",   default: 0
-    t.integer  "q4_point",   default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

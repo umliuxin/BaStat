@@ -22,3 +22,7 @@ GAME_ACTION_LIST = [
   'BLOCK',
   'QUATER_ENDS'
 ]
+
+# Opponent
+OPPO_PLAYER_ID = 0
+OPPO_NAME = 'Opponent'
