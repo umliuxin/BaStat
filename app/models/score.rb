@@ -2,8 +2,18 @@ class Score < ActiveRecord::Base
   belongs_to :game
   validates :game_id, uniqueness: true
 
+  def end_recording?
+    if self.recording_quarter == GAME_END_INDEX
+      return true
+    else
+      return false
+    end
+  end
+
   def update_quarter
-    self.increment(:recording_quarter).save
+    if self.recording_quarter < 5
+      self.increment(:recording_quarter).save
+    end
   end
 
   def update_score(params)

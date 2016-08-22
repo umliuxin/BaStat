@@ -35,8 +35,6 @@ class TeamStat < ActiveRecord::Base
         self.increment(:tov).save
       when "14"
         self.increment(:blk).save
-      when "15"
-        ap 'quarter_end'
       else
         ap "Not Implement yet"
     end

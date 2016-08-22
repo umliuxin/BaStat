@@ -9,7 +9,6 @@ class Game < ActiveRecord::Base
   validates :gametime, presence: true
 
   def init_stat_obj
-    init_player_stats
     init_team_stat
   end
 

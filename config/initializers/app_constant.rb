@@ -20,9 +20,18 @@ GAME_ACTION_LIST = [
   'FOUL',
   'TURNOVER',
   'BLOCK',
-  'QUATER_ENDS'
 ]
 
 # Opponent
 OPPO_PLAYER_ID = 0
 OPPO_NAME = 'Opponent'
+
+#Quarter
+GAME_END_INDEX = 5
+GAME_END_TEXT = 'END OF GAME'.freeze
+
+# Position move
+POSITION_MOVE = {
+  moveup: 'MOVE UP',
+  movedown: 'MOVE DOWN'
+}

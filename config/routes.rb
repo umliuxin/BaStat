@@ -29,7 +29,11 @@ Rails.application.routes.draw do
 
     # Action Section
     post '/actions', to: 'actions#create', as: 'create_action'
+    get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'
+    
 
+    #Action Sequence
+    get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'
   end
 
 

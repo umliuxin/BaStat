@@ -1,10 +1,48 @@
 <h1>GAME Record</h1>
-<div>
-  <%= link_to 'Generate empty obj in Database', admin_game_init_path(@game), :method => "post"%>
-</div>
-<section><%= @game.id %> <%= @game.opponent %></section>
 
+<section>
 
+  <ul>
+    <li>Game ID: <%= @game.id %> </li>
+    <li>Game Oppo: <%= @game.opponent %></li>
+    <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
+  </ul>
+</section>
+<section>
+  <h5>Score</h5>
+  <table>
+    <thead>
+      <td>Team</td>
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td>Q4</td>
+      <td>Total</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>LSJ</td>
+        <td><%= @score.point_q1 %></td>
+        <td><%= @score.point_q2 %></td>
+        <td><%= @score.point_q3 %></td>
+        <td><%= @score.point_q4 %></td>
+        <td><%= @score.point_total %></td>
+      </tr>
+      <tr>
+        <td>@game.opponent</td>
+        <td><%= @score.point_op_q1 %></td>
+        <td><%= @score.point_op_q2 %></td>
+        <td><%= @score.point_op_q3 %></td>
+        <td><%= @score.point_op_q4 %></td>
+        <td><%= @score.point_op_total %></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<% unless @score.end_recording? %>
+<section>
+    <%= link_to 'Quarter End', admin_quarter_end_path(@game.id), method: 'get'%>
+</section>
 <section>
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
@@ -16,17 +54,21 @@
       <%= f.radio_button :action_index, index %> <%= val %><br />
     <% end %>
 
+
     <%= f.hidden_field :game_id, value: @game.id %>
+    <%= f.hidden_field :position, value: params[:position] %>
+    <%= f.hidden_field :quarter, value: @score.recording_quarter %>
 
     <%= f.submit %>
 
   <% end %>
-
 </section>
+<% end %>
 
 <section>
   <h5>Action List</h5>
   <% @action_list.each do |action| %>
-    <p>Player: <%= action.player_name %>, Action: <%=GAME_ACTION_LIST[action.action_index]%>, Move Up, Move Down, Edit, Remove</p>
+    <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
+    <p>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>,<%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%></p>
   <% end %>
 </section>
