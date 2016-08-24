@@ -4,13 +4,21 @@ module Admin
     include GameConcern
 
     def create
+      # if insert_position exists, action will be added in that position
       insert_position = cookies[:insert_position]
-      return redirect_to admin_game_path(action_params[:game_id]) if game_ends?
+      # if game ends and position is not set, cannot add action in the list
+      return redirect_to admin_game_path(action_params[:game_id]) if game_ends? && insert_position.present?
+      # Create new action object
       @action = Action.create(action_params)
-      move_to_position(insert_position.to_i) unless insert_position.blank?
-      update_team_stat(team_params) if @action.log_stat?
-      update_player_stat(action_params) if @action.log_stat?
-      update_score(action_params)
+      if @action.valid?
+        # if insert_position is set, move the new action object to insert_position
+        move_to_position(insert_position.to_i) unless insert_position.blank?
+        # Update score
+        update_score(action_params)
+      else
+        flash[:danger] = 'Action is not valid'
+      end
+
       redirect_to admin_game_path(action_params[:game_id])
     end
 
@@ -20,6 +28,16 @@ module Admin
       redirect_to admin_game_path(quarter_params[:game_id])
     end
 
+    def delete
+      @action = Action.find(params[:id])
+      # Update score
+      @action.update_score_before_removing
+      # Remove from position
+      @action.remove_from_list
+      # Destory obj
+      @action.destroy if @action.not_in_list?
+      redirect_to admin_game_path(@action.game_id)
+    end
 
 
 
@@ -36,8 +54,8 @@ module Admin
     def quarter_params
       {
         game_id: params[:game_id],
-        player_id: 0,
-        action_index: 15
+        player_id: NULL_PLAYER_ID,
+        action_index: QUARTER_END_ACTION_INDEX
       }
     end
 

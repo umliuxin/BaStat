@@ -31,6 +31,16 @@ module Admin
       redirect_to admin_game_path(@game)
     end
 
+    def migrate
+      @game = Game.find(params[:id])
+      if @game.migrate
+        flash[:success] = 'Migration Done'
+      else
+        flash[:danger] = 'Migration Failed'
+      end
+      redirect_to admin_game_path(@game)
+    end
+
     private
 
     def game_params

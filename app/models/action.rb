@@ -20,18 +20,27 @@ class Action < ActiveRecord::Base
   end
 
   def player_name
-    if self.player_id == OPPO_PLAYER_ID
+    if self.player_id == OPPO_TEAM_ID
       OPPO_NAME
+    elsif self.player_id == TEAM_ID
+      TEAM_NAME
+    elsif self.player_id == NULL_PLAYER_ID
+      'GAME'
     else
       self.player.name
     end
   end
 
-  def log_stat?
-    return false if self.player_id == 0
-    true
-  end
+  def update_score_before_removing
+    remove_params = {
+      player_id: self.player_id,
+      action_index: self.action_index,
+      game_id: self.game_id,
+      remove: true
+    }
 
+    self.game.score.update_score(remove_params)
+  end
 
 
 end

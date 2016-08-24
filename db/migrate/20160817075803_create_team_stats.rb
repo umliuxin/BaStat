@@ -15,11 +15,6 @@ class CreateTeamStats < ActiveRecord::Migration
       t.integer :stl, default: 0
       t.integer :blk, default: 0
       t.integer :foul, default: 0
-      t.integer :q1_point, default: 0
-      t.integer :q2_point, default: 0
-      t.integer :q3_point, default: 0
-      t.integer :q4_point, default: 0
-
 
       t.timestamps null: false
     end

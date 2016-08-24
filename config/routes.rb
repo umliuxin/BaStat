@@ -26,11 +26,13 @@ Rails.application.routes.draw do
     delete '/games/:id/delete', to:'games#delete', as:'delete_game'
     get 'games/:id', to:'games#show', as: 'game'
     post 'games/:id/init', to:'games#init', as: 'game_init'
+    get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
 
     # Action Section
     post '/actions', to: 'actions#create', as: 'create_action'
     get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'
-    
+    delete '/actions/:id', to: 'actions#delete', as: 'delete_action'
+
 
     #Action Sequence
     get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'

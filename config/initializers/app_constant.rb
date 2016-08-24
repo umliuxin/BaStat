@@ -22,9 +22,13 @@ GAME_ACTION_LIST = [
   'BLOCK',
 ]
 
-# Opponent
-OPPO_PLAYER_ID = 0
+# team and oppo team
+TEAM_ID = 0
+TEAM_NAME ='Team'
+OPPO_TEAM_ID = -1
 OPPO_NAME = 'Opponent'
+NULL_PLAYER_ID = -2
+QUARTER_END_ACTION_INDEX = 15
 
 #Quarter
 GAME_END_INDEX = 5

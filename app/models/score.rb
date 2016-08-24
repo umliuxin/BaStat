@@ -11,28 +11,36 @@ class Score < ActiveRecord::Base
   end
 
   def update_quarter
-    if self.recording_quarter < 5
+    if self.recording_quarter < GAME_END_INDEX
       self.increment(:recording_quarter).save
     end
   end
 
   def update_score(params)
-    if change_point = change_point(params[:action_index])
-      self.increment(get_updated_quarter(params),by = change_point )
-      self.increment(get_updated_team(params), by = change_point )
+    if point = change_point(params)
+      self.increment(get_updated_quarter(params), by = change_flag(params) * point )
+      self.increment(get_updated_team(params), by = change_flag(params) * point )
       self.save
     end
   end
 
-  def change_point(index)
-    case index
-    when "0"
-      2
-    when "2"
-      3
-    when "4"
+  def change_flag(params)
+    if params[:remove].present? && params[:remove]
+      -1
+    else
       1
-    when "6"
+    end
+  end
+
+  def change_point(params)
+    case params[:action_index].to_i
+    when 0
+      2
+    when 2
+      3
+    when 4
+      1
+    when 6
       2
     else
       return false
@@ -40,7 +48,7 @@ class Score < ActiveRecord::Base
   end
 
   def get_updated_quarter(params)
-    if params[:player_id] == "0"
+    if params[:player_id].to_i == OPPO_TEAM_ID
       case self.recording_quarter
       when 1
         "point_op_q1".to_sym
@@ -70,10 +78,12 @@ class Score < ActiveRecord::Base
   end #end def
 
   def get_updated_team(params)
-    if params[:player_id] == "0"
+    if params[:player_id].to_i == OPPO_TEAM_ID
       'point_op_total'.to_sym
     else
       'point_total'.to_sym
     end
   end
+
+
 end

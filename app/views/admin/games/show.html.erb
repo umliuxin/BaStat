@@ -38,16 +38,19 @@
       </tr>
     </tbody>
   </table>
+  <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
 </section>
 <% unless @score.end_recording? %>
 <section>
-    <%= link_to 'Quarter End', admin_quarter_end_path(@game.id), method: 'get'%>
+    <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%>
 </section>
 <section>
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
 
-    <%= f.radio_button :player_id,'0'%> Oppo <br/>
+    <%= f.radio_button :player_id, OPPO_TEAM_ID %> Oppo
+    <%= f.radio_button :player_id, TEAM_ID %> Team <br/>
+
 
     <br>
     <% GAME_ACTION_LIST.each_with_index do |val,index| %>
@@ -69,6 +72,6 @@
   <h5>Action List</h5>
   <% @action_list.each do |action| %>
     <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
-    <p>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>,<%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%></p>
+    <p>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>,<%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
 </section>
