@@ -1,6 +1,6 @@
-class CreateTeamStats < ActiveRecord::Migration
+class CreateOppoTeamStats < ActiveRecord::Migration
   def change
-    create_table :team_stats do |t|
+    create_table :oppo_team_stats do |t|
       t.belongs_to :game, index: true
       t.integer :fgm, default: 0
       t.integer :fga, default: 0

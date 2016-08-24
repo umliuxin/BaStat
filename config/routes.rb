@@ -21,11 +21,20 @@ Rails.application.routes.draw do
     post 'rosters/add/:season_id/:player_id', to: 'rosters#add', as:'add_roster'
     delete 'rosters/delete/:season_id/:player_id', to: 'rosters#delete', as:'delete_roster'
 
-    # Schedule Section
+    # Game/Schedule Section
     post '/games/create', to: 'games#create', as: 'create_game'
     delete '/games/:id/delete', to:'games#delete', as:'delete_game'
     get 'games/:id', to:'games#show', as: 'game'
+    get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
 
+    # Action Section
+    post '/actions', to: 'actions#create', as: 'create_action'
+    get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'
+    delete '/actions/:id', to: 'actions#delete', as: 'delete_action'
+
+
+    #Action Sequence
+    get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'
   end
 
 

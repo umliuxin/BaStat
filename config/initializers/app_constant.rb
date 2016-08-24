@@ -18,8 +18,24 @@ GAME_ACTION_LIST = [
   'DEF_REB',
   'STEAL',
   'FOUL',
-  'FOULED',
   'TURNOVER',
   'BLOCK',
-  'QUATER_ENDS'
 ]
+
+# team and oppo team
+TEAM_ID = 0
+# TEAM_NAME ='Team'
+OPPO_TEAM_ID = -1
+OPPO_NAME = 'Opponent'
+NULL_PLAYER_ID = -2
+QUARTER_END_ACTION_INDEX = 15
+
+#Quarter
+GAME_END_INDEX = 5
+GAME_END_TEXT = 'END OF GAME'.freeze
+
+# Position move
+POSITION_MOVE = {
+  moveup: 'MOVE UP',
+  movedown: 'MOVE DOWN'
+}

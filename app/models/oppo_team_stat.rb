@@ -1,7 +1,7 @@
-class TeamStat < ActiveRecord::Base
+class OppoTeamStat < ActiveRecord::Base
   belongs_to :game
 
-  validates :game_id, presence:true, uniqueness:{message: "team stat should be unique" }
+  validates :game_id, presence:true, uniqueness:{message: "oppo team stat should be unique" }
 
   def update_from_one_action(action)
     case action.action_index
@@ -39,5 +39,4 @@ class TeamStat < ActiveRecord::Base
         ap "Not Implement yet"
     end
   end
-
 end

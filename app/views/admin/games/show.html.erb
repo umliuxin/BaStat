@@ -1,18 +1,77 @@
 <h1>GAME Record</h1>
-<section><%= @game.id %> <%= @game.opponent %></section>
-
 
 <section>
-  <%= form_tag('url', method: "post", class: "sth") %>
-  <% @player_collection.each do |player| %>
-    <%= radio_button_tag(:player, player.name) %>
-    <%= label_tag(:player, player.name) %>
-  <% end %>
-  <br>
-  <% GAME_ACTION_LIST.each do |action| %>
-    <%= radio_button_tag(:play_action, action )%>
-    <%= label_tag(:play_action, action) %>
-    <br>
-  <% end %>
 
+  <ul>
+    <li>Game ID: <%= @game.id %> </li>
+    <li>Game Oppo: <%= @game.opponent %></li>
+    <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
+  </ul>
+</section>
+<section>
+  <h5>Score</h5>
+  <table>
+    <thead>
+      <td>Team</td>
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td>Q4</td>
+      <td>Total</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>LSJ</td>
+        <td><%= @score.point_q1 %></td>
+        <td><%= @score.point_q2 %></td>
+        <td><%= @score.point_q3 %></td>
+        <td><%= @score.point_q4 %></td>
+        <td><%= @score.point_total %></td>
+      </tr>
+      <tr>
+        <td>@game.opponent</td>
+        <td><%= @score.point_op_q1 %></td>
+        <td><%= @score.point_op_q2 %></td>
+        <td><%= @score.point_op_q3 %></td>
+        <td><%= @score.point_op_q4 %></td>
+        <td><%= @score.point_op_total %></td>
+      </tr>
+    </tbody>
+  </table>
+  <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
+</section>
+<% unless @score.end_recording? %>
+<section>
+    <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%>
+</section>
+<section>
+  <%= form_for :move, url: admin_create_action_path do |f| %>
+    <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
+
+    <%= f.radio_button :player_id, OPPO_TEAM_ID %> Oppo
+    <%= f.radio_button :player_id, TEAM_ID %> Team <br/>
+
+
+    <br>
+    <% GAME_ACTION_LIST.each_with_index do |val,index| %>
+      <%= f.radio_button :action_index, index %> <%= val %><br />
+    <% end %>
+
+
+    <%= f.hidden_field :game_id, value: @game.id %>
+    <%= f.hidden_field :position, value: params[:position] %>
+    <%= f.hidden_field :quarter, value: @score.recording_quarter %>
+
+    <%= f.submit %>
+
+  <% end %>
+</section>
+<% end %>
+
+<section>
+  <h5>Action List</h5>
+  <% @action_list.each do |action| %>
+    <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
+    <p>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>,<%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
 </section>
