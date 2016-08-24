@@ -24,7 +24,7 @@ GAME_ACTION_LIST = [
 
 # team and oppo team
 TEAM_ID = 0
-TEAM_NAME ='Team'
+# TEAM_NAME ='Team'
 OPPO_TEAM_ID = -1
 OPPO_NAME = 'Opponent'
 NULL_PLAYER_ID = -2

@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   belongs_to :season
   has_one :team_stat
+  has_one :oppo_team_stat
   has_one :score
   has_many :actions
   has_many :player_stats
@@ -9,9 +10,8 @@ class Game < ActiveRecord::Base
   validates :gametime, presence: true
 
   def init_stat_obj
-    unless team_stat = TeamStat.create(game: self)
-      flash[:danger] = team_stat.errors.messages
-    end
+    TeamStat.create(game: self)
+    OppoTeamStat.create(game: self)
   end
 
   def init_score_obj
@@ -24,6 +24,7 @@ class Game < ActiveRecord::Base
     @action_collection = self.actions
     # New team stat obj
     @new_team_stat = TeamStat.new
+    @new_oppo_team_stat = OppoTeamStat.new
     # New player stat obj
     @new_player_stats = {}
     self.players.each do |player|
@@ -32,13 +33,15 @@ class Game < ActiveRecord::Base
     #migrate data to new obj
     @action_collection.each do |action|
       @new_team_stat.update_from_one_action(action) unless [OPPO_TEAM_ID, NULL_PLAYER_ID].include? action.player_id
+      @new_oppo_team_stat.update_from_one_action(action) if action.player_id == OPPO_TEAM_ID
       @new_player_stats[action.player_id].update_from_one_action(action) unless [OPPO_TEAM_ID, NULL_PLAYER_ID, TEAM_ID].include? action.player_id
+
     end
 
     # Save obj to db
     team_flag = self.team_stat.update(@new_team_stat.attributes.except("id", "game_id", "created_at", "updated_at"))
+    opp_team_flag = self.oppo_team_stat.update(@new_oppo_team_stat.attributes.except("id", "game_id", "created_at", "updated_at"))
     player_flag = true
-
     self.players.each do |player|
       player_flag &&= PlayerStat.find_or_create_by({game: self, player: player}).update(@new_player_stats[player.id].attributes.except("id", "game_id", "player_id","created_at", "updated_at"))
     end

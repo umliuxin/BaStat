@@ -24,13 +24,6 @@ module Admin
       redirect_to admin_season_path(@game.season)
     end
 
-    def init
-      @game = Game.find(params[:id])
-      @game.init_stat_obj
-      @game.init_score_obj
-      redirect_to admin_game_path(@game)
-    end
-
     def migrate
       @game = Game.find(params[:id])
       if @game.migrate

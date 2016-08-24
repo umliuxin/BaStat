@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160820220712) do
+ActiveRecord::Schema.define(version: 20160824061805) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -34,6 +34,27 @@ ActiveRecord::Schema.define(version: 20160820220712) do
   end
 
   add_index "games", ["season_id"], name: "index_games_on_season_id"
+
+  create_table "oppo_team_stats", force: :cascade do |t|
+    t.integer  "game_id"
+    t.integer  "fgm",        default: 0
+    t.integer  "fga",        default: 0
+    t.integer  "tpm",        default: 0
+    t.integer  "tpa",        default: 0
+    t.integer  "ftm",        default: 0
+    t.integer  "fta",        default: 0
+    t.integer  "oreb",       default: 0
+    t.integer  "dreb",       default: 0
+    t.integer  "ast",        default: 0
+    t.integer  "tov",        default: 0
+    t.integer  "stl",        default: 0
+    t.integer  "blk",        default: 0
+    t.integer  "foul",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "oppo_team_stats", ["game_id"], name: "index_oppo_team_stats_on_game_id"
 
   create_table "player_stats", force: :cascade do |t|
     t.integer  "game_id"
