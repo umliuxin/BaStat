@@ -37,10 +37,14 @@ Rails.application.routes.draw do
     get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'
   end
 
+  # Design Guide
+  get '/design/', to: 'design#about', as: 'design_about'
+  get 'design/typography', to: 'design#typography', as: 'design_typography'
 
 
 
 
-  root 'home_page#index'
+
+  root 'home_page#show'
 
 end

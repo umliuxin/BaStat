@@ -7,10 +7,12 @@
 </head>
 <body>
 
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
-<%= yield %>
+<%= render partial: 'design/header', locals: { active_item: params[:action] } %>
+
+<main>
+  <%= yield %>
+</main>
+<%= render partial: 'design/footer' %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 <%= include_page_js %>
