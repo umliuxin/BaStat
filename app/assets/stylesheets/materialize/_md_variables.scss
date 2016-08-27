@@ -277,13 +277,21 @@ $toast-text-color: #fff !default;
 
 $off-black: rgba(0, 0, 0, 0.87) !default;
 // Header Styles
-$h1-fontsize: 3rem !default;
-$h2-fontsize: 2.28rem !default;
-$h3-fontsize: 2rem !default;
-$h4-fontsize: 1.71rem !default;
-$h5-fontsize: 1.29rem !default;
-$h6-fontsize: 1rem !default;
-$normal-fontsize: 14px !default;
+$base-fontsize:           14px !default;
+$large-fontsize:          ceil(($base-fontsize * 1.25)) !default; // ~18px
+$small-fontsize:          ceil(($base-fontsize * 0.85)) !default; // ~12px
+$xsmall-fontsize:         ceil(($base-fontsize * 0.71)) !default; // ~10px
+$h1-fontsize:             floor(($base-fontsize * 2.58)) !default; // ~36px
+$h2-fontsize:             floor(($base-fontsize * 2)) !default; // ~28px
+$h3-fontsize:             floor(($base-fontsize * 1.7)) !default; // ~24px
+$h4-fontsize:             ceil(($base-fontsize * 1.25)) !default; // ~18px
+$h5-fontsize:             $base-fontsize !default;
+$h6-fontsize:             $base-fontsize !default;
+
+// Font Weight Var
+$font-weight-normal: 300 !default;
+$font-weight-semi-bold: 400 !default;
+$font-weight-bold: 700 !default;
 
 
 /* 21. Footer
@@ -319,7 +327,3 @@ $progress-bar-color: $secondary-color !default;
 
 /* 25. Font Weight
    ========================================================================== */
-
-$font-weight-normal: 300 !default;
-$font-weight-semi-bold: 400 !default;
-$font-weight-bold: 700 !default;

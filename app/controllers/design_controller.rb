@@ -4,9 +4,9 @@ class DesignController < ApplicationController
   def about
   end
 
-  def css
+  def typography
   end
 
-  def typography
+  def card
   end
 end

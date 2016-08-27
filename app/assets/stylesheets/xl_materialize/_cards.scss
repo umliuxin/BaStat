@@ -1,0 +1,40 @@
+// Basic player card
+.card.player-card-stacked{
+  &:before{
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 75%;
+  }
+  .aspect-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 64px;
+  }
+  .player-image{
+    position:relative;
+    overflow: hidden;
+    height:100%;
+    width:100%;
+    img{
+      position:absolute;
+      height: auto;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  .card-content {
+    padding: 10px;
+    .player-name{
+      font-size: $large-fontsize;
+    }
+    .player-number{
+      font-size: $h2-fontsize;
+    }
+  }
+
+}

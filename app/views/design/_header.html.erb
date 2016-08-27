@@ -10,10 +10,10 @@
     <li class="no-padding">
       <ul class="collapsible collapsible-accordion">
         <li class="bold">
-          <a class="<%= side_bar_css_class(active_item) %>">CSS</a>
+          <a class="<%= sidebar_css_class(active_item) %>">CSS</a>
           <div class="collapsible-body">
             <ul>
-              <li><%= link_to 'Typography', design_typography_path %></li>
+              <li <%= 'class=active' if active_item == "typography"%>><%= link_to 'Typography', design_typography_path %></li>
               <li><a href="color.html">Color</a></li>
               <li><a href="grid.html">Grid</a></li>
               <li><a href="helpers.html">Helpers</a></li>
@@ -24,13 +24,15 @@
             </ul>
           </div>
         </li>
-        <li class="bold"><a class="collapsible-header  waves-effect waves-teal">Components</a>
+        <li class="bold">
+          <a class="<%= sidebar_component_class(active_item) %>">Components</a>
           <div class="collapsible-body">
             <ul>
+              <li <%= 'class=active' if active_item == "card"%>><%= link_to 'Cards', design_card_path %></li>
               <li><a href="badges.html">Badges</a></li>
               <li><a href="buttons.html">Buttons</a></li>
               <li><a href="breadcrumbs.html">Breadcrumbs</a></li>
-              <li><a href="cards.html">Cards</a></li>
+
               <li><a href="chips.html">Chips</a></li>
               <li><a href="collections.html">Collections</a></li>
               <li><a href="footer.html">Footer</a></li>

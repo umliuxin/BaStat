@@ -49,6 +49,8 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -165,9 +167,10 @@ DEPENDENCIES
   acts_as_list
   awesome_print
   byebug
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
-  materialize-sass (~> 0.97.7)
+  materialize-sass
   rails (= 4.2.6)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)

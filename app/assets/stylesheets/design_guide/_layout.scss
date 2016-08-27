@@ -35,6 +35,9 @@ header, main, footer {
   }
 
 }
+.card-panel + pre{
+  margin-top: -15px;
+}
 
 pre[class*="language-"] {
   padding: 12px 12px 7px 12px;

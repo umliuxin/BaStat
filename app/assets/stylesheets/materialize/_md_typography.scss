@@ -6,7 +6,7 @@ a {
 html{
   line-height: 1.428;
   font-weight: $font-weight-normal;
-  font-size: $normal-fontsize;
+  font-size: $base-fontsize;
   font-family: "Roboto", sans-serif;
   color: $off-black;
   background-color: color('grey','lighten-5');
@@ -14,7 +14,7 @@ html{
 
 p{
   margin: 0;
-  padding: 0 0 ceil($normal-fontsize * 1.428 / 2);
+  padding: 0 0 ceil($base-fontsize * 1.428 / 2);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -35,8 +35,9 @@ em { font-style: italic; }
 strong { font-weight: 400; }
 small { font-size: 75%; }
 .light { font-weight: 300; }
-.thin { font-weight: 200; }
-
+.thin { font-weight: 300; }
+.bold { font-weight:700; }
+.semi-bold { font-weight:400; }
 
 .flow-text{
   font-weight: 300;

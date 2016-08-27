@@ -23,7 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'awesome_print'
 gem 'acts_as_list'
-gem 'materialize-sass', '~> 0.97.7'
+gem 'materialize-sass'
+gem 'font-awesome-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
