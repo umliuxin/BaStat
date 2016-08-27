@@ -126,22 +126,22 @@
 // .word-wrap-break{
 //   word-wrap: break-word;
 // }
-// //## Centering classes
-// //Horizontal centering
-// .horizontal-centering {
-//   left: 50%;
-//   @include translate(-50%,0);
-// }
-// .vertical-centering {
-//   top: 50%;
-//   @include translate(0,-50%);
-// }
-// .absolute-centering {
-//   top:50%;
-//   left: 50%;
-//   @include translate(-50%,-50%);
-// }
-//
+//## Centering classes
+//Horizontal centering
+.horizontal-centering {
+  left: 50%;
+  transform: translate(-50%,0);
+}
+.vertical-centering {
+  top: 50%;
+  transform: translate(0,-50%);
+}
+.absolute-centering {
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
 // //## Loading background class
 // //## use this class if you are using with a img tag
 // .loading-bkg {
