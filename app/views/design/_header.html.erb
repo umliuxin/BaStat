@@ -28,7 +28,8 @@
           <a class="<%= sidebar_component_class(active_item) %>">Components</a>
           <div class="collapsible-body">
             <ul>
-              <li <%= 'class=active' if active_item == "card"%>><%= link_to 'Cards', design_card_path %></li>
+              <li <%= 'class=active' if active_item == "player_card"%>><%= link_to 'Player Cards', design_player_card_path %></li>
+              <li <%= 'class=active' if active_item == "match_card"%>><%= link_to 'Match Cards', design_match_card_path %></li>
               <li><a href="badges.html">Badges</a></li>
               <li><a href="buttons.html">Buttons</a></li>
               <li><a href="breadcrumbs.html">Breadcrumbs</a></li>

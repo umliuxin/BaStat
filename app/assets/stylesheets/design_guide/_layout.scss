@@ -22,6 +22,10 @@ header, main, footer {
   Main Section
 ***************/
 
+// Container
+main .container{
+  width:90%;
+}
 // Title Section
 .title-section{
   background: $primary-color;

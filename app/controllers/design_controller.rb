@@ -7,6 +7,9 @@ class DesignController < ApplicationController
   def typography
   end
 
-  def card
+  def player_card
+  end
+
+  def match_card
   end
 end
