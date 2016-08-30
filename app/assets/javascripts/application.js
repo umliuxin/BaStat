@@ -13,5 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize.min
-//= require custom_bootgrid
 //= require turbolinks
