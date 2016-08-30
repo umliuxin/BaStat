@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   # Design Guide
   get '/design/', to: 'design#about', as: 'design_about'
   get 'design/typography', to: 'design#typography', as: 'design_typography'
+  get 'design/table', to: 'design#table', as: 'design_table'
+  get 'design/table_example', to: 'design#table_example', as: 'design_table_example'
   get 'design/player_card', to: 'design#player_card', as: 'design_player_card'
   get 'design/match_card', to: 'design#match_card', as: 'design_match_card'
 

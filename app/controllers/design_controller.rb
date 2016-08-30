@@ -7,6 +7,12 @@ class DesignController < ApplicationController
   def typography
   end
 
+  def table
+  end
+
+  def table_example
+  end
+
   def player_card
   end
 

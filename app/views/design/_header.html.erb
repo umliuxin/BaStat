@@ -14,13 +14,14 @@
           <div class="collapsible-body">
             <ul>
               <li <%= 'class=active' if active_item == "typography"%>><%= link_to 'Typography', design_typography_path %></li>
+              <li <%= 'class=active' if active_item == "table"%>><%= link_to 'Table', design_table_path %></li>
+              <li <%= 'class=active' if active_item == "table_example"%>><%= link_to 'Table Example', design_table_example_path %></li>
               <li><a href="color.html">Color</a></li>
               <li><a href="grid.html">Grid</a></li>
               <li><a href="helpers.html">Helpers</a></li>
               <li><a href="media-css.html">Media</a></li>
               <li><a href="sass.html">Sass</a></li>
               <li><a href="shadow.html">Shadow</a></li>
-              <li><a href="table.html">Table</a></li>
             </ul>
           </div>
         </li>
