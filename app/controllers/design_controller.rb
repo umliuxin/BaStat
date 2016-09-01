@@ -18,4 +18,8 @@ class DesignController < ApplicationController
 
   def match_card
   end
+
+  def dropdown
+  end
+  
 end

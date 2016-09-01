@@ -44,6 +44,7 @@ Rails.application.routes.draw do
   get 'design/table_example', to: 'design#table_example', as: 'design_table_example'
   get 'design/player_card', to: 'design#player_card', as: 'design_player_card'
   get 'design/match_card', to: 'design#match_card', as: 'design_match_card'
+  get 'design/dropdown', to: 'design#dropdown', as: 'design_dropdown'
 
 
 

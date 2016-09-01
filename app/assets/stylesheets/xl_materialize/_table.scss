@@ -1,0 +1,38 @@
+.action-search{
+  margin-right: 250px;
+}
+.action-filters{
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.action-dropdown{
+  display: inline-block;
+  .dropdown-button{
+    overflow: visible;
+    min-width: 100px;
+    &.active .dropdown-content{
+      display: block !important;
+      opacity: 1;
+    }
+    .dropdown-content{
+      position:absolute;
+      top: 100%;
+      left: 0;
+      li.checkbox-item{
+        label{
+          text-align: left;
+          padding:5px 10px;
+          display: block;
+          min-height: 30px;
+        }
+        min-height: 30px;
+      }
+
+      li.text-item{
+        text-align: center;
+      }
+    }
+  }
+}
