@@ -110,6 +110,7 @@
         /*jshint -W018*/
         firstHeadRow.children().each(function ()
         {
+            console.log($(this).data())
             var $this = $(this),
                 data = $this.data(),
                 column = {
@@ -117,8 +118,8 @@
                     identifier: that.identifier == null && data.identifier || false,
                     converter: that.options.converters[data.converter || data.type] || that.options.converters["string"],
                     text: $this.text(),
-                    align: data.align || "left",
-                    headerAlign: data.headerAlign || "left",
+                    align: data.align || "center",
+                    headerAlign: data.headerAlign || "center",
                     cssClass: data.cssClass || "",
                     headerCssClass: data.headerCssClass || "",
                     formatter: that.options.formatters[data.formatter] || null,
@@ -307,6 +308,8 @@
                 this.element.parent() : this.element;
 
         this.element.addClass(this.options.css.table);
+
+        this.element.wrap('<div class="bootgrid-table-wrapper"></div>');
 
         // checks whether there is an tbody element; otherwise creates one
         if (this.element.children("tbody").length === 0)
@@ -1219,8 +1222,8 @@
          * @for defaults
          **/
         css: {
-            center: "text-center",
             actions: "action-filters", // must be a unique class name or constellation of class names within the header and footer
+            center: "text-center",
             columnHeaderAnchor: "column-header-anchor", // must be a unique class name or constellation of class names within the column header cell
             columnHeaderText: "text",
             dropDownItem: "dropdown-item", // must be a unique class name or constellation of class names within the actionDropDown,
@@ -1233,10 +1236,10 @@
             header: "bootgrid-header container-fluid",
             icon: "icon fa",
             iconColumns: "fa-th-list",
-            iconDown: "fa-chevron-down",
+            iconDown: "fa-angle-down",
             iconRefresh: "fa-refresh",
             iconSearch: "fa-search",
-            iconUp: "fa-chevron-up",
+            iconUp: "fa-angle-up",
             infos: "infos", // must be a unique class name or constellation of class names within the header and footer,
             left: "text-left",
             pagination: "pagination", // must be a unique class name or constellation of class names within the header and footer

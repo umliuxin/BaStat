@@ -1,3 +1,5 @@
+/******************* Table Header Actions ***********************/
+
 .action-search{
   margin-right: 250px;
 }
@@ -36,3 +38,43 @@
     }
   }
 }
+
+/*********************** Table **************************/
+.bootgrid-table{
+  td, th{
+    padding: 10px 15px;
+    text-align: center;
+  }
+}
+
+.bootgrid-team-full .bootgrid-table-wrapper{
+  padding: 60px 0 75px 0;
+  margin-left: 140px;
+  overflow-x: auto;
+  .bootgrid-header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    .row{margin-bottom:0;}
+  }
+
+  .bootgrid-footer{
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    right: 0;
+    .row{margin-bottom:0;}
+  }
+
+  .bootgrid-table{
+    .fixed-cell{
+      position: absolute;
+      left: 0;
+      top: auto;
+      -webkit-transform: translateZ(0);
+    }
+  }
+}
+
+/*********************** Table **************************/
