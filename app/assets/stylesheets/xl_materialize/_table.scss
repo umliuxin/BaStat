@@ -43,14 +43,25 @@
 .bootgrid-table{
   td, th{
     padding: 10px 15px;
-    text-align: center;
+  }
+  tbody tr:nth-Child(even){
+    background-color: #F2F2F2;
+    .fixed-cell{
+      background-color: #F2F2F2;
+    }
+  }
+  td.min-width-lg{
+    min-width: 200px;
   }
 }
-
-.bootgrid-team-full .bootgrid-table-wrapper{
-  padding: 60px 0 75px 0;
-  margin-left: 140px;
+.bootgrid-table-wrapper{
   overflow-x: auto;
+}
+/*********************** Fixed Item Table **************************/
+
+.bootgrid-stat-full.first-item-fixed .bootgrid-table-wrapper{
+  padding: 60px 0 75px 0;
+
   .bootgrid-header{
     position: absolute;
     left: 0;
@@ -69,12 +80,26 @@
 
   .bootgrid-table{
     .fixed-cell{
+      padding-right: 20px;
       position: absolute;
       left: 0;
       top: auto;
       -webkit-transform: translateZ(0);
     }
   }
+}
+
+.bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
+  margin-left:130px;
+}
+/*********************** Header and Footer **************************/
+
+.bootgrid-stat-full.without-header .bootgrid-table-wrapper{
+  padding-top: 0;
+}
+
+.bootgrid-stat-full.without-footer .bootgrid-table-wrapper{
+  padding-bottom: 0;
 }
 
 /*********************** Table **************************/
