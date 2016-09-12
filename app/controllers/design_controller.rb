@@ -21,5 +21,8 @@ class DesignController < ApplicationController
 
   def dropdown
   end
-  
+
+  def match_header
+  end
+
 end
