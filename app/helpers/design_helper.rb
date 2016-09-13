@@ -5,7 +5,7 @@ module DesignHelper
   end
 
   def sidebar_component_class(active_item)
-    return 'collapsible-header waves-effect waves-teal active' if ['player_card', 'match_card', 'match_header'].include? active_item
+    return 'collapsible-header waves-effect waves-teal active' if ['player_card', 'match_card', 'match_header', 'match_stat'].include? active_item
     'collapsible-header waves-effect waves-teal'
   end
 

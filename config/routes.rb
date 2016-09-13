@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'design/match_card', to: 'design#match_card', as: 'design_match_card'
   get 'design/dropdown', to: 'design#dropdown', as: 'design_dropdown'
   get 'design/match_header', to: 'design#match_header', as: 'design_match_header'
+  get 'design/match_stat', to: 'design#match_stat', as: 'design_match_stat'
 
 
 
