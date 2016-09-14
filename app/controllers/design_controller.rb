@@ -25,4 +25,7 @@ class DesignController < ApplicationController
   def match_header
   end
 
+  def match_playbyplay
+  end
+
 end

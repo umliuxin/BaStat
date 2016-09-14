@@ -1,8 +1,5 @@
 //## Helpers CSS
 
-
-
-
 .no-show       { display: none; }
 .no-padding    { padding: 0; }
 .no-margin     { margin: 0;  }
@@ -55,6 +52,9 @@
 
 .align-top         { vertical-align: top; }
 
+//## TEXT COLOR HELPER
+.normal-text-color { color:$text-color; }
+.reverse-text-color { color:$reverse-text-color; }
 //## Font Weight
 .font-weight-normal{ font-weight: $font-weight-normal; }
 .font-weight-semi-bold{ font-weight: $font-weight-semi-bold; }
@@ -79,24 +79,15 @@
 .text-align-right { text-align: right;}
 .text-center { text-align: center;}
 
-// //## Icons
-// .icon-space-left-lg     { margin-left: 8px; }
-// .icon-space-right-lg    { margin-right: 8px; }
-// .icon-space-left        { margin-left: 5px; }
-// .icon-space-right       { margin-right: 5px; }
-// .icon-space-left-sm     { margin-left: 3px; }
-// .icon-space-right-sm    { margin-right: 3px; }
-// // Social icons
-// .icon-facebook-bg     { color: $facebook-bg; }
-// .icon-twitter-bg      { color: $twitter-bg;  }
-// .icon-google-plus-bg  { color: $google-plus-bg; }
-// .icon-pinterest-bg    { color: $pinterest-bg; }
-//
-//
-// //## Float helpers
-// .float-left { float:left; }
-// .float-right { float:right;  }
-//
+//## Icons
+.icon-space-left-lg     { margin-left: 8px; }
+.icon-space-right-lg    { margin-right: 8px; }
+.icon-space-left        { margin-left: 5px; }
+.icon-space-right       { margin-right: 5px; }
+.icon-space-left-sm     { margin-left: 3px; }
+.icon-space-right-sm    { margin-right: 3px; }
+
+
 // //## Photo centering helper classes
 // .photo-wrapper-centered {
 //     width: 100%;

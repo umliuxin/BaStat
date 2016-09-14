@@ -1,0 +1,18 @@
+.card-panel{
+  padding: 0;
+  &-header{
+    background-color: $secondary-color;
+    h3{
+      padding: 24px 16px 16px;
+      margin: 0;
+      font-weight: $font-weight-normal;
+    }
+  }
+  &-content{
+    padding: 16px 0;
+  }
+  &-footer{
+    border-top: 1px solid $divider-color;
+    padding: 8px;
+  }
+}

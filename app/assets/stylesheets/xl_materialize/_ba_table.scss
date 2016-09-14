@@ -42,7 +42,7 @@
 /*********************** Table **************************/
 .bootgrid-table{
   td, th{
-    padding: 10px 15px;
+    padding: 8px 10px;
   }
   tbody tr:nth-Child(even){
     background-color: #F2F2F2;
@@ -79,7 +79,6 @@
 
   .bootgrid-table{
     .fixed-cell{
-      padding-right: 20px;
       position: absolute;
       left: 0;
       top: auto;
@@ -90,6 +89,11 @@
 
 .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
   margin-left:130px;
+  .fixed-cell{width: 130px;}
+}
+.bootgrid-stat-full.first-item-fixed.boxscore .bootgrid-table-wrapper{
+  margin-left:100px;
+  .fixed-cell{width: 100px;}
 }
 /*********************** Header and Footer **************************/
 .bootgrid-stat-full .bootgrid-table-wrapper{
@@ -114,7 +118,13 @@
 }
 
 /*********************** Table Responsive **************************/
-
+@media #{$small-and-down}{
+  .bootgrid-table{
+    td, th{
+      padding: 5px 8px;
+    }
+  }
+}
 @media #{$xsmall-and-down}{
   .bootgrid-stat-full .bootgrid-table-wrapper{
     padding-top: 0;

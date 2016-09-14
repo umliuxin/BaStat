@@ -307,6 +307,11 @@ ul.staggered-list li {
     display: none !important;
   }
 }
+.hide-on-small-and-up{
+  @media only screen and (min-width: $xsmall-screen) {
+    display: none !important;
+  }
+}
 .hide-on-small-only{
   @media only screen and (min-width: $xsmall-screen) and (max-width: $small-screen) {
     display: none !important;

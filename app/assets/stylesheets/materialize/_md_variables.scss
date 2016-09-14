@@ -34,16 +34,20 @@
 /* 1. Colors
    ========================================================================== */
 
-$primary-color: #38003C !default;
+$primary-color: #0A3665 !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
 
-$team-primary-color: #D81920 !default;
-$secondary-color: color("teal", "lighten-1") !default;
+$text-color: #333;
+$reverse-text-color: #f3f3f3;
+
+$secondary-color: #38003c !default;
+$team-color: #D81920 !default;
+
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 $link-color: color("light-blue", "darken-1") !default;
-
+$divider-color: color("grey", "lighten-2") !default;
 
 
 /* 2. Badges
@@ -58,9 +62,9 @@ $badge-bg-color: $secondary-color !default;
 // Shared styles
 $button-border: none !default;
 $button-background-focus: lighten($secondary-color, 4%) !default;
-$button-font-size: 1.3rem !default;
+$button-font-size: inherit !default;
 $button-height: 36px !default;
-$button-padding: 0 2rem !default;
+$button-padding: 0 16px !default;
 $button-radius: 2px !default;
 
 // Disabled styles
