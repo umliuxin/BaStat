@@ -14,5 +14,10 @@ module DesignHelper
     'collapsible-header waves-effect waves-teal'
   end
 
+  def sidebar_team_class(active_item)
+    return 'collapsible-header waves-effect waves-teal active' if ['team_header'].include? active_item
+    'collapsible-header waves-effect waves-teal'
+  end
+
 
 end

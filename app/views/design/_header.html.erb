@@ -42,8 +42,15 @@
             </ul>
           </div>
         </li>
+        <li class="bold"><a class="<%= sidebar_team_class(active_item) %>">Team</a>
+          <div class="collapsible-body">
+            <ul>
+              <li <%= 'class=active' if active_item == "team_header"%>><%= link_to 'Team Header', design_team_header_path %></li>
+            </ul>
+          </div>
+        </li>
       </ul>
     </li>
-    <li class="bold"><a href="#" class="waves-effect waves-teal">Mobile</a></li>
+    <!-- <li class="bold"><a href="#" class="waves-effect waves-teal">Mobile</a></li> -->
   </ul>
 </header>

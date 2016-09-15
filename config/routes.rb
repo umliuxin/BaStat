@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get 'design/match_boxscore', to: 'design#match_boxscore', as: 'design_match_boxscore'
   get 'design/match_playbyplay', to: 'design#match_playbyplay', as: 'design_match_playbyplay'
 
-
+  get 'design/team_header', to: 'design#team_header', as: 'design_team_header'
 
 
 
