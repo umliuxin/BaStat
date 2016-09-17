@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'design/card-panel', to: 'design#card_panel', as: 'design_card_panel'
 
   get 'design/player_card', to: 'design#player_card', as: 'design_player_card'
+  get 'design/player_header', to: 'design#player_header', as: 'design_player_header'
 
   get 'design/match_card', to: 'design#match_card', as: 'design_match_card'
   get 'design/match_header', to: 'design#match_header', as: 'design_match_header'

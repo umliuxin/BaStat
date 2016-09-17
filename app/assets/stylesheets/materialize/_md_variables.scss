@@ -43,6 +43,7 @@ $reverse-text-color: #f3f3f3;
 
 $secondary-color: #38003c !default;
 $team-color: #D81920 !default;
+$secondary-team-color: darken($team-color, 10%) !default;
 
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
@@ -210,7 +211,7 @@ $large-screen: 1280px !default;
 $small-and-up: "only screen and (min-width : #{$xsmall-screen-up})" !default;
 $medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
 $large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
-$xsmall-and-down: "only screen and (max-width : #{$xsmall-screen})" !default;
+$xsmall-only: "only screen and (max-width : #{$xsmall-screen})" !default;
 $small-and-down: "only screen and (max-width : #{$small-screen})" !default;
 $medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
 $medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;

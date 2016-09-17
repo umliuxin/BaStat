@@ -125,7 +125,7 @@
     }
   }
 }
-@media #{$xsmall-and-down}{
+@media #{$xsmall-only}{
   .bootgrid-stat-full .bootgrid-table-wrapper{
     padding-top: 0;
   }

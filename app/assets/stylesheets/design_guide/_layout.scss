@@ -16,6 +16,15 @@ footer .container{
   }
 }
 /***************
+  No Header page
+***************/
+body.no-header{
+  header, main, footer {
+    padding-left: 0;
+  }
+  header {display: none;}
+}
+/***************
   Header
 ***************/
 .side-nav{

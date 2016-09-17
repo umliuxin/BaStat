@@ -5,7 +5,9 @@
   <%= include_page_css %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<% body_class = 'no-header' if ['match_header','player_header','team_header'].include? params[:action] %>
+
+<body class="<%= body_class %>">
 
 <%= render partial: 'design/header', locals: { active_item: params[:action] } %>
 

@@ -33,7 +33,7 @@
   }
 }
 
-@media #{$xsmall-and-down} {
+@media #{$xsmall-only} {
   .match-card-section{
     .playbyplay-item{
       &.item-left .text-align-right{
