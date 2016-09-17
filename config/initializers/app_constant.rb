@@ -2,6 +2,12 @@
 TEAM_NAME = 'LSJ'
 TEAM_LOGO_URL = 'http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/905734/100/100/c/1441189061.jpg'
 
+DEFERRED_ASSET_NAMES = {
+  design: 'design_guide'
+}
+
+DEFAULT_DEFERRED_ASSET_NAME = 'default'
+
 # Game Action List:
 
 GAME_ACTION_LIST = [

@@ -1,0 +1,5 @@
+[type="checkbox"]:not(:checked).show, [type="checkbox"]:checked.show{
+  position:static;
+  left: none;
+  opacity: 1;
+}

@@ -1,0 +1,57 @@
+<header>
+  <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a></div>
+  <ul id="nav-mobile" class="side-nav fixed">
+    <li class="logo">
+      <%= image_tag('TeamLogo.jpg')%>
+    </li>
+    <li class="bold">
+      <%= link_to 'About', design_about_path, class: 'waves-effect waves-teal'%>
+    </li>
+    <li class="no-padding">
+      <ul class="collapsible collapsible-accordion">
+        <li class="bold">
+          <a class="<%= sidebar_component_class(active_item) %>">Components</a>
+          <div class="collapsible-body">
+            <ul>
+              <li <%= 'class=active' if active_item == "typography"%>><%= link_to 'Typography', design_typography_path %></li>
+              <li <%= 'class=active' if active_item == "card_panel"%>><%= link_to 'Card Panel', design_card_panel_path %></li>
+              <li <%= 'class=active' if active_item == "table"%>><%= link_to 'Table', design_table_path %></li>
+              <li <%= 'class=active' if active_item == "table_example"%>><%= link_to 'Table Example', design_table_example_path %></li>
+              <li <%= 'class=active' if active_item == "dropdown"%>><%= link_to 'Dropdown', design_dropdown_path %></li>
+
+            </ul>
+          </div>
+        </li>
+        <li class="bold">
+          <a class="<%= sidebar_match_class(active_item) %>">Match</a>
+          <div class="collapsible-body">
+            <ul>
+              <li <%= 'class=active' if active_item == "match_card"%>><%= link_to 'Match Cards', design_match_card_path %></li>
+              <li <%= 'class=active' if active_item == "match_header"%>><%= link_to 'Match Header', design_match_header_path %></li>
+              <li <%= 'class=active' if active_item == "match_stat"%>><%= link_to 'Match Stat', design_match_stat_path %></li>
+              <li <%= 'class=active' if active_item == "match_boxscore"%>><%= link_to 'Match Boxscore', design_match_boxscore_path %></li>
+              <li <%= 'class=active' if active_item == "match_playbyplay"%>><%= link_to 'Match PlayByPlay', design_match_playbyplay_path %></li>
+
+            </ul>
+          </div>
+        </li>
+        <li class="bold"><a class="<%= sidebar_player_class(active_item) %>">Player</a>
+          <div class="collapsible-body">
+            <ul>
+              <li <%= 'class=active' if active_item == "player_card"%>><%= link_to 'Player Cards', design_player_card_path %></li>
+              <li <%= 'class=active' if active_item == "player_header"%>><%= link_to 'Player Header', design_player_header_path %></li>
+            </ul>
+          </div>
+        </li>
+        <li class="bold"><a class="<%= sidebar_team_class(active_item) %>">Team</a>
+          <div class="collapsible-body">
+            <ul>
+              <li <%= 'class=active' if active_item == "team_header"%>><%= link_to 'Team Header', design_team_header_path %></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <!-- <li class="bold"><a href="#" class="waves-effect waves-teal">Mobile</a></li> -->
+  </ul>
+</header>

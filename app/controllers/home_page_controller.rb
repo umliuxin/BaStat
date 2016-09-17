@@ -1,4 +1,5 @@
 class HomePageController < ApplicationController
+
   def show
     @team = Team.new
   end

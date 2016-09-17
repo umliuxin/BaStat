@@ -1,0 +1,266 @@
+<div class="section title-section" id="index-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col xs12">
+                <h1 class="reverse-text-color center-on-small-only">Table</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col xs12 m9 l10">
+
+          <div id="section-roboto" class="section scrollspy">
+            <h2>JQuery-BootGrid</h2>
+            <div>
+               JQuery bootgrid is used for all tables. To initiate the table, call:
+               <pre class="language-css">$(selector).bootgrid();</pre>
+            </div>
+            <h4>Custom Options</h4>
+            <p>See <a href="http://www.jquery-bootgrid.com/Documentation#table">here</a> for all the standard options you can configure for bootgrid.</p>
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>headerActions</code></td>
+                    <td>Array</td>
+                    <td>false</td>
+                    <td>Displays actions in the header (to the left of column selection button). Available default values are <code>['filter', 'add', 'options', 'print']</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>rowSelectActions</code></td>
+                    <td>Array</td>
+                    <td>false</td>
+                    <td>Displays single row actions on hover on desktop and on select on mobile.  Available default values are <code>['email', 'edit', 'more']</code>.  See <a href="#table-custom-row-actions">Example</a> for adding additional actions.</td>
+                  </tr>
+                  <tr>
+                    <td><code>multiSelectActions</code></td>
+                    <td>Array</td>
+                    <td>['delete']</td>
+                    <td>Displays multi select actions on multiple row selections. Available default values are <code>['email', 'edit', 'delete']</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>showSearch</code></td>
+                    <td>Boolean</td>
+                    <td>true</td>
+                    <td>Displays the search input in the header.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Custom Classes</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Classname</th>
+                      <th>Where to apply</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>.table-short</code>, <code>.table-tall</code></td>
+                      <td>table</td>
+                      <td>Sets the height of each row. <code>.table-short</code> is 48px, <code>.table-tall</code> is 96px.</td>
+                    </tr>
+                    <tr>
+                      <td><code>.media-offset</code></td>
+                      <td>th[data-header-css-class]</td>
+                      <td>Used to align the column heading to the names and not to the media.</td>
+                    </tr>
+                    <tr>
+                      <td><code>.fixed-cell</code></td>
+                      <td>th[data-css-class], th[data-header-css-class]</td>
+                      <td>Used to set the column to be fixed. Only set on one column.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Custom Formatters</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>text</code></td>
+                      <td>Use this to display a simple line of text.</td>
+                    </tr>
+                    <tr>
+                      <td><code>avatar</code></td>
+                      <td>Use this to display a media object that consists of a avatar image and a name.</td>
+                    </tr>
+                    <tr>
+                      <td><code>photo</code></td>
+                      <td>Use this to display a photo.</td>
+                    </tr>
+                    <tr>
+                      <td><code>select-allow</code></td>
+                      <td>Use this to display the Allow/Not Allow select input.</td>
+                    </tr>
+                    <tr>
+                      <td><code>link</code></td>
+                      <td>
+                        <p>Use this to display a link.</p>
+                        <p><strong>Format:</strong> <code>{"url":"http://www.realtor.com","text":"www.realtor.com","target":"_blank"}</code></p>
+                        <p><strong>Note:</strong> Cannot be sorted. Create a custom formatter based on another column for the url if you wish to sort it.</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>Custom Templates</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>noResultsMessage</code></td>
+                      <td>This is the template that displays when no results are found.</td>
+                    </tr>
+                    <tr>
+                      <td><code>rowActions</code></td>
+                      <td>This is the single row select actions wrapper that get displayed on row hover.  <code>rowActionButtons</code> are injected into this wrapper.</td>
+                    </tr>
+                    <tr>
+                      <td><code>rowActionButtons</code></td>
+                      <td><code>{object}</code> Holds the action button templates by key that are referenced in the <code>rowSelectActions</code> setting.  Additional templates may be added and referenced in <code>rowSelectActions</code> array when initializing the table.</td>
+                    </tr>
+                    <tr>
+                      <td><code>filtersDropDown</code></td>
+                      <td>This is the filters dropdown in the header navigation.</td>
+                    </tr>
+                    <tr>
+                      <td><code>optionsDropDown</code></td>
+                      <td>This is the options dropdown in the header navigation.</td>
+                    </tr>
+                    <tr>
+                      <td><code>addModalBtn</code></td>
+                      <td>This is the add button in the header navigation.</td>
+                    </tr>
+                    <tr>
+                      <td><code>addModal</code></td>
+                      <td>This is the add modal that gets added to the body. This should have the same ID as the data-target attribute that is set in the add modal button template.</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h3>Custom Events</h3>
+                <p>Events are emitted under the default bootgrid namespace for simplicity (<code>.rs.jquery.bootgrid</code>).</p>
+                <div class="table-responsive">
+                  <table class="table table-bordered table-striped">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Returns</th>
+                        <th>Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><code>avatarClick</code></td>
+                        <td>
+                            <code>(e {event}, $row {jQuery obj})</code><br/>
+                            <strong>e:</strong>
+                            <i>the triggered event</i><br/>
+                            <strong>$row:</strong>
+                            <i>the parent row</i>
+                        </td>
+                        <td>Fires when clicking the <code>a</code> link in a column with the <code>avatar</code> formatter.</td>
+                      </tr>
+                      <tr>
+                        <td><code>headerAction</code></td>
+                        <td>
+                            <code>(e {event}, action {string},$row {jQuery obj})</code><br/>
+                            <strong>e:</strong>
+                            <i>the triggered event</i><br/>
+                            <strong>action:</strong>
+                            <i>the action that was clicked</i>
+                        </td>
+                        <td>Fires when clicking any action button defined by <code>headerActions</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><code>rowAction</code></td>
+                        <td>
+                            <code>(e {event}, action {string},$row {jQuery obj})</code><br/>
+                            <strong>e:</strong>
+                            <i>the triggered event</i><br/>
+                            <strong>action:</strong>
+                            <i>the action that was clicked</i><br/>
+                            <strong>$row:</strong>
+                            <i>the parent row</i>
+                        </td>
+                        <td>Fires when clicking any action button defined by <code>rowSelectActions</code>.</td>
+                      </tr>
+                      <tr>
+                        <td><code>multiSelectAction</code></td>
+                        <td>
+                            <code>(e {event}, action {string},$row {jQuery obj})</code><br/>
+                            <strong>e:</strong>
+                            <i>the triggered event</i><br/>
+                            <strong>action:</strong>
+                            <i>the action that was clicked</i>
+                        </td>
+                        <td>Fires when clicking any action button defined by <code>multiSelectActions</code>.</td>
+                      </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <pre>
+                    <code class="language-javascript">
+                      <script type="prism-javascript-markup">
+                        $('#my-table').psBootgrid()
+                            .on('rowAction.rs.jquery.bootgrid', function(){
+                                // do something
+                            });
+                      </script>
+                    </code>
+                </pre>
+                <br/>
+              </div>
+          </div><%# End Section %>
+
+
+
+
+
+        </div>
+        <div class="col hide-on-small-and-down m3 l2">
+            <ul class="section table-of-contents">
+                <li><a href="#section-roboto">Roboto</a></li>
+                <li><a href="#section-header">Header</a></li>
+                <li><a href="#section-paragraph">Paragraph</a></li>
+                <li><a href="#section-blockquotes">Blockquotes</a></li>
+                <li><a href="#">List</a></li>
+                <li><a href="#">Inline text style</a></li>
+                <li><a href="#">Transformation classes</a></li>
+                <li><a href="#">Alignment classes</a></li>
+                <li><a href="#">Address</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

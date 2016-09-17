@@ -1,0 +1,87 @@
+// Basic Style - Player Card
+.card.player-card{
+  &:before{
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 100%;
+  }
+  .aspect-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  .player-image{
+    position:relative;
+    overflow: hidden;
+    height:100%;
+    width:100%;
+    img{
+      position:absolute;
+      height: auto;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+    }
+  }
+  .card-content {
+    padding: 10px;
+    .player-name{
+      font-size: $large-fontsize;
+    }
+    .player-number{
+      font-size: $h2-fontsize;
+    }
+  }
+}
+
+@media #{$small-and-down}{
+  .card.player-card.responsive{
+    max-width: none !important;
+    height:130px;
+    &:before{content:none;}
+    & .aspect-content{
+      width:40%;
+      height:100%;
+      bottom:auto;
+      right:auto;
+    }
+    & .card-content{
+      margin-left: 40%;
+      height:100%;
+    }
+  }
+}
+
+// Image player card
+
+
+
+// Stacked player card
+.card.player-card.player-card-stacked{
+  &:before{
+    padding-top: 75%;
+  }
+  .aspect-content{
+    bottom: 64px;
+  }
+}
+
+
+// Horizontal player card
+.card.player-card-horizontal{
+  height: 130px;
+  min-width: 280px;
+  &:before{content: none;}
+  .aspect-content{
+    width: 40%;
+  }
+
+  .card-content {
+    margin-left: 40%;
+    height: 100%;
+  }
+}
