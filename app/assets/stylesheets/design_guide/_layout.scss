@@ -24,6 +24,12 @@ body.no-header{
   }
   header {display: none;}
 }
+body.no-header-footer{
+  header, main, footer {
+    padding-left: 0;
+  }
+  header, footer{display: none;}
+}
 /***************
   Header
 ***************/
@@ -34,10 +40,7 @@ body.no-header{
   Main Section
 ***************/
 
-// Container
-main .container{
-  width:90%;
-}
+
 // Title Section
 .title-section{
   background: $primary-color;

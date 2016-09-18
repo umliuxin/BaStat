@@ -31,4 +31,6 @@ class DesignController < ApplicationController
   def team_header
   end
 
+  def global_nav
+  end
 end

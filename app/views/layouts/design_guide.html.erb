@@ -6,6 +6,7 @@
   <%= csrf_meta_tags %>
 </head>
 <% body_class = 'no-header' if ['match_header','player_header','team_header'].include? params[:action] %>
+<% body_class = 'no-header-footer' if ['global_nav'].include? params[:action] %>
 
 <body class="<%= body_class %>">
 
