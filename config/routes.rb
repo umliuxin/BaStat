@@ -59,6 +59,6 @@ Rails.application.routes.draw do
   get 'design/global_nav', to: 'design#global_nav', as: 'design_global_nav'
 
 
-  root 'home_page#show'
+  root 'team_page#show'
 
 end

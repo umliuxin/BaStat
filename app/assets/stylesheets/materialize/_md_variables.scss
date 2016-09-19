@@ -34,16 +34,17 @@
 /* 1. Colors
    ========================================================================== */
 
-$primary-color: #0A3665 !default;
+$primary-color: #2F4F84 !default;
 $primary-color-light: lighten($primary-color, 15%) !default;
 $primary-color-dark: darken($primary-color, 15%) !default;
+$secondary-color: #0C60E8 !default;
 
 $text-color: #333;
 $reverse-text-color: #f3f3f3;
 
-$secondary-color: #38003c !default;
+
 $team-color: #D81920 !default;
-$secondary-team-color: darken($team-color, 10%) !default;
+$secondary-team-color: #FFE500 !default;
 
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
