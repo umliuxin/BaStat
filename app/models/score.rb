@@ -11,6 +11,9 @@ class Score < ActiveRecord::Base
   end
 
   def update_quarter
+    if self.recording_quarter == 4
+      self.game.finish_recording
+    end
     if self.recording_quarter < GAME_END_INDEX
       self.increment(:recording_quarter).save
     end

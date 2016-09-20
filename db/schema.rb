@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824061805) do
+ActiveRecord::Schema.define(version: 20160920030317) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20160824061805) do
 
   create_table "games", force: :cascade do |t|
     t.string   "opponent"
-    t.datetime "gametime",   null: false
+    t.datetime "gametime",                    null: false
     t.integer  "season_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "game_record", default: false
   end
 
   add_index "games", ["season_id"], name: "index_games_on_season_id"

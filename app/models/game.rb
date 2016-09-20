@@ -51,6 +51,9 @@ class Game < ActiveRecord::Base
 
   end
 
+  def finish_recording
+    self.update(game_record: true)
+  end
 
 
 
