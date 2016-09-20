@@ -18,11 +18,12 @@
       <div class="col l8 pull-l4">
         <div class="team-header-content reverse-text-color margin-all-lg clearfix">
           <div class="team-header-logo">
-            <%= image_tag("logo-mixed.png") %>
+            <%= image_tag(@team.team_logo) %>
           </div>
           <div class="team-header-title padding-all">
-            <h1>Team Name</h1>
+            <h1><%= @team.team_name %></h1>
             <h3>1W - 2L</h3>
+            <p><%= @team.current_season.name %></p>
             <p><i class="fa fa-trophy icon-space-right-lg"></i>  Last Game: L 28 -29</p>
             <p><i class="fa fa-calendar icon-space-right-lg"></i> Next Game: VS Team B, 10:30 AM, Sep/08/2016</p>
           </div>
