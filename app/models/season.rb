@@ -15,5 +15,8 @@ class Season < ActiveRecord::Base
     end
   end
 
+  def self.get_current_season
+    return Season.find_by(is_current_season: true)
+  end
 
 end

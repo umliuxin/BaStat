@@ -15,3 +15,5 @@ $('#match_boxscore_table').bootgrid(
     navigation: 0
   }
 );
+
+ $(".button-collapse").sideNav();

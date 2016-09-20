@@ -1,19 +1,24 @@
 .container {
   margin: 0 auto;
   max-width: 1280px;
-  // width: 90%;
+  width: 100%;
   min-width: 320px
 }
 @media #{$medium-and-up} {
   .container {
-    // width: 85%;
+    width: 90%;
   }
 }
 @media #{$large-and-up} {
   .container {
-    // width: 80%;
+    width: 85%;
+  }
+  .container-header {
+    margin-left: 8%;
   }
 }
+
+
 .container .row {
   margin-left: (-1 * $gutter-width / 2);
   margin-right: (-1 * $gutter-width / 2);

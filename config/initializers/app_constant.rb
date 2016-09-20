@@ -1,12 +1,13 @@
 # Team info
-TEAM_NAME = 'LSJ'
-TEAM_LOGO_URL = 'http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/905734/100/100/c/1441189061.jpg'
+TEAM_NAME = '老司机'
+TEAM_LOGO_URL = 'logo-mixed.png'
 
 DEFERRED_ASSET_NAMES = {
-  design: 'design_guide'
+  design: 'design_guide',
+  team_page: 'application'
 }
 
-DEFAULT_DEFERRED_ASSET_NAME = 'default'
+DEFAULT_DEFERRED_ASSET_NAME = 'application'
 
 # Game Action List:
 

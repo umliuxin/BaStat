@@ -56,9 +56,9 @@ Rails.application.routes.draw do
 
   get 'design/team_header', to: 'design#team_header', as: 'design_team_header'
 
+  get 'design/global_nav', to: 'design#global_nav', as: 'design_global_nav'
 
 
-
-  root 'home_page#show'
+  root 'team_page#show'
 
 end

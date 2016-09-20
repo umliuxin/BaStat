@@ -9,6 +9,7 @@ class Game < ActiveRecord::Base
 
   validates :gametime, presence: true
 
+
   def init_stat_obj
     TeamStat.create(game: self)
     OppoTeamStat.create(game: self)
