@@ -18,6 +18,15 @@ module ApplicationHelper
     DEFERRED_ASSET_NAMES[controller_name_without_the_namespace.to_sym] || DEFAULT_DEFERRED_ASSET_NAME
   end
 
+  def format_datetime(datatime)
+    datatime.strftime("%I:%M %p, %m/%d/%Y")
+  end
+
+
+
+
+
+  # Refactor
   def action_from_index(index)
     if index == 15
       'QUATER ENDS'
