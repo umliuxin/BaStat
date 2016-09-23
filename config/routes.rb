@@ -37,6 +37,11 @@ Rails.application.routes.draw do
     get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'
   end
 
+  # API
+  namespace :api, path: '/', constraints:{subdomain: 'api'}  do
+    get 'team', to: 'team#team'
+  end
+
   # Design Guide
   get '/design/', to: 'design#about', as: 'design_about'
   get 'design/typography', to: 'design#typography', as: 'design_typography'
@@ -58,7 +63,7 @@ Rails.application.routes.draw do
 
   get 'design/global_nav', to: 'design#global_nav', as: 'design_global_nav'
 
-
+  # Page
   root 'team_page#show'
 
 end

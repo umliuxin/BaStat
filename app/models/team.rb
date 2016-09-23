@@ -2,12 +2,90 @@ class Team
 
   include TeamConcern
 
-  attr_accessor :team_name, :team_logo
+  attr_reader :team_name, :team_logo
+
   def initialize
     @team_name = TEAM_NAME
     @team_logo = TEAM_LOGO_URL
+    @wins = 0
+    @loses = 0
+  end
+
+  def self.get
+    @team = self.new
+    @team.get_data
+    @team
+  end
+
+
+  def get_data
+    # Get data for team page header
+    self.get_current_season
+    self.games
+    self.unrecorded_games
+    self.scheduled_games
+    self.record_games
+    self.set_win_loss
+    self.get_last_game
+    self.get_next_game
+    self.get_avg_stat
 
   end
 
+  def get_current_season
+    @current_season ||=  Season.get_current_season
+  end
+
+  def games
+    @games ||= @current_season.games
+  end
+
+  def scheduled_games
+    scheduled_games ||= @games.select{|game| game.gametime > DateTime.now }
+  end
+
+  def unrecorded_games
+    unrecord_games ||= @games.select{|game| game.gametime < DateTime.now && game.game_record == false}
+  end
+
+  def record_games
+    record_games ||= @games.select{|game| game.gametime < DateTime.now && game.game_record == true}
+  end
+
+  def get_last_game
+    record_games = self.record_games
+    @last_game ||= record_games.sort_by{|g| g.gametime}.last
+  end
+
+  def get_next_game
+    scheduled_games = self.scheduled_games
+    @next_game ||= scheduled_games.sort_by{|g| g.gametime}.first
+  end
+
+
+  def set_win_loss
+    record_games = self.record_games
+    record_games.each do |game|
+      if game.win?
+        @wins += 1
+      else
+        @loses += 1
+      end
+    end
+  end
+
+  def get_avg_stat
+    record_games = self.record_games
+    count = record_games.count
+    teamsum = TeamStat.select("SUM(team_stats.fgm) AS fgm, SUM(team_stats.tpm) AS tpm, SUM(team_stats.ftm) AS ftm, SUM(team_stats.oreb) AS oreb, SUM(team_stats.dreb) AS dreb, SUM(team_stats.ast) AS ast").where(game_id: record_games.map(&:id)).first
+    opposum = OppoTeamStat.select("SUM(oppo_team_stats.fgm) AS fgm, SUM(oppo_team_stats.tpm) AS tpm, SUM(oppo_team_stats.ftm) AS ftm").where(game_id: record_games.map(&:id)).first
+
+    @avg_stat ={
+      PPG: (teamsum.fgm * 2 + teamsum.tpm + teamsum.ftm).to_f/count.to_f,
+      RPG: (teamsum.oreb + teamsum.dreb).to_f/count.to_f,
+      APG: teamsum.ast.to_f/count.to_f,
+      OPPG: (opposum.fgm * 2 + opposum.tpm + opposum.ftm).to_f/count
+    }
+  end
 
 end

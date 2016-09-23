@@ -19,6 +19,11 @@ class Game < ActiveRecord::Base
     Score.create(game: self)
   end
 
+  def win?
+    score = self.score
+    score.point_total > score.point_op_total
+  end
+
   def migrate
     # Update team stat, oppo team stat, players_stat
     # Get all actions
