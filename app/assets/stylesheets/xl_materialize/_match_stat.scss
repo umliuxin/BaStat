@@ -1,0 +1,105 @@
+$home-team-color:          rgb(206, 17, 65) !default;
+$away-team-color:          rgb(0, 39, 93) !default;
+$item-rect-height:         200px;
+$advantage-text-color:     $off-black;
+$disadvantage-text-color:  color("grey","lighten-1");
+$height-1:                 75%;
+$height-2:                 55%;
+
+
+
+.match-stat{
+  .team-legend{
+    font-weight: $font-weight-semi-bold;
+    padding:15px 0;
+    margin-bottom:20px;
+    font-size: $large-fontsize;
+    color: color("shades","white");
+    &.team-legend-home{
+      background-color: $home-team-color;
+    }
+    &.team-legend-away{
+      background-color: $away-team-color;
+    }
+    img{
+      height: 26px;
+      width: auto;
+      vertical-align: bottom;
+    }
+  }
+
+  .stat-item{
+    .item-rect{
+      width:50%;
+      color: color("shades","white");
+      height:$item-rect-height;
+      float: left;
+      position: relative;
+      .data-rect{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        font-size: $small-fontsize;
+      }
+      .data-text{
+        position: absolute;
+        left: 0;
+        right: 0;
+        color: $advantage-text-color;
+        font-weight: $font-weight-semi-bold;
+        font-size: $large-fontsize;
+        &.disadvantage{color: $disadvantage-text-color;}
+      }
+      &.home-team-rect .data-text{
+        bottom: $height-1;
+      }
+      &.away-team-rect .data-text{
+        bottom: $height-2;
+      }
+      &.home-team-rect .data-rect{
+        height:$height-1;
+        background-color: $home-team-color;
+      }
+      &.away-team-rect .data-rect{
+        height:$height-2;
+        background-color: $away-team-color;
+      }
+    }
+    .item-text{
+      font-size: $large-fontsize;
+      float: left;
+      width: 100%;
+    }
+  }
+}
+
+@media #{$small-and-down} {
+  .match-stat{
+    .team-legend{
+      background-color: transparent !important;
+      color: $off-black !important;
+      margin-bottom: 0;
+    }
+    .stat-item{
+      position: relative;
+      &:nth-of-type(2n+1){
+        background-color: #F2F2F2;
+      }
+      .item-rect{
+        height:auto;
+        padding: 5px;
+        .data-text{
+          position:static;
+          font-size: $base-fontsize;
+        }
+        .data-rect{display: none;}
+      }
+      .item-text{
+        position: absolute;
+        top: 0;
+        font-size: $base-fontsize;
+      }
+    }
+  }
+}

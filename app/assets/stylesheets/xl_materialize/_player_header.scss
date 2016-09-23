@@ -1,0 +1,97 @@
+$player-color:               $secondary-team-color;
+$number-color:               rgba(200,200,200,0.65);
+$player-header-height:       200px;
+$player-image-width:       250px;
+
+.player-header-section{
+  min-width: 320px;
+  background-color: $player-color;
+
+  .player-header-number{
+    font-size: 200px;
+    line-height: 180px;
+    font-weight: 700;
+    color: $number-color;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .player-header-content{
+    padding-left: $player-image-width;
+    padding-right: 200px;
+    .player-header-image{
+      height: $player-header-height;
+      width: $player-image-width;
+      position: absolute;
+      top: 0;
+      left: 0;
+      img{
+        height: 180px;
+        width: auto;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        bottom: -20px;
+      }
+    }
+    .content-wrap{
+      height: $player-header-height;
+    }
+
+    .player-header-stat{
+      bottom:0;
+      position: absolute;
+
+      .stat-item{
+        display: inline;
+        vertical-align: text-top;
+        font-size: $h3-fontsize;
+        font-weight: $font-weight-semi-bold;
+        margin-right:10px;
+        span{
+          font-size: $base-fontsize;
+          vertical-align: text-top;
+          color: color("grey", "lighten-1");
+          display: inline-block;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media #{$medium-and-down} {
+
+}
+@media #{$small-and-down} {
+  .player-header-section{
+    .player-header-content{
+      padding-right: 0;
+      padding-left: 35%;
+      .player-header-image{
+        width:35%;
+        img{
+          height: auto;
+          width: 100%;
+          max-width: 220px;
+        }
+      }
+    }
+  }
+}
+@media #{$xsmall-only} {
+  .player-header-section{
+    .player-header-content{
+      
+      .player-header-name{
+        h1{font-size: $h2-fontsize;}
+        h3{font-size: $h4-fontsize;}
+      }
+      .player-header-stat .stat-item{
+        font-size: $h4-fontsize;
+        span{font-size: $small-fontsize;}
+      }
+    }
+  }
+}

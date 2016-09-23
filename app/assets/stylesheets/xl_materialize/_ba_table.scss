@@ -1,0 +1,132 @@
+/******************* Table Header Actions ***********************/
+
+.action-search{
+  margin-right: 250px;
+}
+.action-filters{
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
+
+.action-dropdown{
+  display: inline-block;
+  .dropdown-button{
+    overflow: visible;
+    min-width: 100px;
+    &.active .dropdown-content{
+      display: block !important;
+      opacity: 1;
+    }
+    .dropdown-content{
+      position:absolute;
+      top: 100%;
+      left: 0;
+      li.checkbox-item{
+        label{
+          text-align: left;
+          padding:5px 10px;
+          display: block;
+          min-height: 30px;
+        }
+        min-height: 30px;
+      }
+
+      li.text-item{
+        text-align: center;
+      }
+    }
+  }
+}
+
+/*********************** Table **************************/
+.bootgrid-table{
+  td, th{
+    padding: 8px 10px;
+  }
+  tbody tr:nth-Child(even){
+    background-color: #F2F2F2;
+    .fixed-cell{
+      background-color: #F2F2F2;
+    }
+  }
+  td.min-width-lg{
+    min-width: 200px;
+  }
+}
+.bootgrid-table-wrapper{
+  overflow-x: auto;
+}
+
+/*********************** Fixed Item Table **************************/
+
+.bootgrid-stat-full.first-item-fixed .bootgrid-table-wrapper{
+  .bootgrid-header{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    .row{margin-bottom:0;}
+  }
+
+  .bootgrid-footer{
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    right: 0;
+    .row{margin-bottom:0;}
+  }
+
+  .bootgrid-table{
+    .fixed-cell{
+      position: absolute;
+      left: 0;
+      top: auto;
+      -webkit-transform: translateZ(0);
+    }
+  }
+}
+
+.bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
+  margin-left:130px;
+  .fixed-cell{width: 130px;}
+}
+.bootgrid-stat-full.first-item-fixed.boxscore .bootgrid-table-wrapper{
+  margin-left:100px;
+  .fixed-cell{width: 100px;}
+}
+/*********************** Header and Footer **************************/
+.bootgrid-stat-full .bootgrid-table-wrapper{
+  padding: 60px 0;
+}
+
+.bootgrid-stat-full.without-header .bootgrid-table-wrapper{
+  padding-top: 0;
+}
+
+.bootgrid-stat-full.without-footer .bootgrid-table-wrapper{
+  padding-bottom: 0;
+}
+
+.bootgrid-footer{
+  .pagination{
+    margin: 0;
+  }
+  .infoBar{
+    line-height: 30px;
+  }
+}
+
+/*********************** Table Responsive **************************/
+@media #{$small-and-down}{
+  .bootgrid-table{
+    td, th{
+      padding: 5px 8px;
+    }
+  }
+}
+@media #{$xsmall-only}{
+  .bootgrid-stat-full .bootgrid-table-wrapper{
+    padding-top: 0;
+  }
+}

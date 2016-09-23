@@ -1,0 +1,41 @@
+<h1>Edit Player</h1>
+<%= form_for :player, url: admin_player_path, method: :patch do |f| %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :position %>
+    <%= f.select :position, options_for_select(['Center','Forward','Guard']), :prompt => 'Select One' %>
+  </p>
+
+  <p>
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+  </p>
+
+  <p>
+    <%= f.label :image_url %>
+    <%= f.text_field :image_url %>
+  </p>
+
+  <p>
+    <%= f.label :height %>
+    <%= f.text_field :height %> cm
+  </p>
+
+  <p>
+    <%= f.label :weight %>
+    <%= f.text_field :weight %> kg
+  </p>
+
+  <p>
+    <%= f.label :bio %>
+    <%= f.text_area :bio, size: "60x12" %>
+  </p>
+
+  <p>
+    <%= f.submit("Update Player") %>
+  </p>
+<% end %>

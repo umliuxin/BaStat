@@ -1,0 +1,44 @@
+.match-card-section{
+  .playbyplay-team{
+    background-color: #ddd;
+    font-weight: $font-weight-semi-bold;
+    font-size: $large-fontsize;
+    padding: 8px 0;
+  }
+  .playbyplay-item{
+    padding-top: 6px;
+    padding-bottom: 6px;
+    &:nth-Child(even){
+      background-color: #F2F2F2;
+    }
+    &.item-quarter{
+      border-top: 1px solid #ddd;
+      h4{
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media #{$small-and-down} {
+  .match-card-section{
+    .playbyplay-team{
+      padding: 4px 0;
+    }
+    .playbyplay-item{
+      padding-top: 3px;
+      padding-bottom: 3px;
+      font-size: $small-fontsize;
+    }
+  }
+}
+
+@media #{$xsmall-only} {
+  .match-card-section{
+    .playbyplay-item{
+      &.item-left .text-align-right{
+        text-align: left;
+      }
+    }
+  }
+}

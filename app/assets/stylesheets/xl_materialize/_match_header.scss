@@ -1,0 +1,128 @@
+/****************** Match Header *********************/
+.match-header-section{
+  background:  url(image-path('match_header.png')) no-repeat center bottom;
+  padding:30px 15px;
+  -webkit-transition: all .3s ease-out;
+  -moz-transition: all .3s ease-out;
+  -o-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+  .container{
+    width: 100%;
+  }
+  .match-header-team-logo{
+    img{
+      width: 100%;
+      height: auto;
+      margin-top: 15px;
+    }
+  }
+  .match-header-game-score{
+    span{
+      font-size: 40px;
+    }
+    span.score-divider{
+      display: inline-block;
+      margin: 0 15px;
+    }
+  }
+  .match-header-game-time{
+    margin-top: 30px;
+  }
+}
+
+/****************** Match Header Responsive*********************/
+
+@media #{$small-and-up}{
+  .match-header-section{
+    padding: 40px 15px;
+    .match-header-team-logo strong{
+      font-size: $large-fontsize;
+      text-transform: uppercase;
+    }
+    .match-header-game-score{
+      span{
+        font-size: 50px;
+      }
+      span.score-divider{
+        margin: 10px 15px 20px;
+      }
+    }
+  }
+
+  // FOR STACKED HEADER
+  .match-header-section.stacked{
+    padding: 20px 15px;
+    .match-header-team-logo div, .match-header-game-time{
+      display: none;
+    }
+    .match-header-team-logo{
+      max-width: 120px;
+      margin:0 auto;
+    }
+  }
+}
+
+@media #{$medium-and-up}{
+  .match-header-section{
+    font-size: $large-fontsize;
+    .match-header-team-logo{
+      max-width: 200px;
+      margin: 0 auto;
+      strong{font-size: 22px;}
+    }
+    .match-header-game-score{
+      span{
+        font-size: 70px;
+      }
+      span.score-divider{
+        margin: 20px 15px 40px;
+      }
+    }
+  }
+
+  // FOR STACKED HEADER
+  .match-header-section.stacked{
+    padding: 20px 10px;
+    .match-header-team-logo div, .match-header-game-time{
+      display: none;
+    }
+    .match-header-team-logo{
+      max-width: 135px;
+      margin: 0 auto;
+    }
+    .match-header-game-score{
+      span{font-size: 56px;}
+      span.score-divider{margin: 20px 15px;}
+    }
+  }
+
+}
+
+@media #{$large-and-up}{
+  .match-header-section{
+    font-size: 22px;
+    padding: 60px 20px;
+    .match-header-team-logo{
+      max-width: 220px;
+      margin: 0 auto;
+      strong{font-size: 36px;}
+    }
+    .match-header-game-score{
+      span{
+        font-size: 75px;
+      }
+      span.score-divider{
+        margin: 30px 25px 40px;
+      }
+    }
+  }
+
+  // FOR STACKED HEADER
+  .match-header-section.stacked{
+    .match-header-game-score{
+      span:nth-of-type(1){float: left;}
+      span:nth-of-type(3){float: right;}
+      span.score-divider{display: none;}
+    }
+  }
+}

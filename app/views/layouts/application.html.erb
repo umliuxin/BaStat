@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>BaStat</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= include_page_css %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= render partial: 'shared/global_nav_header' %>
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <%= yield %>
+  <%= render partial: 'shared/global_nav_footer' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= include_page_js %>
 </body>
 </html>
