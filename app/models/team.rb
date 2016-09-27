@@ -22,14 +22,15 @@ class Team
     # Get data for team page header
     self.get_current_season
     self.games
-    self.unrecorded_games
-    self.scheduled_games
-    self.record_games
-    self.set_win_loss
-    self.get_last_game
-    self.get_next_game
-    self.get_avg_stat
-
+    if @games.present?
+      self.unrecorded_games
+      self.scheduled_games
+      self.record_games
+      self.set_win_loss
+      self.get_last_game
+      self.get_next_game
+      self.get_avg_stat
+    end
   end
 
   def get_current_season
@@ -37,7 +38,7 @@ class Team
   end
 
   def games
-    @games ||= @current_season.games
+    @games ||= @current_season.games if @current_season.present?
   end
 
   def scheduled_games
@@ -50,6 +51,7 @@ class Team
 
   def record_games
     record_games ||= @games.select{|game| game.gametime < DateTime.now && game.game_record == true}
+    # record_games ||= @games.inner(:scores).select{|game| game.gametime < DateTime.now && game.game_record == true}
   end
 
   def get_last_game
@@ -66,6 +68,7 @@ class Team
   def set_win_loss
     record_games = self.record_games
     record_games.each do |game|
+      # Need refactor: Using joint table
       if game.win?
         @wins += 1
       else

@@ -40,6 +40,25 @@ Rails.application.routes.draw do
   # API
   namespace :api, path: '/', constraints:{subdomain: 'api'}  do
     get 'team', to: 'team#team'
+
+    get 'players', to: 'players#index'
+    get 'players/:id', to:'players#show'
+    # get 'players?season = '
+    # get 'players?season = '
+
+    get 'seasons', to: 'seasons#index'
+    get 'seasons/:id', to: 'seasons#show'
+
+    # get 'games'
+    # get 'games/:id'
+    # get 'games/:id/score'
+    # get 'games/:id/team_stat'
+    # get 'games/:id/player_stat'
+    # get 'games/:id/play_by_play'
+    # get 'games/:id/basic_info'
+    # get 'games/:id/detail_info'
+
+
   end
 
   # Design Guide
