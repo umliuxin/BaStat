@@ -13,12 +13,12 @@ class Team
 
   def self.get
     @team = self.new
-    @team.get_data
+    @team.get_header_data
     @team
   end
 
 
-  def get_data
+  def get_header_data
     # Get data for team page header
     self.get_current_season
     self.games
