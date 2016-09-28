@@ -9,8 +9,13 @@ DEFERRED_ASSET_NAMES = {
 
 DEFAULT_DEFERRED_ASSET_NAME = 'application'
 
+# Position Array
+POSITION_SHORT_NAME = {
+  'Center': 'C',
+  'Forward': 'F',
+  'Guard': 'G'
+}
 # Game Action List:
-
 GAME_ACTION_LIST = [
   '2PT_MADE',
   '2PT_MISS',

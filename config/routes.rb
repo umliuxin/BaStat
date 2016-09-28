@@ -87,6 +87,11 @@ Rails.application.routes.draw do
 
 
   # Page
+  # namespace :player, path: 'player' do
+  #   get '/', to: 'player'
+  # end
+  resources :players, only: [:index, :show]
+  
   root 'team_page#show'
 
 end
