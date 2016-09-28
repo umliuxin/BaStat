@@ -1,4 +1,7 @@
-.match-card-section{
+.play-by-play-section{
+  .card-panel-content{
+    padding: 16px 0;
+  }
   .playbyplay-team{
     background-color: #ddd;
     font-weight: $font-weight-semi-bold;
@@ -21,7 +24,7 @@
 }
 
 @media #{$small-and-down} {
-  .match-card-section{
+  .play-by-play-section{
     .playbyplay-team{
       padding: 4px 0;
     }
@@ -34,7 +37,7 @@
 }
 
 @media #{$xsmall-only} {
-  .match-card-section{
+  .play-by-play-section{
     .playbyplay-item{
       &.item-left .text-align-right{
         text-align: left;

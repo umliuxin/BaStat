@@ -42,24 +42,29 @@ class Team
   end
 
   def scheduled_games
+    # Consider how to structure this section
     scheduled_games ||= @games.select{|game| game.gametime > DateTime.now }
   end
 
   def unrecorded_games
+    # Consider how to structure this section
     unrecord_games ||= @games.select{|game| game.gametime < DateTime.now && game.game_record == false}
   end
 
   def record_games
+    # Consider how to structure this section
     record_games ||= @games.select{|game| game.gametime < DateTime.now && game.game_record == true}
     # record_games ||= @games.inner(:scores).select{|game| game.gametime < DateTime.now && game.game_record == true}
   end
 
   def get_last_game
+    # Need Refactor
     record_games = self.record_games
     @last_game ||= record_games.sort_by{|g| g.gametime}.last
   end
 
   def get_next_game
+    # Need Refactor
     scheduled_games = self.scheduled_games
     @next_game ||= scheduled_games.sort_by{|g| g.gametime}.first
   end
@@ -78,6 +83,7 @@ class Team
   end
 
   def get_avg_stat
+    # Will Refactor after stat tab is done
     record_games = self.record_games
     count = record_games.count
     teamsum = TeamStat.select("SUM(team_stats.fgm) AS fgm, SUM(team_stats.tpm) AS tpm, SUM(team_stats.ftm) AS ftm, SUM(team_stats.oreb) AS oreb, SUM(team_stats.dreb) AS dreb, SUM(team_stats.ast) AS ast").where(game_id: record_games.map(&:id)).first
