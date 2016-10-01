@@ -22,6 +22,11 @@ module ApplicationHelper
     datatime.strftime("%I:%M %p, %m/%d/%Y")
   end
 
+  def format_date(datatime)
+    datatime.strftime("%m/%d/%Y")
+  end
+
+
 
 
 

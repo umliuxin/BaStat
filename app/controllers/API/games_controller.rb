@@ -1,20 +1,25 @@
 module API
   class GamesController < ApplicationController
-    class index
+    def index
+      if params.has_key?(:type) && params[:type] == GAME_TYPE_SCHEDULE
+        games = Game.schedule_game
+        render :json => games, include:['season']
+      elsif params.has_key?(:type) && params[:type] == GAME_TYPE_RESULT
+        games = Game.result_game
+        render :json => games, include:['players','season','team_stat','oppo_team_stat','score','actions','player_stats']
+      elsif params.has_key?(:type) && params[:type] == GAME_TYPE_UNTRACK
+        games = Game.untrack_game
+        render :json => games, include:['players','season']
+      else
+        games = Game.all
+        render :json => games, include:['players','season']
+      end
     end
-    class show
+
+    def show
+      game = Game.find(params[:id])
+      render :json => game
     end
-    class score
-    end
-    class team_stat
-    end
-    class player_stat
-    end
-    class play_by_play
-    end
-    class basic_info
-    end
-    class detail_info
-    end
+
   end
 end

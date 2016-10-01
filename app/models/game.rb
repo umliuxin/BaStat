@@ -9,6 +9,18 @@ class Game < ActiveRecord::Base
 
   validates :gametime, presence: true
 
+  def self.schedule_game
+    Game.where('gametime > ?', DateTime.now)
+  end
+
+  def self.untrack_game
+    Game.where('gametime < ?', DateTime.now).where(game_record: false)
+  end
+
+  def self.result_game
+    Game.where('gametime < ?', DateTime.now).where(game_record: true)
+  end
+
 
   def init_stat_obj
     TeamStat.create(game: self)
@@ -20,8 +32,13 @@ class Game < ActiveRecord::Base
   end
 
   def win?
-    score = self.score
+    score ||= self.score
     score.point_total > score.point_op_total
+  end
+
+  def get_win?
+    score ||= self.score
+    return score.point_total > score.point_op_total ? 'W' : 'L'
   end
 
   def migrate

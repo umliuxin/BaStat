@@ -1,0 +1,23 @@
+<div class="col xs12 l10 offset-l1">
+  <h3><%= format_datetime(game.gametime) %></h3>
+  <div class="card horizontal match-card match-card-schedule">
+    <div class="aspect-content">
+      <div class="team-logo">
+        <%= image_tag('design_guide/team_logo.svg') %>
+      </div>
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <h3 class='no-margin margin-bottom'><%= game.opponent %></h3>
+        <p><strong><%= format_datetime(game.gametime) %></strong></p>
+        <p><%= STADIUM_ADDRESS %></p>
+
+      </div>
+      <div class="card-action">
+        <a href="#">FULL GAME INFO</a>
+        <br class="hide-on-med-and-up">
+        <a href="#">ADD TO CALENDER</a>
+      </div>
+    </div>
+  </div>
+</div>

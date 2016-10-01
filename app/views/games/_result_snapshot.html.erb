@@ -1,0 +1,78 @@
+<div class="col xs12 l10 offset-l1">
+  <div class="js-match-cards-flip">
+    <div class="card horizontal match-card match-card-result-simple">
+      <div class="aspect-content">
+        <div class="team-logo">
+          <%= image_tag('design_guide/team_logo.svg') %>
+        </div>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5 class='display-inline'><%= game.opponent%></h5>
+          <br class="hide-on-med-and-up">
+          <span><%= format_date(game.gametime)%></span>
+          <h2><%= game.get_win? %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
+        </div>
+        <div class="card-action">
+          <a href="#">FULL GAME INFO</a>
+        </div>
+      </div>
+    </div>
+    <div class="card horizontal match-card match-card-result-detail hide">
+      <div class="aspect-content">
+        <div class="team-logo">
+          <%= image_tag('design_guide/team_logo.svg') %>
+        </div>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <div class="col s6 no-padding">
+            <h5 class='display-inline'><%= game.opponent%>, <%= format_date(game.gametime)%></h5>
+            <h4 class='no-margin'><%= game.get_win? %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h4>
+            <div>
+              <table>
+                <thead>
+                  <td></td>
+                  <td>Q1</td>
+                  <td>Q2</td>
+                  <td>Q3</td>
+                  <td>Q4</td>
+                  <td></td>
+                </thead>
+                <tr>
+                  <td>LSJ</td>
+                  <td><%= game.score.point_q1 %></td>
+                  <td><%= game.score.point_q2 %></td>
+                  <td><%= game.score.point_q3 %></td>
+                  <td><%= game.score.point_q4 %></td>
+                  <td><%= game.score.point_total %></td>
+                </tr>
+                <tr>
+                  <td><%= game.opponent%></td>
+                  <td><%= game.score.point_op_q1 %></td>
+                  <td><%= game.score.point_op_q2 %></td>
+                  <td><%= game.score.point_op_q3 %></td>
+                  <td><%= game.score.point_op_q4 %></td>
+                  <td><%= game.score.point_op_total %></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div class="col s6 no-padding">
+            <div class='padding-all-lg'>
+              <h5>REB</h5>
+              <p><%= game.team_stat.oreb + game.team_stat.dreb%> - <%= game.oppo_team_stat.oreb + game.oppo_team_stat.dreb %></p>
+              <h5>AST</h5>
+              <p><%= game.team_stat.ast %> - <%= game.oppo_team_stat.ast %></p>
+              <h5>BLK</h5>
+              <p><%= game.team_stat.blk %> - <%= game.oppo_team_stat.blk %></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="#">FULL GAME INFO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

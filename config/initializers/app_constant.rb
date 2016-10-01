@@ -1,6 +1,7 @@
 # Team info
 TEAM_NAME = '老司机'
 TEAM_LOGO_URL = 'logo-mixed.png'
+STADIUM_ADDRESS = '2800, Interstate 280, Los Altos Hills, CA 94022'
 
 DEFERRED_ASSET_NAMES = {
   design: 'design_guide',
@@ -11,10 +12,16 @@ DEFAULT_DEFERRED_ASSET_NAME = 'application'
 
 # Position Array
 POSITION_SHORT_NAME = {
-  'Center': 'C',
-  'Forward': 'F',
-  'Guard': 'G'
+  Center: 'C',
+  Forward: 'F',
+  Guard: 'G'
 }
+
+# Game Type
+GAME_TYPE_SCHEDULE = 'schedule'
+GAME_TYPE_RESULT = 'result'
+GAME_TYPE_UNTRACK = 'untrack'
+
 # Game Action List:
 GAME_ACTION_LIST = [
   '2PT_MADE',
