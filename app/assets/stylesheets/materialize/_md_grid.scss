@@ -184,6 +184,7 @@
 }
 
 .fake-row{
+  margin: 0 !important;
   &:after{
     content: "";
     display: table;
