@@ -74,15 +74,12 @@ Rails.application.routes.draw do
 
   end
 
-  # Page
-  # namespace :player, path: 'player' do
-  #   get '/', to: 'player'
-  # end
+
   resources :players, only: [:index, :show]
 
   resources :games, only: [:show]
-  get '/schedules', to: 'games#schedules'
-  get '/results', to: 'games#results'
+  get '/schedules', to: 'gamelist#schedules'
+  get '/results', to: 'gamelist#results'
 
   root 'team_page#show'
 

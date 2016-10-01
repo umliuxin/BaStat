@@ -31,15 +31,18 @@ class Game < ActiveRecord::Base
     Score.create(game: self)
   end
 
-  def win?
-    score ||= self.score
-    score.point_total > score.point_op_total
-  end
-
-  def get_win?
+  def win_or_lose
+    #return W or L
     score ||= self.score
     return score.point_total > score.point_op_total ? 'W' : 'L'
   end
+
+
+
+
+
+
+
 
   def migrate
     # Update team stat, oppo team stat, players_stat
@@ -76,7 +79,5 @@ class Game < ActiveRecord::Base
   def finish_recording
     self.update(game_record: true)
   end
-
-
 
 end
