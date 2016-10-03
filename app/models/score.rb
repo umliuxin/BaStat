@@ -2,6 +2,12 @@ class Score < ActiveRecord::Base
   belongs_to :game
   validates :game_id, uniqueness: true
 
+  def update_score_with_action(action)
+    if point = change_point({:action_index => action.action_index})
+      self.increment(get_updated_team({:player_id => action.player_id}), by = point)
+    end
+  end
+
   def end_recording?
     if self.recording_quarter == GAME_END_INDEX
       return true
@@ -26,6 +32,7 @@ class Score < ActiveRecord::Base
       self.save
     end
   end
+
 
   def change_flag(params)
     if params[:remove].present? && params[:remove]

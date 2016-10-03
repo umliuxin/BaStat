@@ -3,8 +3,8 @@
       <div class="row">
           <div class="col xs3 offset-m1 text-center">
             <div class='match-header-team-logo'>
-              <%= image_tag("team-logo.png")%>
-              <div><strong>LSJ</strong></div>
+              <%= image_tag(@game.team.team_logo)%>
+              <div><strong><%= @game.team.team_name %></strong></div>
               <div>X - X</div>
             </div>
           </div>

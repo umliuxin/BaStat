@@ -3,9 +3,9 @@
     <%= render partial: 'player_header_section', locals: {player: @player} %>
   </section>
   <div class="container">
-    <%= render partial: 'player_tab_select' %>
-    <%= render partial: 'player_stat' %>
-    <%= render partial: 'player_gamelog' %>
-    <%= render partial: 'player_bio' %>
+    <%= render partial: 'player_tab_select', local:{player: @player} %>
+    <%= render partial: 'player_stat', local:{player: @player} %>
+    <%= render partial: 'player_gamelog', local:{player: @player} %>
+    <%= render partial: 'player_bio', local:{player: @player} %>
   </div>
 </div>

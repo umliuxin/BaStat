@@ -6,120 +6,120 @@
     <div class="card-panel-content">
       <div class="row row-legend">
         <div class="col xs6">
-          <div class="team-legend team-legend-home text-center"><img src='http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/tor.png'/> Home Team</div>
+          <div class="team-legend team-legend-home text-center"><%= image_tag(@game.team.team_logo)%> Home Team</div>
         </div>
         <div class="col xs6">
-          <div class="team-legend team-legend-away text-center"><img src='http://i.cdn.turner.com/nba/nba/.element/img/1.0/teamsites/logos/teamlogos_500x500/tor.png'/> Away Team</div>
+          <div class="team-legend team-legend-away text-center"><%= image_tag("oppo-logo.png")%> Away Team</div>
         </div>
       </div>
       <div class="row row-match-stat-1">
-        <div class="stat-item col xs12 m4 text-center">
+        <div class="stat-item col xs12 m4 text-center <%= team_stat_class(@game.score.point_total, @game.score.point_op_total) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>55</div>
+            <div class='data-text'><%= @game.score.point_total %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>45</div>
+            <div class='data-text disadvantage'><%= @game.score.point_op_total %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">PTS</div>
         </div>
 
-        <div class="stat-item col xs12 m4 text-center">
+        <div class="stat-item col xs12 m4 text-center <%= team_stat_class(@game.team_stat.rebound, @game.oppo_team_stat.rebound) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>20</div>
+            <div class='data-text'><%= @game.team_stat.rebound %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>15</div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.rebound %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">REB</div>
         </div>
 
-        <div class="stat-item col xs12 m4 text-center">
+        <div class="stat-item col xs12 m4 text-center <%= team_stat_class(@game.team_stat.ast, @game.oppo_team_stat.ast) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>6</div>
+            <div class='data-text'><%= @game.team_stat.ast %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>8</div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.ast %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">AST</div>
         </div>
       </div>
 
 
-      <div class="row row-match-stat-2">
+      <div class="row row-match-stat-2 <%= team_stat_class(@game.team_stat.stl, @game.oppo_team_stat.stl) %>">
         <div class="stat-item col xs12 m2 text-center">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>55</div>
+            <div class='data-text'><%= @game.team_stat.stl %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>45</div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.stl %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">STL</div>
         </div>
 
-        <div class="stat-item col xs12 m2 text-center">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.blk, @game.oppo_team_stat.blk) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>20</div>
+            <div class='data-text'><%= @game.team_stat.blk %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>15</div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.blk %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">BLK</div>
         </div>
 
-        <div class="stat-item col xs12 m2 text-center">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.tov, @game.oppo_team_stat.tov) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>6</div>
+            <div class='data-text'><%= @game.team_stat.tov %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>8</div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.tov %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">TOV</div>
         </div>
 
-        <div class="stat-item col xs12 m2 text-center">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.field_goal_percent, @game.oppo_team_stat.field_goal_percent) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>55.5%</div>
+            <div class='data-text'><%= number_to_percentage(@game.team_stat.field_goal_percent, precision: 1)%></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>44.4%</div>
+            <div class='data-text disadvantage'><%= number_to_percentage(@game.oppo_team_stat.field_goal_percent, precision: 1)%></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">FG%</div>
         </div>
 
-        <div class="stat-item col xs12 m2 text-center">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.three_point_percent, @game.oppo_team_stat.three_point_percent) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>25%</div>
+            <div class='data-text'><%= number_to_percentage(@game.team_stat.three_point_percent, precision: 1)%></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>30%</div>
+            <div class='data-text disadvantage'><%= number_to_percentage(@game.team_stat.three_point_percent, precision: 1)%></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">3P%</div>
         </div>
 
-        <div class="stat-item col xs12 m2 text-center">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.free_throw_percent, @game.oppo_team_stat.free_throw_percent) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'>80%</div>
+            <div class='data-text'><%= number_to_percentage(@game.team_stat.free_throw_percent, precision: 1)%></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'>75%</div>
+            <div class='data-text disadvantage'><%= number_to_percentage(@game.team_stat.free_throw_percent, precision: 1)%></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">FT%</div>
         </div>

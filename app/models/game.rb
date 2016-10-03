@@ -37,7 +37,9 @@ class Game < ActiveRecord::Base
     return score.point_total > score.point_op_total ? 'W' : 'L'
   end
 
-
+  def team
+    Team.new
+  end
 
 
 
