@@ -1,6 +1,6 @@
 <div class="page-content-wrap">
   <section>
-    <%= render partial: 'player_header_section', locals: {player: @player} %>
+    <%= render partial: 'player_header_section', locals: {player: @player, season: @player.current_season} %>
   </section>
   <div class="container">
     <%= render partial: 'player_tab_select', local:{player: @player} %>

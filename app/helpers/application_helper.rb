@@ -26,9 +26,6 @@ module ApplicationHelper
     datatime.strftime("%m/%d/%Y")
   end
 
-  def format_percent(num)
-    number_to_percentage(num * 100, precision: '2')
-  end
 
   def short_position(text)
     POSITION_SHORT_NAME[text.to_sym]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160920030317) do
+ActiveRecord::Schema.define(version: 20161005025225) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -73,8 +73,9 @@ ActiveRecord::Schema.define(version: 20160920030317) do
     t.integer  "stl",        default: 0
     t.integer  "blk",        default: 0
     t.integer  "foul",       default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "dnp",        default: false
   end
 
   add_index "player_stats", ["game_id"], name: "index_player_stats_on_game_id"

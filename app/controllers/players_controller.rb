@@ -4,5 +4,7 @@ class PlayersController < ApplicationController
   end
   def show
     @player = Player.find(params[:id])
+    ap '_________'
+    ap @player.seasons_avg_stat
   end
 end
