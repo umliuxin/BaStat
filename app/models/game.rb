@@ -41,6 +41,10 @@ class Game < ActiveRecord::Base
     Team.new
   end
 
+  def find_player_stat_by_player(player)
+    @player_stat ||= self.player_stats.find_by(player: player)
+  end
+
 
 
 

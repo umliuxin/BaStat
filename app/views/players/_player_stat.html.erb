@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @player.seasons_avg_stat.each do |avg_stat|  %>
+            <% @player.avg_stat_seasons.each do |avg_stat|  %>
             <tr>
               <td><%= Season.find(avg_stat.id).name%></td>
               <td><%= avg_stat.game_id %></td>

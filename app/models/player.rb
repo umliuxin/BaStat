@@ -13,7 +13,15 @@ class Player < ActiveRecord::Base
   validates :position, inclusion: { in: %w(Center Forward Guard),
     message: "%{value} is not a valid position" }
 
-  attr_accessor :current_season_avg_stat, :seasons_avg_stat
+  attr_accessor :avg_stat_current_season, :avg_stat_seasons, :games_current_season
+
+  def self.build(id)
+    player = Player.find(id)
+    player.avg_stat_current_season = player.current_season_avg_stat
+    player.avg_stat_seasons = player.seasons_avg_stat
+    player.games_current_season = player.current_season_games
+    player
+  end
 
   def current_season
     @current_season ||= Season.get_current_season
@@ -27,7 +35,7 @@ FROM player_stats
 LEFT JOIN games
 ON player_stats.game_id=games.id
 WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t' AND games.season_id="+Season.get_current_season.id.to_s
-    @current_season_avg_stat ||= PlayerStat.find_by_sql(sql).first
+    PlayerStat.find_by_sql(sql).first
   end
 
   def seasons_avg_stat
@@ -39,10 +47,12 @@ ON player_stats.game_id=games.id
 WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t'
 GROUP BY games.season_id
 "
-    @seasons_avg_stat ||= PlayerStat.find_by_sql(sql)
+    PlayerStat.find_by_sql(sql)
   end
 
-
+  def current_season_games
+    self.current_season.recorded_games
+  end
 
 
 
