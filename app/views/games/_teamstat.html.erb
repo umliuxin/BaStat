@@ -51,8 +51,8 @@
       </div>
 
 
-      <div class="row row-match-stat-2 <%= team_stat_class(@game.team_stat.stl, @game.oppo_team_stat.stl) %>">
-        <div class="stat-item col xs12 m2 text-center">
+      <div class="row row-match-stat-2">
+        <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.stl, @game.oppo_team_stat.stl) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
             <div class='data-text'><%= @game.team_stat.stl %></div>
