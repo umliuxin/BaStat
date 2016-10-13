@@ -22,8 +22,8 @@
           </div>
           <div class="team-header-title padding-all">
             <h1><%= @team.team_name %></h1>
-            <h3>3W - 1L</h3>
-            <p>Season 16</p>
+            <h3><%= @team.game_win %>W - <%= @team.game_lose %>L</h3>
+            <p><%= @team.current_season.name%></p>
             <p><i class="fa fa-trophy icon-space-right-lg"></i>  Last Game: VS Team A, L 28 -29</p>
             <p><i class="fa fa-calendar icon-space-right-lg"></i> Next Game: VS Team B, 10:30 AM, Sep/08/2016</p>
           </div>
