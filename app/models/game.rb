@@ -10,17 +10,24 @@ class Game < ActiveRecord::Base
   validates :gametime, presence: true
 
   def self.schedule_game
-    Game.where('gametime > ?', DateTime.now)
+    Game.order("gametime").where('gametime > ?', DateTime.now.beginning_of_day)
   end
 
   def self.untrack_game
-    Game.where('gametime < ?', DateTime.now).where(game_record: false)
+    Game.where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: false)
   end
 
   def self.result_game
-    Game.where('gametime < ?', DateTime.now).where(game_record: true)
+    Game.order("gametime DESC").where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: true)
   end
 
+  def self.next_game
+    Game.order("gametime").find_by('gametime > ? AND game_record = ?', DateTime.now.beginning_of_day ,false)
+  end
+
+  def self.last_game
+    Game.order("gametime DESC").find_by('gametime < ? AND game_record = ?', DateTime.now.beginning_of_day, true)
+  end
 
   def init_stat_obj
     TeamStat.create(game: self)

@@ -22,19 +22,19 @@
           </div>
           <div class="team-header-title padding-all">
             <h1><%= @team.team_name %></h1>
-            <h3><%= @game_win %>W - <%= @game_lose %>L</h3>
+            <h3><%= @team.game_win %>W - <%= @team.game_lose %>L</h3>
             <p><%= @team.current_season.name%></p>
-            <p><i class="fa fa-trophy icon-space-right-lg"></i>  Last Game: VS <%= @team.last_game.opponent %>, <%= @team.last_game.win_or_lose%> <%= @team.last_game.score.point_total %> - <%= @team.last_game.score.point_op_total %></p>
+            <p><i class="fa fa-trophy icon-space-right-lg"></i> Last Game: VS <%= @team.last_game.opponent %>, <%= @team.last_game.win_or_lose%> <%= @team.last_game.score.point_total %> - <%= @team.last_game.score.point_op_total %></p>
             <p><i class="fa fa-calendar icon-space-right-lg"></i> Next Game: VS <%= @team.next_game.opponent %>, <%= format_datetime(@team.next_game.gametime) %></p>
           </div>
         </div>
         <div class="team-header-stat reverse-text-color margin-all-lg text-center">
-          <div class="stat-item"><span>PPG</span>32.1</div>
-          <div class="stat-item"><span>PPG</span>32.1</div>
-          <div class="stat-item"><span>PPG</span>32.1</div>
-          <div class="stat-item hide-on-small-and-down"><span>PPG</span>32.1</div>
-          <div class="stat-item hide-on-small-and-down"><span>PPG</span>32.1</div>
-          <div class="stat-item hide-on-small-and-down"><span>PPG</span>32.1</div>
+          <div class="stat-item"><span>PPG</span><%= @team.current_season_avg_stat.points %></div>
+          <div class="stat-item"><span>RPG</span><%= @team.current_season_avg_stat.rebound %></div>
+          <div class="stat-item"><span>APG</span><%= @team.current_season_avg_stat.ast %></div>
+          <div class="stat-item hide-on-small-and-down"><span>FG%</span><%= number_to_percentage(@team.current_season_avg_stat.field_goal_percent, precision: 1) %></div>
+          <div class="stat-item hide-on-small-and-down"><span>3P%</span><%= number_to_percentage(@team.current_season_avg_stat.three_point_percent, precision: 1) %></div>
+          <div class="stat-item hide-on-small-and-down"><span>FT%</span><%= number_to_percentage(@team.current_season_avg_stat.free_throw_percent, precision: 1) %></div>
         </div>
       </div>
 

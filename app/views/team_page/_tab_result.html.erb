@@ -1,0 +1,24 @@
+<div class='row' id="tab-result">
+  <% @team.result_games.each do |game| %>
+  <div class="col xs12 s10 offset-s1">
+    <div class="card horizontal match-card match-card-result-simple">
+      <div class="aspect-content">
+        <div class="team-logo">
+          <%= image_tag('design_guide/team_logo.svg') %>
+        </div>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h5 class='display-inline'><%= game.opponent %></h5>
+          <br class="hide-on-med-and-up">
+          <span><%= format_date(game.gametime)%></span>
+          <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
+        </div>
+        <div class="card-action">
+          <a href="#">FULL GAME INFO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
