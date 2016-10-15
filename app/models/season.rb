@@ -7,7 +7,8 @@ class Season < ActiveRecord::Base
   validates :name, presence: true, uniqueness: true
 
   def set_default_season
-    unless current_season = Season.find_by(is_current_season: true).blank?
+    current_season ||= Season.find_by(is_current_season: true)
+    unless current_season.blank?
       current_season.update(is_current_season: false)
     end
     unless self.update(is_current_season: true)
