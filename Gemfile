@@ -12,9 +12,10 @@ gem 'awesome_print'
 gem 'acts_as_list'
 gem 'materialize-sass'
 gem 'font-awesome-rails'
+gem 'pg'
 
 group :production do
-  gem 'pg'
+
   gem 'rails_12factor'
 end
 

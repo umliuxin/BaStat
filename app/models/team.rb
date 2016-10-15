@@ -12,7 +12,6 @@ class Team
 
   def self.build
     @team = Team.new
-
   end
 
   def current_season
