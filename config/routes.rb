@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin, path: '/', constraints:{subdomain: 'admin'} do
+  namespace :admin, path: '/admin' do
     get '/', to: 'index#show', as: 'index'
 
     # Season Section
@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   # Design Guide
 
-  namespace :design, path: '/', constraints:{subdomain: 'design'}  do
+  namespace :design, path: '/design' do
     get '/', to: 'design#about', as: 'about'
     get 'typography', to: 'design#typography', as: 'typography'
     get 'table', to: 'design#table', as: 'table'
@@ -63,7 +63,7 @@ Rails.application.routes.draw do
   end
 
   # API
-  namespace :api, path: '/', constraints:{subdomain: 'api'}  do
+  namespace :api, path: '/api' do
     get 'team', to: 'team#team'
 
     resources :players, only: [:index, :show]
