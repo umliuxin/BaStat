@@ -110,7 +110,6 @@
         /*jshint -W018*/
         firstHeadRow.children().each(function ()
         {
-            console.log($(this).data())
             var $this = $(this),
                 data = $this.data(),
                 column = {
