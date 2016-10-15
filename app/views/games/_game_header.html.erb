@@ -1,0 +1,24 @@
+<div class="match-header-section reverse-text-color">
+  <div class="container">
+      <div class="row">
+          <div class="col xs3 offset-m1 text-center">
+            <div class='match-header-team-logo'>
+              <%= image_tag(@game.team.team_logo)%>
+              <div><strong><%= @game.team.team_name %></strong></div>
+              <div>X - X</div>
+            </div>
+          </div>
+          <div class="col xs6 m4 match-header-game-state text-center">
+            <div>Final, <%= @game.win_or_lose %></div>
+            <div class="match-header-game-score"><span><%= @game.score.point_total %></span> <span class="score-divider">|</span> <span class='grey-text text-lighten-1'><%= @game.score.point_op_total %></span></h2></div>
+            <div class="match-header-game-time"><%= format_datetime(@game.gametime) %></div>
+          </div>
+          <div class="col xs3 text-center">
+            <div class='match-header-team-logo'>
+              <%= image_tag("oppo-logo.png")%>
+              <div><strong><%= @game.opponent %></strong></div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

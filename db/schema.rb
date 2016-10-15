@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160824061805) do
+ActiveRecord::Schema.define(version: 20161013042118) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -27,10 +27,11 @@ ActiveRecord::Schema.define(version: 20160824061805) do
 
   create_table "games", force: :cascade do |t|
     t.string   "opponent"
-    t.datetime "gametime",   null: false
+    t.datetime "gametime",                    null: false
     t.integer  "season_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "game_record", default: false
   end
 
   add_index "games", ["season_id"], name: "index_games_on_season_id"
@@ -59,21 +60,22 @@ ActiveRecord::Schema.define(version: 20160824061805) do
   create_table "player_stats", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "player_id"
-    t.integer  "fgm",        default: 0
-    t.integer  "fga",        default: 0
-    t.integer  "tpm",        default: 0
-    t.integer  "tpa",        default: 0
-    t.integer  "ftm",        default: 0
-    t.integer  "fta",        default: 0
-    t.integer  "oreb",       default: 0
-    t.integer  "dreb",       default: 0
-    t.integer  "ast",        default: 0
-    t.integer  "tov",        default: 0
-    t.integer  "stl",        default: 0
-    t.integer  "blk",        default: 0
-    t.integer  "foul",       default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.float    "fgm",        default: 0.0
+    t.float    "fga",        default: 0.0
+    t.float    "tpm",        default: 0.0
+    t.float    "tpa",        default: 0.0
+    t.float    "ftm",        default: 0.0
+    t.float    "fta",        default: 0.0
+    t.float    "oreb",       default: 0.0
+    t.float    "dreb",       default: 0.0
+    t.float    "ast",        default: 0.0
+    t.float    "tov",        default: 0.0
+    t.float    "stl",        default: 0.0
+    t.float    "blk",        default: 0.0
+    t.float    "foul",       default: 0.0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "dnp",        default: false
   end
 
   add_index "player_stats", ["game_id"], name: "index_player_stats_on_game_id"
@@ -131,21 +133,21 @@ ActiveRecord::Schema.define(version: 20160824061805) do
 
   create_table "team_stats", force: :cascade do |t|
     t.integer  "game_id"
-    t.integer  "fgm",        default: 0
-    t.integer  "fga",        default: 0
-    t.integer  "tpm",        default: 0
-    t.integer  "tpa",        default: 0
-    t.integer  "ftm",        default: 0
-    t.integer  "fta",        default: 0
-    t.integer  "oreb",       default: 0
-    t.integer  "dreb",       default: 0
-    t.integer  "ast",        default: 0
-    t.integer  "tov",        default: 0
-    t.integer  "stl",        default: 0
-    t.integer  "blk",        default: 0
-    t.integer  "foul",       default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.float    "fgm",        default: 0.0
+    t.float    "fga",        default: 0.0
+    t.float    "tpm",        default: 0.0
+    t.float    "tpa",        default: 0.0
+    t.float    "ftm",        default: 0.0
+    t.float    "fta",        default: 0.0
+    t.float    "oreb",       default: 0.0
+    t.float    "dreb",       default: 0.0
+    t.float    "ast",        default: 0.0
+    t.float    "tov",        default: 0.0
+    t.float    "stl",        default: 0.0
+    t.float    "blk",        default: 0.0
+    t.float    "foul",       default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "team_stats", ["game_id"], name: "index_team_stats_on_game_id"

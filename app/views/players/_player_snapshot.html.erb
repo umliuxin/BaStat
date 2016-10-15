@@ -1,0 +1,22 @@
+<div class="col xs12 s6 m4 l3">
+  <div class="card player-card player-card-stacked responsive js-navigate-player" data-player-id= "<%= player.id %>">
+    <div class="aspect-content">
+      <div class="player-image">
+        <%= image_tag('design_guide/player_image.png', class: 'activator') %>
+      </div>
+    </div>
+    <div class="card-content grey lighten-3">
+      <div class="row no-margin">
+        <div class="col xs12 m9">
+          <div class="player-name activator semi-bold"><%= player.name %></div>
+          <div class='player-position activator hide-on-med-and-up'><%= player.number %></div>
+          <div class='player-position activator'><%= player.position %></div>
+        </div>
+        <div class="col m3 center hide-on-small-and-down">
+          <span class="player-number bold activator"><%= player.number %></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

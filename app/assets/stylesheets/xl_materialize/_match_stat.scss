@@ -5,6 +5,9 @@ $advantage-text-color:     $off-black;
 $disadvantage-text-color:  color("grey","lighten-1");
 $height-1:                 75%;
 $height-2:                 55%;
+$height-advantage:         75%;
+$height-disadvantage:      50%;
+$height-even:              55%;
 
 
 
@@ -49,20 +52,56 @@ $height-2:                 55%;
         color: $advantage-text-color;
         font-weight: $font-weight-semi-bold;
         font-size: $large-fontsize;
-        &.disadvantage{color: $disadvantage-text-color;}
       }
-      &.home-team-rect .data-text{
-        bottom: $height-1;
+    }
+    &.disadvantage{
+      color: $disadvantage-text-color;
+      .home-team-rect .data-text{
+        bottom: $height-disadvantage;
       }
-      &.away-team-rect .data-text{
-        bottom: $height-2;
+      .away-team-rect .data-text{
+        bottom: $height-advantage;
       }
-      &.home-team-rect .data-rect{
-        height:$height-1;
+      .home-team-rect .data-rect{
+        height:$height-disadvantage;
         background-color: $home-team-color;
       }
-      &.away-team-rect .data-rect{
-        height:$height-2;
+      .away-team-rect .data-rect{
+        height:$height-advantage;
+        background-color: $away-team-color;
+      }
+    }
+    &.advantage{
+      color: $disadvantage-text-color;
+      .home-team-rect .data-text{
+        bottom: $height-advantage;
+      }
+      .away-team-rect .data-text{
+        bottom: $height-disadvantage;
+      }
+      .home-team-rect .data-rect{
+        height:$height-advantage;
+        background-color: $home-team-color;
+      }
+      .away-team-rect .data-rect{
+        height:$height-disadvantage;
+        background-color: $away-team-color;
+      }
+    }
+    &.even{
+      color: $disadvantage-text-color;
+      .home-team-rect .data-text{
+        bottom: $height-even;
+      }
+      .away-team-rect .data-text{
+        bottom: $height-even;
+      }
+      .home-team-rect .data-rect{
+        height:$height-even;
+        background-color: $home-team-color;
+      }
+      .away-team-rect .data-rect{
+        height:$height-even;
         background-color: $away-team-color;
       }
     }

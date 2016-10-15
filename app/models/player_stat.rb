@@ -4,6 +4,31 @@ class PlayerStat < ActiveRecord::Base
 
   validates :game, uniqueness: { scope: :player, message: "should only have one record per game per player" }
 
+  # ATTRIBUTES
+  def points
+    self.fgm * 2 + self.tpa + self.ftm
+  end
+
+  def rebound
+    self.oreb + self.dreb
+  end
+
+  def field_goal_percent
+    return 0 if self.fga == 0
+     self.fgm * 100.to_f / self.fga
+  end
+
+  def three_point_percent
+    return 0 if self.tpa == 0
+    self.tpm * 100.to_f / self.tpa.to_f
+  end
+
+  def free_throw_percent
+    return 0 if self.fta == 0
+    self.ftm * 100.to_f / self.fta.to_f
+  end
+
+  # OPERATION
   def update_from_one_action(action)
     case action.action_index
       when 0

@@ -1,0 +1,33 @@
+<div class="row" id="tab-player">
+  <% @team.current_season.players.each do |player| %>
+  <div class="col xs6">
+    <div class="card player-card player-card-horizontal responsive">
+      <div class="aspect-content">
+        <div class="player-image waves-effect waves-block waves-light">
+          <%= image_tag('design_guide/player_image.png', class: 'activator') %>
+        </div>
+      </div>
+      <div class="card-content grey lighten-3">
+        <div class="row no-margin">
+          <div class="col xs12 hide-on-small-and-down">
+            <span class="player-number bold activator"><%= player.number %></span>
+          </div>
+          <div class="col xs12">
+            <div class="player-name activator semi-bold"><%= player.name %></div>
+            <div class='player-position activator hide-on-med-and-up'><%= player.number %></div>
+            <div class='player-position activator'><%= player.position %></div>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-reveal grey lighten-3">
+        <span class="card-title"><%= player.name %><i class="fa fa-times-circle right"></i></span>
+        <div class='player-position'><%= player.position %> - <%= player.number %></div>
+        <p><%= player.bio %></p>
+      </div>
+    </div>
+  </div>
+
+
+  <% end %>
+</div>
