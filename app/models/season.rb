@@ -16,7 +16,12 @@ class Season < ActiveRecord::Base
   end
 
   def self.get_current_season
-    return Season.find_by(is_current_season: true)
+    Season.find_by(is_current_season: true)
   end
+
+  def recorded_games
+    self.games.where(game_record: true)
+  end
+
 
 end

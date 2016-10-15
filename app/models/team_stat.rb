@@ -1,8 +1,33 @@
 class TeamStat < ActiveRecord::Base
   belongs_to :game
 
-  validates :game_id, presence:true, uniqueness:{message: "team stat should be unique" }
 
+  validates :game_id, presence:true, uniqueness:{message: "team stat should be unique" }
+  # ATTRIBUTES
+  def points
+    self.fgm * 2 + self.tpa + self.ftm
+  end
+
+  def rebound
+    self.oreb + self.dreb
+  end
+
+  def field_goal_percent
+    return 0 if self.fga == 0
+     self.fgm * 100.to_f / self.fga
+  end
+
+  def three_point_percent
+    return 0 if self.tpa == 0
+    self.tpm * 100.to_f / self.tpa.to_f
+  end
+
+  def free_throw_percent
+    return 0 if self.fta == 0
+    self.ftm * 100.to_f / self.fta.to_f
+  end
+
+  # Operation
   def update_from_one_action(action)
     case action.action_index
       when 0

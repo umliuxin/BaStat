@@ -1,5 +1,6 @@
 // Basic Style - Player Card
 .card.player-card{
+  cursor: pointer;
   &:before{
     display: block;
     content: '';

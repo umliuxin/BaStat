@@ -1,0 +1,67 @@
+<div class="player-stat col xs12" id="playerstat">
+  <div class="card-panel player-stat-section">
+    <div class="card-panel-header center-on-small-only">
+      <h3 class="reverse-text-color">Statistic</h3>
+    </div>
+    <div class="card-panel-content">
+      <div class="bootgrid-container bootgrid-stat-full first-item-fixed team without-header without-footer mar-bottom-lg pos-relative">
+        <table id="player_stat_table" class="bootgrid-table">
+          <thead>
+            <tr>
+              <th data-css-class="fixed-cell" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="season" data-formatter="text" data-visible-in-selection="false"></th>
+              <th data-column-id="gp" data-type="numeric">GP</th>
+              <th data-column-id="pts" data-type="numeric">PTS</th>
+              <th data-column-id="fgm" data-type="numeric">FGM</th>
+              <th data-column-id="fga" data-type="numeric">FGA</th>
+              <th data-column-id="fg_per" data-type="numeric">FG%</th>
+              <th data-column-id="threepm" data-type="numeric">3PM</th>
+              <th data-column-id="threepa" data-type="numeric">3PA</th>
+              <th data-column-id="threep_per" data-type="numeric">3P%</th>
+              <th data-column-id="ftm" data-type="numeric">FTM</th>
+              <th data-column-id="fta" data-type="numeric">FTA</th>
+              <th data-column-id="ft_per" data-type="numeric">FT%</th>
+              <th data-column-id="oreb" data-type="numeric">OREB</th>
+              <th data-column-id="dreb" data-type="numeric">DREB</th>
+              <th data-column-id="reb" data-type="numeric">REB</th>
+              <th data-column-id="ast" data-type="numeric">AST</th>
+              <th data-column-id="tov" data-type="numeric">TOV</th>
+              <th data-column-id="stl" data-type="numeric">STL</th>
+              <th data-column-id="blk" data-type="numeric">BLK</th>
+              <th data-column-id="pf" data-type="numeric">PF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @player.avg_stat_seasons.each do |avg_stat|  %>
+            <tr>
+              <td><%= Season.find(avg_stat.id).name%></td>
+              <td><%= avg_stat.game_id %></td>
+              <td><%= avg_stat.points %></td>
+              <td><%= avg_stat.fgm %></td>
+              <td><%= avg_stat.fga %></td>
+              <td><%= avg_stat.field_goal_percent %></td>
+              <td><%= avg_stat.tpm %></td>
+              <td><%= avg_stat.tpa %></td>
+              <td><%= avg_stat.three_point_percent %></td>
+              <td><%= avg_stat.ftm %></td>
+              <td><%= avg_stat.fta %></td>
+              <td><%= avg_stat.free_throw_percent %></td>
+              <td><%= avg_stat.oreb %></td>
+              <td><%= avg_stat.dreb %></td>
+              <td><%= avg_stat.rebound %></td>
+              <td><%= avg_stat.ast %></td>
+              <td><%= avg_stat.tov %></td>
+              <td><%= avg_stat.stl %></td>
+              <td><%= avg_stat.blk %></td>
+              <td><%= avg_stat.foul %></td>
+            </tr>
+            <% end %>
+
+
+          </tbody>
+        </table>
+
+      </div>
+      <%# End table container %>
+    </div>
+  </div>
+</div>

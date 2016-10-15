@@ -15,3 +15,4 @@
 //= require materialize.min
 //= require turbolinks
 //= require_tree ./component
+//= require_tree ./page

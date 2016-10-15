@@ -1,0 +1,78 @@
+<div class="player-gamelog col xs12" id="playergamelog">
+  <div class="card-panel player-gamelog-section">
+    <div class="card-panel-header center-on-small-only">
+      <h3 class="reverse-text-color">Game Logs</h3>
+    </div>
+    <div class="card-panel-content">
+      <div class='player-gamelog-season-select hide'>
+        <div class="input-field">
+          <select>
+            <option value="" disabled selected>Choose your option</option>
+            <% @player.seasons.each do |season| %>
+            <option value="<%= season.id %>"><%= season.name %></option>
+            <% end %>
+
+          </select>
+          <label>Season Select</label>
+        </div>
+      </div>
+      <div class="bootgrid-container bootgrid-stat-full first-item-fixed team without-header without-footer mar-bottom-lg pos-relative">
+        <table id="player_gamelog_table" class="bootgrid-table">
+          <thead>
+            <tr>
+              <th data-css-class="fixed-cell" data-header-css-class="fixed-cell" data-column-id="gameoppo" data-formatter="text" data-visible-in-selection="false"></th>
+              <th data-column-id="game">G</th>
+              <th data-column-id="pts" data-type="numeric">PTS</th>
+              <th data-column-id="reb" data-type="numeric">REB</th>
+              <th data-column-id="ast" data-type="numeric">AST</th>
+              <th data-column-id="fgm" data-type="numeric">FGM</th>
+              <th data-column-id="fga" data-type="numeric">FGA</th>
+              <th data-column-id="fg_per" data-type="numeric">FG%</th>
+              <th data-column-id="threepm" data-type="numeric">3PM</th>
+              <th data-column-id="threepa" data-type="numeric">3PA</th>
+              <th data-column-id="threep_per" data-type="numeric">3P%</th>
+              <th data-column-id="ftm" data-type="numeric">FTM</th>
+              <th data-column-id="fta" data-type="numeric">FTA</th>
+              <th data-column-id="ft_per" data-type="numeric">FT%</th>
+              <th data-column-id="oreb" data-type="numeric">OREB</th>
+              <th data-column-id="dreb" data-type="numeric">DREB</th>
+              <th data-column-id="tov" data-type="numeric">TOV</th>
+              <th data-column-id="stl" data-type="numeric">STL</th>
+              <th data-column-id="blk" data-type="numeric">BLK</th>
+              <th data-column-id="pf" data-type="numeric">PF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @player.current_season_games.each do|game| %>
+              <tr>
+                <td><%= game.opponent %></td>
+                <td><%= game.win_or_lose %></td>
+                <td><%= game.find_player_stat_by_player(@player).points %></td>
+                <td><%= game.find_player_stat_by_player(@player).rebound %></td>
+                <td><%= game.find_player_stat_by_player(@player).ast %></td>
+                <td><%= game.find_player_stat_by_player(@player).fgm %></td>
+                <td><%= game.find_player_stat_by_player(@player).fga %></td>
+                <td><%= game.find_player_stat_by_player(@player).field_goal_percent %></td>
+                <td><%= game.find_player_stat_by_player(@player).tpm %></td>
+                <td><%= game.find_player_stat_by_player(@player).tpa %></td>
+                <td><%= game.find_player_stat_by_player(@player).three_point_percent %></td>
+                <td><%= game.find_player_stat_by_player(@player).ftm %></td>
+                <td><%= game.find_player_stat_by_player(@player).fta %></td>
+                <td><%= game.find_player_stat_by_player(@player).free_throw_percent %></td>
+                <td><%= game.find_player_stat_by_player(@player).oreb %></td>
+                <td><%= game.find_player_stat_by_player(@player).dreb %></td>
+                <td><%= game.find_player_stat_by_player(@player).tov %></td>
+                <td><%= game.find_player_stat_by_player(@player).stl %></td>
+                <td><%= game.find_player_stat_by_player(@player).blk %></td>
+                <td><%= game.find_player_stat_by_player(@player).foul %></td>
+              </tr>
+            <% end %>
+
+          </tbody>
+        </table>
+
+      </div>
+      <%# End table container %>
+    </div>
+  </div>
+</div>

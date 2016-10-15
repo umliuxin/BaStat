@@ -8,8 +8,8 @@
       font-weight: $font-weight-normal;
     }
   }
-  &-content{
-    padding: 16px 0;
+  &-content, &-subheader, &-subfooter{
+    padding: 16px;
   }
   &-footer{
     border-top: 1px solid $divider-color;

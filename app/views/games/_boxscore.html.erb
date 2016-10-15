@@ -1,0 +1,57 @@
+<div class="match-boxscore col xs12" id="boxscore">
+  <div class="card-panel match-boxscore-section">
+    <div class="card-panel-header center-on-small-only">
+      <h3 class="reverse-text-color">Team Boxscore</h3>
+    </div>
+    <div class="card-panel-content">
+      <div class="bootgrid-container bootgrid-stat-full first-item-fixed boxscore without-header without-footer pos-relative">
+        <table id="match_boxscore_table" class="bootgrid-table">
+          <thead>
+            <tr>
+              <th data-css-class="fixed-cell" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="name" data-formatter="text" data-visible-in-selection="false"></th>
+              <th data-column-id="position">P</th>
+              <th data-column-id="point" data-type="numeric">PTS</th>
+              <th data-column-id="assist" data-type="numeric">AST</th>
+              <th data-column-id="reb" data-type="numeric">REB</th>
+              <th data-column-id="oreb" data-type="numeric">OREB</th>
+              <th data-column-id="dreb" data-type="numeric">DREB</th>
+              <th data-column-id="fg" >FGM-FGA</th>
+              <th data-column-id="fg_per">FG%</th>
+              <th data-column-id="3pt" >3PTM-3PTA</th>
+              <th data-column-id="3pt_per">3PT%</th>
+              <th data-column-id="ft" >FTM-FTA</th>
+              <th data-column-id="ft_per">FT%</th>
+              <th data-column-id="blk" data-type="numeric">BLK</th>
+              <th data-column-id="stl" data-type="numeric">STL</th>
+              <th data-column-id="tov" data-type="numeric">TO</th>
+              <th data-column-id="pf" data-type="numeric">PF</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @game.player_stats.each do |playerstat| %>
+            <tr>
+              <td><%= playerstat.player.name %></td>
+              <td><%= short_position(playerstat.player.position) %></td>
+              <td><%= playerstat.points %></td>
+              <td><%= playerstat.ast %></td>
+              <td><%= playerstat.rebound %></td>
+              <td><%= playerstat.oreb %></td>
+              <td><%= playerstat.dreb %></td>
+              <td><%= playerstat.fgm %>/<%= playerstat.fga %></td>
+              <td><%= number_to_percentage(playerstat.field_goal_percent, precision: 1)%></td>
+              <td><%= playerstat.tpm %>/<%= playerstat.tpa %></td>
+              <td><%= number_to_percentage(playerstat.three_point_percent, precision: 1)%></td>
+              <td><%= playerstat.ftm %>/<%= playerstat.fta %></td>
+              <td><%= number_to_percentage(playerstat.free_throw_percent, precision: 1)%></td>
+              <td><%= playerstat.blk %></td>
+              <td><%= playerstat.stl %></td>
+              <td><%= playerstat.tov %></td>
+              <td><%= playerstat.foul %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

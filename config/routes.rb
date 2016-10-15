@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin, path: 'admin' do
+  namespace :admin, path: '/', constraints:{subdomain: 'admin'} do
     get '/', to: 'index#show', as: 'index'
 
     # Season Section
@@ -38,26 +38,48 @@ Rails.application.routes.draw do
   end
 
   # Design Guide
-  get '/design/', to: 'design#about', as: 'design_about'
-  get 'design/typography', to: 'design#typography', as: 'design_typography'
-  get 'design/table', to: 'design#table', as: 'design_table'
-  get 'design/table_example', to: 'design#table_example', as: 'design_table_example'
-  get 'design/dropdown', to: 'design#dropdown', as: 'design_dropdown'
-  get 'design/card-panel', to: 'design#card_panel', as: 'design_card_panel'
 
-  get 'design/player_card', to: 'design#player_card', as: 'design_player_card'
-  get 'design/player_header', to: 'design#player_header', as: 'design_player_header'
+  namespace :design, path: '/', constraints:{subdomain: 'design'}  do
+    get '/', to: 'design#about', as: 'about'
+    get 'typography', to: 'design#typography', as: 'typography'
+    get 'table', to: 'design#table', as: 'table'
+    get 'table_example', to: 'design#table_example', as: 'table_example'
+    get 'dropdown', to: 'design#dropdown', as: 'dropdown'
+    get 'card-panel', to: 'design#card_panel', as: 'card_panel'
 
-  get 'design/match_card', to: 'design#match_card', as: 'design_match_card'
-  get 'design/match_header', to: 'design#match_header', as: 'design_match_header'
-  get 'design/match_stat', to: 'design#match_stat', as: 'design_match_stat'
-  get 'design/match_boxscore', to: 'design#match_boxscore', as: 'design_match_boxscore'
-  get 'design/match_playbyplay', to: 'design#match_playbyplay', as: 'design_match_playbyplay'
+    get 'player_card', to: 'design#player_card', as: 'player_card'
+    get 'player_header', to: 'design#player_header', as: 'player_header'
 
-  get 'design/team_header', to: 'design#team_header', as: 'design_team_header'
+    get 'match_card', to: 'design#match_card', as: 'match_card'
+    get 'match_header', to: 'design#match_header', as: 'match_header'
+    get 'match_stat', to: 'design#match_stat', as: 'match_stat'
+    get 'match_boxscore', to: 'design#match_boxscore', as: 'match_boxscore'
+    get 'match_playbyplay', to: 'design#match_playbyplay', as: 'match_playbyplay'
 
-  get 'design/global_nav', to: 'design#global_nav', as: 'design_global_nav'
+    get 'team_header', to: 'design#team_header', as: 'team_header'
 
+    get 'global_nav', to: 'design#global_nav', as: 'global_nav'
+
+  end
+
+  # API
+  namespace :api, path: '/', constraints:{subdomain: 'api'}  do
+    get 'team', to: 'team#team'
+
+    resources :players, only: [:index, :show]
+
+    resources :seasons, only: [:index, :show]
+
+    resources :games, only: [:index, :show]
+
+  end
+
+
+  resources :players, only: [:index, :show]
+
+  resources :games, only: [:show]
+  get '/schedules', to: 'gamelist#schedules'
+  get '/results', to: 'gamelist#results'
 
   root 'team_page#show'
 

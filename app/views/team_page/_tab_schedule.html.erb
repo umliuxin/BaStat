@@ -1,0 +1,25 @@
+<div class='row' id="tab-schedule">
+  <% @team.schedule_games.each do |game| %>
+  <div class="col xs12 s10 offset-s1">
+    <div class="card horizontal match-card match-card-schedule">
+      <div class="aspect-content">
+        <div class="team-logo">
+          <%= image_tag('design_guide/team_logo.svg') %>
+        </div>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h3 class='no-margin margin-bottom'><%= game.opponent %></h3>
+          <p><strong><%= format_datetime(game.gametime) %></strong></p>
+          <p><%= STADIUM_ADDRESS %></p>
+
+        </div>
+        <div class="card-action">
+
+          <a href="#">ADD TO CALENDER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
