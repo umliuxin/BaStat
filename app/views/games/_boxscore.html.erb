@@ -29,25 +29,29 @@
           </thead>
           <tbody>
             <% @game.player_stats.each do |playerstat| %>
-            <tr>
-              <td><%= playerstat.player.name %></td>
-              <td><%= short_position(playerstat.player.position) %></td>
-              <td><%= playerstat.points %></td>
-              <td><%= playerstat.ast %></td>
-              <td><%= playerstat.rebound %></td>
-              <td><%= playerstat.oreb %></td>
-              <td><%= playerstat.dreb %></td>
-              <td><%= playerstat.fgm %>/<%= playerstat.fga %></td>
-              <td><%= number_to_percentage(playerstat.field_goal_percent, precision: 1)%></td>
-              <td><%= playerstat.tpm %>/<%= playerstat.tpa %></td>
-              <td><%= number_to_percentage(playerstat.three_point_percent, precision: 1)%></td>
-              <td><%= playerstat.ftm %>/<%= playerstat.fta %></td>
-              <td><%= number_to_percentage(playerstat.free_throw_percent, precision: 1)%></td>
-              <td><%= playerstat.blk %></td>
-              <td><%= playerstat.stl %></td>
-              <td><%= playerstat.tov %></td>
-              <td><%= playerstat.foul %></td>
-            </tr>
+              <% unless playerstat.dnp %>
+                <tr>
+                  <td><%= playerstat.player.name %></td>
+                  <td><%= short_position(playerstat.player.position) %></td>
+                  <td><%= playerstat.points %></td>
+                  <td><%= playerstat.ast %></td>
+                  <td><%= playerstat.rebound %></td>
+                  <td><%= playerstat.oreb %></td>
+                  <td><%= playerstat.dreb %></td>
+                  <td><%= playerstat.fgm %>/<%= playerstat.fga %></td>
+                  <td><%= number_to_percentage(playerstat.field_goal_percent, precision: 1)%></td>
+                  <td><%= playerstat.tpm %>/<%= playerstat.tpa %></td>
+                  <td><%= number_to_percentage(playerstat.three_point_percent, precision: 1)%></td>
+                  <td><%= playerstat.ftm %>/<%= playerstat.fta %></td>
+                  <td><%= number_to_percentage(playerstat.free_throw_percent, precision: 1)%></td>
+                  <td><%= playerstat.blk %></td>
+                  <td><%= playerstat.stl %></td>
+                  <td><%= playerstat.tov %></td>
+                  <td><%= playerstat.foul %></td>
+                </tr>
+
+              <% end %>
+
             <% end %>
           </tbody>
         </table>

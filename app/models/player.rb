@@ -34,7 +34,7 @@ class Player < ActiveRecord::Base
 FROM player_stats
 LEFT JOIN games
 ON player_stats.game_id=games.id
-WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t' AND games.season_id="+Season.get_current_season.id.to_s
+WHERE dnp='f' AND player_id="+ self.id.to_s+" AND dnp='f' AND games.game_record ='t' AND games.season_id="+Season.get_current_season.id.to_s
     PlayerStat.find_by_sql(sql).first
   end
 
@@ -44,7 +44,7 @@ WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t' AND gam
 FROM player_stats
 LEFT JOIN games
 ON player_stats.game_id=games.id
-WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t'
+WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t' AND dnp='f'
 GROUP BY games.season_id
 "
     PlayerStat.find_by_sql(sql)

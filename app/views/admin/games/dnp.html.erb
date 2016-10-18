@@ -1,0 +1,30 @@
+<h1>DNP List</h1>
+
+<section>
+  <ul>
+    <li>Game ID: <%= @game.id %> </li>
+    <li>Game Oppo: <%= @game.opponent %></li>
+  </ul>
+</section>
+
+<section>
+  <h3>DNP List</h3>
+  <% if @outgame.blank? %>
+    GOOD, no one is in DNP list
+  <% else %>
+    <ul>
+    <% @outgame.each do |playerstat| %>
+      <li><%=playerstat.player.name %>, <%= link_to 'Remove', admin_game_remove_dnp_path(playerstat.game_id, playerstat.player_id)%></li>
+    <% end %>
+    </ul>
+  <% end %>
+</section>
+
+<section>
+  <h3>In-Game Players</h3>
+  <ul>
+  <% @ingame.each do |playerstat| %>
+    <li><%=playerstat.player.name %>, <%= link_to 'Add To DNP', admin_game_add_dnp_path(playerstat.game_id, playerstat.player_id)%></li>
+  <% end %>
+  </ul>
+</section>

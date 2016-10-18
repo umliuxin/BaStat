@@ -5,7 +5,7 @@ class TeamStat < ActiveRecord::Base
   validates :game_id, presence:true, uniqueness:{message: "team stat should be unique" }
   # ATTRIBUTES
   def points
-    self.fgm * 2 + self.tpa + self.ftm
+    self.fgm * 2 + self.tpm + self.ftm
   end
 
   def rebound

@@ -6,7 +6,7 @@ class PlayerStat < ActiveRecord::Base
 
   # ATTRIBUTES
   def points
-    self.fgm * 2 + self.tpa + self.ftm
+    self.fgm * 2 + self.tpm + self.ftm
   end
 
   def rebound
@@ -29,6 +29,10 @@ class PlayerStat < ActiveRecord::Base
   end
 
   # OPERATION
+  def update_dnp(bol)
+    self.update(dnp: bol)
+  end
+
   def update_from_one_action(action)
     case action.action_index
       when 0

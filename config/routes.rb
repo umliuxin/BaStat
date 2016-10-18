@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  namespace :admin, path: '/', constraints:{subdomain: 'admin'} do
+  namespace :admin, path: '/admin' do
     get '/', to: 'index#show', as: 'index'
 
     # Season Section
@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     get 'games/:id', to:'games#show', as: 'game'
     get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
 
+    get 'games/:id/dnp', to: 'games#dnp', as: 'game_dnp'
+    get 'adddnp/:game_id/:player_id', to: 'games#dnp_add', as: 'game_add_dnp'
+    get 'removednp/:game_id/:player_id', to: 'games#dnp_remove', as: 'game_remove_dnp'
+
     # Action Section
     post '/actions', to: 'actions#create', as: 'create_action'
     get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'
@@ -39,7 +43,7 @@ Rails.application.routes.draw do
 
   # Design Guide
 
-  namespace :design, path: '/', constraints:{subdomain: 'design'}  do
+  namespace :design, path: '/design' do
     get '/', to: 'design#about', as: 'about'
     get 'typography', to: 'design#typography', as: 'typography'
     get 'table', to: 'design#table', as: 'table'
@@ -63,7 +67,7 @@ Rails.application.routes.draw do
   end
 
   # API
-  namespace :api, path: '/', constraints:{subdomain: 'api'}  do
+  namespace :api, path: '/api' do
     get 'team', to: 'team#team'
 
     resources :players, only: [:index, :show]
