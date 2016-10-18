@@ -1,11 +1,11 @@
 <h1>GAME Record</h1>
 
 <section>
-
   <ul>
     <li>Game ID: <%= @game.id %> </li>
     <li>Game Oppo: <%= @game.opponent %></li>
     <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
+    <li><%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%></li>
   </ul>
 </section>
 <section>
@@ -29,7 +29,7 @@
         <td><%= @score.point_total %></td>
       </tr>
       <tr>
-        <td>@game.opponent</td>
+        <td><%= @game.opponent %></td>
         <td><%= @score.point_op_q1 %></td>
         <td><%= @score.point_op_q2 %></td>
         <td><%= @score.point_op_q3 %></td>
@@ -44,17 +44,22 @@
 <section>
     <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%>
 </section>
-<section>
+<section class='admin-game-form'>
   <%= form_for :move, url: admin_create_action_path do |f| %>
+    <%= f.submit %><br>
     <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
 
-    <%= f.radio_button :player_id, OPPO_TEAM_ID %> Oppo
-    <%= f.radio_button :player_id, TEAM_ID %> Team <br/>
+    <%= f.radio_button :player_id, TEAM_ID %>
+    <label for="move_player_id_0">TEAM</label>
+    <%= f.radio_button :player_id, OPPO_TEAM_ID %>
+    <label for="move_player_id_-1">OPPO</label>
 
 
-    <br>
+    <br><br>
     <% GAME_ACTION_LIST.each_with_index do |val,index| %>
-      <%= f.radio_button :action_index, index %> <%= val %><br />
+      <label>
+      <%= f.radio_button :action_index, index %> <%= val %>
+      </label>
     <% end %>
 
 
@@ -62,7 +67,7 @@
     <%= f.hidden_field :position, value: params[:position] %>
     <%= f.hidden_field :quarter, value: @score.recording_quarter %>
 
-    <%= f.submit %>
+
 
   <% end %>
 </section>

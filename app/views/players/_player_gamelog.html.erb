@@ -44,28 +44,31 @@
           </thead>
           <tbody>
             <% @player.current_season_games.each do|game| %>
-              <tr>
-                <td><%= game.opponent %></td>
-                <td><%= game.win_or_lose %></td>
-                <td><%= game.find_player_stat_by_player(@player).points %></td>
-                <td><%= game.find_player_stat_by_player(@player).rebound %></td>
-                <td><%= game.find_player_stat_by_player(@player).ast %></td>
-                <td><%= game.find_player_stat_by_player(@player).fgm %></td>
-                <td><%= game.find_player_stat_by_player(@player).fga %></td>
-                <td><%= game.find_player_stat_by_player(@player).field_goal_percent %></td>
-                <td><%= game.find_player_stat_by_player(@player).tpm %></td>
-                <td><%= game.find_player_stat_by_player(@player).tpa %></td>
-                <td><%= game.find_player_stat_by_player(@player).three_point_percent %></td>
-                <td><%= game.find_player_stat_by_player(@player).ftm %></td>
-                <td><%= game.find_player_stat_by_player(@player).fta %></td>
-                <td><%= game.find_player_stat_by_player(@player).free_throw_percent %></td>
-                <td><%= game.find_player_stat_by_player(@player).oreb %></td>
-                <td><%= game.find_player_stat_by_player(@player).dreb %></td>
-                <td><%= game.find_player_stat_by_player(@player).tov %></td>
-                <td><%= game.find_player_stat_by_player(@player).stl %></td>
-                <td><%= game.find_player_stat_by_player(@player).blk %></td>
-                <td><%= game.find_player_stat_by_player(@player).foul %></td>
-              </tr>
+              <% playerstat ||= game.find_player_stat_by_player(@player) %>
+              <% unless playerstat.dnp %>
+                <tr>
+                  <td><%= game.opponent %></td>
+                  <td><%= game.win_or_lose %></td>
+                  <td><%= playerstat.points %></td>
+                  <td><%= playerstat.rebound %></td>
+                  <td><%= playerstat.ast %></td>
+                  <td><%= playerstat.fgm %></td>
+                  <td><%= playerstat.fga %></td>
+                  <td><%= playerstat.field_goal_percent %></td>
+                  <td><%= playerstat.tpm %></td>
+                  <td><%= playerstat.tpa %></td>
+                  <td><%= playerstat.three_point_percent %></td>
+                  <td><%= playerstat.ftm %></td>
+                  <td><%= playerstat.fta %></td>
+                  <td><%= playerstat.free_throw_percent %></td>
+                  <td><%= playerstat.oreb %></td>
+                  <td><%= playerstat.dreb %></td>
+                  <td><%= playerstat.tov %></td>
+                  <td><%= playerstat.stl %></td>
+                  <td><%= playerstat.blk %></td>
+                  <td><%= playerstat.foul %></td>
+                </tr>
+              <% end %>
             <% end %>
 
           </tbody>

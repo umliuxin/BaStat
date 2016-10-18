@@ -29,6 +29,10 @@ class PlayerStat < ActiveRecord::Base
   end
 
   # OPERATION
+  def update_dnp(bol)
+    self.update(dnp: bol)
+  end
+
   def update_from_one_action(action)
     case action.action_index
       when 0

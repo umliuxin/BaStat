@@ -27,6 +27,10 @@ Rails.application.routes.draw do
     get 'games/:id', to:'games#show', as: 'game'
     get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
 
+    get 'games/:id/dnp', to: 'games#dnp', as: 'game_dnp'
+    get 'adddnp/:game_id/:player_id', to: 'games#dnp_add', as: 'game_add_dnp'
+    get 'removednp/:game_id/:player_id', to: 'games#dnp_remove', as: 'game_remove_dnp'
+
     # Action Section
     post '/actions', to: 'actions#create', as: 'create_action'
     get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'
