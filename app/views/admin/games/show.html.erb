@@ -10,6 +10,8 @@
 </section>
 <section>
   <h5>Score</h5>
+  <%= form_for @score, url: admin_game_update_score_path, method: 'post' do |f| %>
+  <%= f.submit %>
   <table>
     <thead>
       <td>Team</td>
@@ -22,22 +24,23 @@
     <tbody>
       <tr>
         <td>LSJ</td>
-        <td><%= @score.point_q1 %></td>
-        <td><%= @score.point_q2 %></td>
-        <td><%= @score.point_q3 %></td>
-        <td><%= @score.point_q4 %></td>
+        <td width='80px'><%= f.text_field :point_q1, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_q2, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_q3, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_q4, class: 'small-text-field' %></td>
         <td><%= @score.point_total %></td>
       </tr>
       <tr>
         <td><%= @game.opponent %></td>
-        <td><%= @score.point_op_q1 %></td>
-        <td><%= @score.point_op_q2 %></td>
-        <td><%= @score.point_op_q3 %></td>
-        <td><%= @score.point_op_q4 %></td>
+        <td width='80px'><%= f.text_field :point_op_q1, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_op_q2, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_op_q3, class: 'small-text-field' %></td>
+        <td width='80px'><%= f.text_field :point_op_q4, class: 'small-text-field' %></td>
         <td><%= @score.point_op_total %></td>
       </tr>
     </tbody>
   </table>
+  <% end %>
   <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
 </section>
 <% unless @score.end_recording? %>
