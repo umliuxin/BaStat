@@ -1,4 +1,7 @@
 class Game < ActiveRecord::Base
+
+  include GameConcern
+
   belongs_to :season
   has_one :team_stat
   has_one :oppo_team_stat
@@ -52,10 +55,15 @@ class Game < ActiveRecord::Base
     @player_stat ||= self.player_stats.find_by(player: player)
   end
 
-
-
-
-
+  def get_stats_top_player
+    # points, rebs, assits
+    stats = self.player_stats.where(dnp: false)
+    {
+      point: get_max_stats(stats, 'point'),
+      ast: get_max_stats(stats, 'ast'),
+      reb: get_max_stats(stats, 'reb')
+    }
+  end
 
   def migrate
     # Update team stat, oppo team stat, players_stat

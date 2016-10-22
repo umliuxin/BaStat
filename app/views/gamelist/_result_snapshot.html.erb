@@ -1,3 +1,4 @@
+<% top_stats = game.get_stats_top_player %>
 <div class="col xs12 l10 offset-l1">
   <div class="js-match-cards-flip">
     <div class="card horizontal match-card match-card-result-simple">
@@ -8,10 +9,33 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h5 class='display-inline'><%= game.opponent%></h5>
-          <br class="hide-on-med-and-up">
-          <span><%= format_date(game.gametime)%></span>
-          <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
+          <div class="col m4 xs12 no-padding">
+            <h5 class='display-inline'><%= game.opponent%></h5>
+            <br class="hide-on-med-and-up">
+            <span><%= format_date(game.gametime)%></span>
+            <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
+          </div>
+          <div class="col m8 no-padding hide-on-small-and-down top-three-players">
+            <div class="top-player">
+              <div class="top-player-text">
+                <%= top_stats[:point].points.to_i %> PTS
+              </div>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+            </div>
+            <div class="top-player">
+              <div class="top-player-text">
+                <%= top_stats[:reb].rebound.to_i %> REBS
+              </div>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+            </div>
+            <div class="top-player">
+              <div class="top-player-text">
+                <%= top_stats[:ast].ast.to_i %> ASTS
+              </div>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+            </div>
+
+          </div>
         </div>
         <div class="card-action">
           <a href="#">FULL GAME INFO</a>
@@ -26,7 +50,7 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <div class="col s6 no-padding">
+          <div class="col xs12 s5 no-padding">
             <h5 class='display-inline'><%= game.opponent%>, <%= format_date(game.gametime)%></h5>
             <h4 class='no-margin'><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h4>
             <div>
@@ -58,14 +82,22 @@
               </table>
             </div>
           </div>
-          <div class="col s6 no-padding">
+          <div class="col s7 no-padding hide-on-xsmall-only match-card-detail-section">
             <div class='padding-all-lg'>
               <h5>REB</h5>
-              <p><%= game.team_stat.oreb + game.team_stat.dreb%> - <%= game.oppo_team_stat.oreb + game.oppo_team_stat.dreb %></p>
+              <p><%= game.team_stat.rebound.to_i %> - <%= game.oppo_team_stat.rebound.to_i %></p>
               <h5>AST</h5>
-              <p><%= game.team_stat.ast %> - <%= game.oppo_team_stat.ast %></p>
-              <h5>BLK</h5>
-              <p><%= game.team_stat.blk %> - <%= game.oppo_team_stat.blk %></p>
+              <p><%= game.team_stat.ast.to_i %> - <%= game.oppo_team_stat.ast.to_i %></p>
+              <h5>TOV</h5>
+              <p><%= game.team_stat.tov.to_i %> - <%= game.oppo_team_stat.tov.to_i %></p>
+            </div>
+            <div class='padding-all-lg'>
+              <h5>FG%</h5>
+              <p><%= number_to_percentage(game.team_stat.field_goal_percent, precision: 1) %> - <%= number_to_percentage(game.oppo_team_stat.field_goal_percent, precision: 1) %></p>
+              <h5>3P%</h5>
+              <p><%= number_to_percentage(game.team_stat.three_point_percent, precision: 1) %> - <%= number_to_percentage(game.oppo_team_stat.three_point_percent, precision: 1) %></p>
+              <h5>FT%</h5>
+              <p><%= number_to_percentage(game.team_stat.free_throw_percent, precision: 1) %> - <%= number_to_percentage(game.oppo_team_stat.free_throw_percent, precision: 1) %></p>
             </div>
           </div>
         </div>

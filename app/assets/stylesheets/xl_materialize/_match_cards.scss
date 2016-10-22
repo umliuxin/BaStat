@@ -31,6 +31,26 @@ $match-index-width:       40px !default;
       padding:10px;
     }
   }
+  .top-three-players{
+    .top-player{
+      width:33.33333%;
+      float: left;
+      height: 75px;
+      position: relative;
+      .top-player-text{
+        position: absolute;
+        bottom: -40px;
+        width:100%;
+        text-align: center;
+      }
+      .top-player-image{
+        position:absolute;
+        bottom: -10px;
+        width: 78%;
+        left: 11%;
+      }
+    }
+  }
 }
 
 @media #{$small-and-down}{
@@ -52,4 +72,12 @@ $match-index-width:       40px !default;
   .aspect-content{width: 15%;}
   .team-logo{}
   .card-stacked{margin-left: 15%;}
+  .match-card-detail-section{
+    >div{
+      float: left;
+      max-width: 50%;
+      min-width: 40%;
+      text-align: center;
+    }
+  }
 }
