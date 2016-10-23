@@ -3,7 +3,7 @@
   <div class="col xs12 s10 offset-s1">
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
-        <div class="team-logo">
+        <div class="team-logo js-to-url" data-url="<%= game_path(game)%>">
           <%= image_tag('design_guide/team_logo.svg') %>
         </div>
       </div>
@@ -15,7 +15,7 @@
           <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
         </div>
         <div class="card-action">
-          <a href="#">FULL GAME INFO</a>
+          <%= link_to 'FULL GAME INFO', game_path(game) %>
         </div>
       </div>
     </div>

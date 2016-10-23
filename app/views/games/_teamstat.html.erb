@@ -28,11 +28,11 @@
         <div class="stat-item col xs12 m4 text-center <%= team_stat_class(@game.team_stat.rebound, @game.oppo_team_stat.rebound) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'><%= @game.team_stat.rebound %></div>
+            <div class='data-text'><%= @game.team_stat.rebound.to_i %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= @game.oppo_team_stat.rebound %></div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.rebound.to_i %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">REB</div>
         </div>
@@ -40,11 +40,11 @@
         <div class="stat-item col xs12 m4 text-center <%= team_stat_class(@game.team_stat.ast, @game.oppo_team_stat.ast) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'><%= @game.team_stat.ast %></div>
+            <div class='data-text'><%= @game.team_stat.ast.to_i %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= @game.oppo_team_stat.ast %></div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.ast.to_i %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">AST</div>
         </div>
@@ -55,11 +55,11 @@
         <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.stl, @game.oppo_team_stat.stl) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'><%= @game.team_stat.stl %></div>
+            <div class='data-text'><%= @game.team_stat.stl.to_i %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= @game.oppo_team_stat.stl %></div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.stl.to_i %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">STL</div>
         </div>
@@ -67,11 +67,11 @@
         <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.blk, @game.oppo_team_stat.blk) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'><%= @game.team_stat.blk %></div>
+            <div class='data-text'><%= @game.team_stat.blk.to_i %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= @game.oppo_team_stat.blk %></div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.blk.to_i %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">BLK</div>
         </div>
@@ -79,11 +79,11 @@
         <div class="stat-item col xs12 m2 text-center <%= team_stat_class(@game.team_stat.tov, @game.oppo_team_stat.tov) %>">
           <div class="item-rect home-team-rect">
             <div class='data-rect padding-all-sm'>HOME</div>
-            <div class='data-text'><%= @game.team_stat.tov %></div>
+            <div class='data-text'><%= @game.team_stat.tov.to_i %></div>
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= @game.oppo_team_stat.tov %></div>
+            <div class='data-text disadvantage'><%= @game.oppo_team_stat.tov.to_i %></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">TOV</div>
         </div>
