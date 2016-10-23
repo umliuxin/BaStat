@@ -24,7 +24,22 @@ $(document).ready(function(){
               return row.ftm + ' / '+ row.fta
             }
         }
-    }
+      }
     }
   );
+
+  $('#pbp-q1').click(function(){
+    $(document).scrollTop($('#Quarter_1').position().top);
+  });
+  $('#pbp-q2').click(function(){
+    $(document).scrollTop($('#Quarter_2').position().top);
+  });
+  $('#pbp-q3').click(function(){
+    $(document).scrollTop($('#Quarter_3').position().top);
+  });
+  $('#pbp-q4').click(function(){
+    $(document).scrollTop($('#Quarter_4').position().top);
+  });
+
+
 });
