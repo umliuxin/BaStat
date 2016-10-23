@@ -15,13 +15,13 @@ $(document).ready(function(){
         },
         "ratio": function(column,row){
             if (column.id == 'fg'){
-              return row.fgm + ' / '+ row.fga;
+              return row.fgm + '/'+ row.fga;
             }
             else if (column.id == '3pt') {
-              return row.tpm + ' / '+ row.tpa
+              return row.tpm + '/'+ row.tpa
             }
             else if (column.id == 'ft') {
-              return row.ftm + ' / '+ row.fta
+              return row.ftm + '/'+ row.fta
             }
         }
       }
