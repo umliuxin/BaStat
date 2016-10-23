@@ -11,5 +11,8 @@
   input:checked + label {
     border-color: #333;
   }
+}
 
+.small-text-field{
+  max-width: 50px;
 }

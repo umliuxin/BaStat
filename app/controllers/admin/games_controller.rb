@@ -6,7 +6,7 @@ module Admin
       @player_collection = @game.players
       @action_list = Action.where(game: @game).order('position')
       @score = Score.find_by(game: @game)
-      
+
     end
 
     def dnp
@@ -53,11 +53,23 @@ module Admin
       redirect_to admin_game_path(@game)
     end
 
+    def update_score
+      sparams = score_params
+      sparams[:point_total] = sparams[:point_q1].to_i + sparams[:point_q2].to_i + sparams[:point_q3].to_i + sparams[:point_q4].to_i
+      sparams[:point_op_total] = sparams[:point_op_q1].to_i + sparams[:point_op_q2].to_i + sparams[:point_op_q3].to_i + sparams[:point_op_q4].to_i
+      score = Score.find_by(game_id: params[:id])
+      score.update(sparams)
+      redirect_to admin_game_path(params[:id])
+    end
+
     private
 
     def game_params
       params.require(:game).permit(:opponent,:gametime,:season_id)
     end
 
+    def score_params
+      params.require(:score).permit(:point_q1, :point_q2, :point_q3, :point_q4, :point_op_q1, :point_op_q2, :point_op_q3, :point_op_q4)
+    end
   end
 end

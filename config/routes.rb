@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     delete '/games/:id/delete', to:'games#delete', as:'delete_game'
     get 'games/:id', to:'games#show', as: 'game'
     get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
+    post 'games/:id/update_score', to: 'games#update_score', as: 'game_update_score'
 
     get 'games/:id/dnp', to: 'games#dnp', as: 'game_dnp'
     get 'adddnp/:game_id/:player_id', to: 'games#dnp_add', as: 'game_add_dnp'
@@ -38,7 +39,7 @@ Rails.application.routes.draw do
 
 
     #Action Sequence
-    get '/actions/:id/position/:pos_index', to: 'actions#position_move', as: 'action_move_postion'
+    get '/actions/:id/position/:pos_index', to: 'actions#move', as: 'action_move_postion'
   end
 
   # Design Guide

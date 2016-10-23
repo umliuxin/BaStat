@@ -22,6 +22,12 @@ module Admin
       redirect_to admin_game_path(action_params[:game_id])
     end
 
+    def move
+      action = Action.find(params[:id])
+      action.move(params[:pos_index])
+      redirect_to admin_game_path(action.game_id)
+    end
+
     def quarter_end
       @action = Action.create(quarter_params)
       update_quarter(quarter_params)
