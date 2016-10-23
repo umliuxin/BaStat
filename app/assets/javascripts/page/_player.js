@@ -15,6 +15,17 @@ $(document).ready(function(){
        },
        "uppercase-text": function(column,row){
          return row[column.id].toUpperCase();
+       },
+       "ratio": function(column,row){
+           if (column.id == 'fg'){
+             return row.fgm + ' / '+ row.fga;
+           }
+           else if (column.id == '3pt') {
+             return row.tpm + ' / '+ row.tpa
+           }
+           else if (column.id == 'ft') {
+             return row.ftm + ' / '+ row.fta
+           }
        }
      }
     }
@@ -27,6 +38,17 @@ $(document).ready(function(){
         },
         "percent": function(column,row){
             return parseFloat(row[column.id]).toFixed(1) + '%';
+        },
+        "ratio": function(column,row){
+            if (column.id == 'fg'){
+              return row.fgm + ' / '+ row.fga;
+            }
+            else if (column.id == '3pt') {
+              return row.tpm + ' / '+ row.tpa
+            }
+            else if (column.id == 'ft') {
+              return row.ftm + ' / '+ row.fta
+            }
         }
     }
   });

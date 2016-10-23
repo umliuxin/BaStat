@@ -25,15 +25,18 @@
               <th data-column-id="pts" data-type="numeric">PTS</th>
               <th data-column-id="reb" data-type="numeric">REB</th>
               <th data-column-id="ast" data-type="numeric">AST</th>
-              <th data-column-id="fgm" data-type="numeric">FGM</th>
-              <th data-column-id="fga" data-type="numeric">FGA</th>
-              <th data-column-id="fg_per" data-type="numeric" data-formatter="percent">FG%</th>
-              <th data-column-id="threepm" data-type="numeric">3PM</th>
-              <th data-column-id="threepa" data-type="numeric">3PA</th>
-              <th data-column-id="threep_per" data-type="numeric" data-formatter="percent">3P%</th>
-              <th data-column-id="ftm" data-type="numeric">FTM</th>
-              <th data-column-id="fta" data-type="numeric">FTA</th>
-              <th data-column-id="ft_per" data-type="numeric" data-formatter="percent">FT%</th>
+              <th data-column-id="fgm" data-type="numeric" data-visible='false'>FGM</th>
+              <th data-column-id="fga" data-type="numeric" data-visible='false'>FGA</th>
+              <th data-column-id="fg" data-formatter="ratio" data-sortable='false'>FG</th>
+              <th data-column-id="fg_per" data-type="numeric" data-formatter='percent'>FG%</th>
+              <th data-column-id="tpm" data-type="numeric" data-visible='false'>3PM</th>
+              <th data-column-id="tpa" data-type="numeric" data-visible='false'>3PA</th>
+              <th data-column-id="3pt" data-formatter="ratio" data-sortable='false'>3P</th>
+              <th data-column-id="threep_per" data-type="numeric" data-formatter='percent'>3P%</th>
+              <th data-column-id="ftm" data-type="numeric" data-visible='false'>FTM</th>
+              <th data-column-id="fta" data-type="numeric" data-visible='false'>FTA</th>
+              <th data-column-id="ft" data-formatter="ratio" data-sortable='false'>FT</th>
+              <th data-column-id="ft_per" data-type="numeric" data-formatter='percent'>FT%</th>
               <th data-column-id="oreb" data-type="numeric">OREB</th>
               <th data-column-id="dreb" data-type="numeric">DREB</th>
               <th data-column-id="tov" data-type="numeric">TOV</th>
@@ -55,12 +58,15 @@
                   <td><%= playerstat.ast %></td>
                   <td><%= playerstat.fgm %></td>
                   <td><%= playerstat.fga %></td>
+                  <td></td>
                   <td><%= playerstat.field_goal_percent %></td>
                   <td><%= playerstat.tpm %></td>
                   <td><%= playerstat.tpa %></td>
+                  <td></td>
                   <td><%= playerstat.three_point_percent %></td>
                   <td><%= playerstat.ftm %></td>
                   <td><%= playerstat.fta %></td>
+                  <td></td>
                   <td><%= playerstat.free_throw_percent %></td>
                   <td><%= playerstat.oreb %></td>
                   <td><%= playerstat.dreb %></td>

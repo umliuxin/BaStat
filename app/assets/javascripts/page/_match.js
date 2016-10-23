@@ -14,8 +14,6 @@ $(document).ready(function(){
 
         },
         "ratio": function(column,row){
-            console.log(column)
-            console.log(row)
             if (column.id == 'fg'){
               return row.fgm + ' / '+ row.fga;
             }
@@ -25,7 +23,6 @@ $(document).ready(function(){
             else if (column.id == 'ft') {
               return row.ftm + ' / '+ row.fta
             }
-
         }
     }
     }

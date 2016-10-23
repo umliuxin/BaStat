@@ -11,15 +11,18 @@
               <th data-css-class="fixed-cell" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="season" data-formatter="uppercase-text" data-visible-in-selection="false"></th>
               <th data-column-id="gp" data-type="numeric">GP</th>
               <th data-column-id="pts" data-type="numeric">PTS</th>
-              <th data-column-id="fgm" data-type="numeric">FGM</th>
-              <th data-column-id="fga" data-type="numeric">FGA</th>
-              <th data-column-id="fg_per" data-type="numeric" data-formatter="percent">FG%</th>
-              <th data-column-id="threepm" data-type="numeric">3PM</th>
-              <th data-column-id="threepa" data-type="numeric">3PA</th>
-              <th data-column-id="threep_per" data-type="numeric" data-formatter="percent">3P%</th>
-              <th data-column-id="ftm" data-type="numeric">FTM</th>
-              <th data-column-id="fta" data-type="numeric">FTA</th>
-              <th data-column-id="ft_per" data-type="numeric" data-formatter="percent">FT%</th>
+              <th data-column-id="fgm" data-type="numeric" data-visible='false'>FGM</th>
+              <th data-column-id="fga" data-type="numeric" data-visible='false'>FGA</th>
+              <th data-column-id="fg" data-formatter="ratio" data-sortable='false'>FG</th>
+              <th data-column-id="fg_per" data-type="numeric" data-formatter='percent'>FG%</th>
+              <th data-column-id="tpm" data-type="numeric" data-visible='false'>3PM</th>
+              <th data-column-id="tpa" data-type="numeric" data-visible='false'>3PA</th>
+              <th data-column-id="3pt" data-formatter="ratio" data-sortable='false'>3P</th>
+              <th data-column-id="threep_per" data-type="numeric" data-formatter='percent'>3P%</th>
+              <th data-column-id="ftm" data-type="numeric" data-visible='false'>FTM</th>
+              <th data-column-id="fta" data-type="numeric" data-visible='false'>FTA</th>
+              <th data-column-id="ft" data-formatter="ratio" data-sortable='false'>FT</th>
+              <th data-column-id="ft_per" data-type="numeric" data-formatter='percent'>FT%</th>
               <th data-column-id="oreb" data-type="numeric">OREB</th>
               <th data-column-id="dreb" data-type="numeric">DREB</th>
               <th data-column-id="reb" data-type="numeric">REB</th>
@@ -38,12 +41,15 @@
               <td><%= avg_stat.points %></td>
               <td><%= avg_stat.fgm %></td>
               <td><%= avg_stat.fga %></td>
+              <td></td>
               <td><%= avg_stat.field_goal_percent %></td>
               <td><%= avg_stat.tpm %></td>
               <td><%= avg_stat.tpa %></td>
+              <td></td>
               <td><%= avg_stat.three_point_percent %></td>
               <td><%= avg_stat.ftm %></td>
               <td><%= avg_stat.fta %></td>
+              <td></td>
               <td><%= avg_stat.free_throw_percent %></td>
               <td><%= avg_stat.oreb %></td>
               <td><%= avg_stat.dreb %></td>
