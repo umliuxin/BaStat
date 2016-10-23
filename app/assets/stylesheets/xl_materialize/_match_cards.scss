@@ -16,6 +16,7 @@ $match-index-width:       40px !default;
     overflow: hidden;
     height:100%;
     width:100%;
+    cursor: pointer;
     img{
       position:absolute;
       height: 160%;
@@ -29,6 +30,27 @@ $match-index-width:       40px !default;
     margin-left: 32%;
     .card-content,.card-action{
       padding:10px;
+    }
+  }
+  .top-three-players{
+    .top-player{
+      width:33.33333%;
+      float: left;
+      height: 75px;
+      position: relative;
+      .top-player-text{
+        position: absolute;
+        bottom: -40px;
+        width:100%;
+        text-align: center;
+      }
+      .top-player-image{
+        position:absolute;
+        bottom: -10px;
+        width: 78%;
+        left: 11%;
+        cursor: pointer;
+      }
     }
   }
 }
@@ -50,6 +72,13 @@ $match-index-width:       40px !default;
 // Match card detail result
 .card.match-card.match-card-result-detail{
   .aspect-content{width: 15%;}
-  .team-logo{}
   .card-stacked{margin-left: 15%;}
+  .match-card-detail-section{
+    >div{
+      float: left;
+      max-width: 50%;
+      min-width: 40%;
+      text-align: center;
+    }
+  }
 }

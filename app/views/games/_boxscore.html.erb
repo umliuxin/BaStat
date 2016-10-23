@@ -8,23 +8,30 @@
         <table id="match_boxscore_table" class="bootgrid-table">
           <thead>
             <tr>
-              <th data-css-class="fixed-cell" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="name" data-formatter="text" data-visible-in-selection="false"></th>
+              <th data-css-class="fixed-cell" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="name" data-formatter="player-link" data-visible-in-selection="false"></th>
               <th data-column-id="position">P</th>
               <th data-column-id="point" data-type="numeric">PTS</th>
               <th data-column-id="assist" data-type="numeric">AST</th>
               <th data-column-id="reb" data-type="numeric">REB</th>
               <th data-column-id="oreb" data-type="numeric">OREB</th>
               <th data-column-id="dreb" data-type="numeric">DREB</th>
-              <th data-column-id="fg" >FGM-FGA</th>
-              <th data-column-id="fg_per">FG%</th>
-              <th data-column-id="3pt" >3PTM-3PTA</th>
-              <th data-column-id="3pt_per">3PT%</th>
-              <th data-column-id="ft" >FTM-FTA</th>
-              <th data-column-id="ft_per">FT%</th>
+              <th data-column-id="fg" data-formatter="ratio" data-sortable='false'>FGM/FGA</th>
+              <th data-column-id="fg_per" data-type="numeric" data-formatter='percent'>FG%</th>
+              <th data-column-id="3pt" data-formatter="ratio" data-sortable='false'>3PTM/3PTA</th>
+              <th data-column-id="3pt_per" data-type="numeric" data-formatter='percent'>3PT%</th>
+              <th data-column-id="ft" data-formatter="ratio" data-sortable='false'>FTM/FTA</th>
+              <th data-column-id="ft_per" data-type="numeric" data-formatter='percent'>FT%</th>
               <th data-column-id="blk" data-type="numeric">BLK</th>
               <th data-column-id="stl" data-type="numeric">STL</th>
               <th data-column-id="tov" data-type="numeric">TO</th>
               <th data-column-id="pf" data-type="numeric">PF</th>
+              <th data-column-id="id" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="fgm" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="fga" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="tpm" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="tpa" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="ftm" data-type="numeric" data-visible='false'></th>
+              <th data-column-id="fta" data-type="numeric" data-visible='false'></th>
             </tr>
           </thead>
           <tbody>
@@ -38,16 +45,24 @@
                   <td><%= playerstat.rebound %></td>
                   <td><%= playerstat.oreb %></td>
                   <td><%= playerstat.dreb %></td>
-                  <td><%= playerstat.fgm %>/<%= playerstat.fga %></td>
-                  <td><%= number_to_percentage(playerstat.field_goal_percent, precision: 1)%></td>
-                  <td><%= playerstat.tpm %>/<%= playerstat.tpa %></td>
-                  <td><%= number_to_percentage(playerstat.three_point_percent, precision: 1)%></td>
-                  <td><%= playerstat.ftm %>/<%= playerstat.fta %></td>
-                  <td><%= number_to_percentage(playerstat.free_throw_percent, precision: 1)%></td>
+                  <td></td>
+                  <td><%= playerstat.field_goal_percent%></td>
+                  <td></td>
+                  <td><%= playerstat.three_point_percent%></td>
+                  <td></td>
+                  <td><%= playerstat.free_throw_percent%></td>
                   <td><%= playerstat.blk %></td>
                   <td><%= playerstat.stl %></td>
                   <td><%= playerstat.tov %></td>
                   <td><%= playerstat.foul %></td>
+                  <td><%= playerstat.player_id %></td>
+                  <td><%= playerstat.fgm %></td>
+                  <td><%= playerstat.fga %></td>
+                  <td><%= playerstat.tpm %></td>
+                  <td><%= playerstat.tpa %></td>
+                  <td><%= playerstat.ftm %></td>
+                  <td><%= playerstat.fta %></td>
+
                 </tr>
 
               <% end %>

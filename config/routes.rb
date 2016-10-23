@@ -86,6 +86,6 @@ Rails.application.routes.draw do
   get '/schedules', to: 'gamelist#schedules'
   get '/results', to: 'gamelist#results'
 
-  root 'team_page#show'
+  root 'team_page#show', as: 'home'
 
 end

@@ -1,4 +1,7 @@
 class GamelistController < ApplicationController
+
+  include GameConcern
+
   def schedules
     @games = Game.schedule_game
   end

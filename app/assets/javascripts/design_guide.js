@@ -10,7 +10,7 @@ $('#bootgrid-3').bootgrid(
   }
 );
 
-$('#match_boxscore_table').bootgrid(
+$('#design_match_boxscore_table').bootgrid(
   {
     navigation: 0
   }

@@ -42,6 +42,10 @@ class Team
     @result_games ||= Game.result_game
   end
 
+  def result_games_current_season
+    @result_games_current_season ||= Game.result_game(Season.get_current_season.id)
+  end
+
   def current_season_avg_stat
 
     sql = "SELECT AVG(fgm) AS fgm, AVG(fga) AS fga, AVG(tpa) AS tpa, AVG(tpm) AS tpm, AVG(fta) AS fta, AVG(ftm) AS ftm, AVG(oreb) AS oreb, AVG(dreb) AS dreb, AVG(ast) AS ast
