@@ -12,7 +12,7 @@ class Game < ActiveRecord::Base
 
   validates :gametime, presence: true
 
-  def self.schedule_game
+  def self.schedule_game(season_id = nil)
     Game.order("gametime").where('gametime > ?', DateTime.now.beginning_of_day)
   end
 
@@ -20,8 +20,13 @@ class Game < ActiveRecord::Base
     Game.where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: false)
   end
 
-  def self.result_game
-    Game.order("gametime DESC").where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: true)
+  def self.result_game(season_id = nil)
+    if season_id.blank?
+      Game.order("gametime DESC").where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: true)
+    else
+      Game.order("gametime DESC").where('gametime < ?', DateTime.now.beginning_of_day).where(game_record: true, season_id: season_id)
+    end
+
   end
 
   def self.next_game

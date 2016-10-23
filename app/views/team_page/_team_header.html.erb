@@ -35,9 +35,9 @@
 
         <% if @team.current_season.recorded_games.present? %>
         <div class="team-header-stat reverse-text-color margin-all-lg text-center">
-          <div class="stat-item"><span>PPG</span><%= @team.current_season_avg_stat.points %></div>
-          <div class="stat-item"><span>RPG</span><%= @team.current_season_avg_stat.rebound %></div>
-          <div class="stat-item"><span>APG</span><%= @team.current_season_avg_stat.ast %></div>
+          <div class="stat-item"><span>PPG</span><%= number_with_precision(@team.current_season_avg_stat.points, precision:1) %></div>
+          <div class="stat-item"><span>RPG</span><%= number_with_precision(@team.current_season_avg_stat.rebound, precision:1) %></div>
+          <div class="stat-item"><span>APG</span><%= number_with_precision(@team.current_season_avg_stat.ast, precision:1) %></div>
           <div class="stat-item hide-on-small-and-down"><span>FG%</span><%= number_to_percentage(@team.current_season_avg_stat.field_goal_percent, precision: 1) %></div>
           <div class="stat-item hide-on-small-and-down"><span>3P%</span><%= number_to_percentage(@team.current_season_avg_stat.three_point_percent, precision: 1) %></div>
           <div class="stat-item hide-on-small-and-down"><span>FT%</span><%= number_to_percentage(@team.current_season_avg_stat.free_throw_percent, precision: 1) %></div>

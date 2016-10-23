@@ -16,6 +16,7 @@ $match-index-width:       40px !default;
     overflow: hidden;
     height:100%;
     width:100%;
+    cursor: pointer;
     img{
       position:absolute;
       height: 160%;
@@ -48,6 +49,7 @@ $match-index-width:       40px !default;
         bottom: -10px;
         width: 78%;
         left: 11%;
+        cursor: pointer;
       }
     }
   }
@@ -70,7 +72,6 @@ $match-index-width:       40px !default;
 // Match card detail result
 .card.match-card.match-card-result-detail{
   .aspect-content{width: 15%;}
-  .team-logo{}
   .card-stacked{margin-left: 15%;}
   .match-card-detail-section{
     >div{

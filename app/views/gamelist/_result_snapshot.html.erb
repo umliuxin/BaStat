@@ -20,25 +20,25 @@
               <div class="top-player-text">
                 <%= top_stats[:point].points.to_i %> PTS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:point].player_id) }) %>
             </div>
             <div class="top-player">
               <div class="top-player-text">
                 <%= top_stats[:reb].rebound.to_i %> REBS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:reb].player_id) }) %>
             </div>
             <div class="top-player">
               <div class="top-player-text">
                 <%= top_stats[:ast].ast.to_i %> ASTS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image') %>
+              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:ast].player_id) }) %>
             </div>
 
           </div>
         </div>
         <div class="card-action">
-          <a href="#">FULL GAME INFO</a>
+          <%= link_to 'FULL GAME INFO', game_path(game)%>
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@
           </div>
         </div>
         <div class="card-action">
-          <a href="#">FULL GAME INFO</a>
+          <%= link_to 'FULL GAME INFO', game_path(game)%>
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@
             <div class='match-header-team-logo'>
               <%= image_tag(@game.team.team_logo)%>
               <div><strong><%= @game.team.team_name %></strong></div>
-              <div>X - X</div>
+              <div><%= @game.team.game_win %> - <%= @game.team.game_lose %></div>
             </div>
           </div>
           <div class="col xs6 m4 match-header-game-state text-center">
