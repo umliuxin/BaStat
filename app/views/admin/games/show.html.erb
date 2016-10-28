@@ -9,6 +9,13 @@
   </ul>
 </section>
 <section>
+  <% unless @score.end_recording? %>
+    <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%><br>
+  <% end %>
+    <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
+
+</section>
+<section>
   <h5>Score</h5>
   <%= form_for @score, url: admin_game_update_score_path, method: 'post' do |f| %>
   <%= f.submit %>
@@ -41,12 +48,8 @@
     </tbody>
   </table>
   <% end %>
-  <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
 </section>
-<% unless @score.end_recording? %>
-<section>
-    <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%>
-</section>
+
 <section class='admin-game-form'>
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.submit %><br>
@@ -74,7 +77,6 @@
 
   <% end %>
 </section>
-<% end %>
 
 <section>
   <h5>Action List</h5>
