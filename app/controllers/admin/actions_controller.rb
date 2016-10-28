@@ -6,8 +6,12 @@ module Admin
     def create
       # if insert_position exists, action will be added in that position
       insert_position = cookies[:insert_position]
+
       # if game ends and position is not set, cannot add action in the list
-      return redirect_to admin_game_path(action_params[:game_id]) if game_ends? && insert_position.present?
+      if game_ends? && insert_position.blank?
+        flash[:danger] = "Game Ends, Need set position cookie to add new action"
+        return redirect_to admin_game_path(action_params[:game_id])
+      end
       # Create new action object
       @action = Action.create(action_params)
       if @action.valid?
@@ -67,7 +71,7 @@ module Admin
 
     def game_ends?
       if params[:move][:quarter].to_i == GAME_END_INDEX
-        flash[:danger] = 'Game ends already. Cannot create!'
+        # flash[:danger] = 'Game ends already. Cannot create!'
         return true
       end
     end
