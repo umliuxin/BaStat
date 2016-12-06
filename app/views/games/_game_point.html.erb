@@ -1,0 +1,28 @@
+<div class='padding-all'>
+  <table>
+    <thead>
+      <td></td>
+      <td>Q1</td>
+      <td>Q2</td>
+      <td>Q3</td>
+      <td>Q4</td>
+      <td></td>
+    </thead>
+    <tr>
+      <td>LSJ</td>
+      <td><%= @game.score.point_q1 %></td>
+      <td><%= @game.score.point_q2 %></td>
+      <td><%= @game.score.point_q3 %></td>
+      <td><%= @game.score.point_q4 %></td>
+      <td><%= @game.score.point_total %></td>
+    </tr>
+    <tr>
+      <td><%= @game.opponent%></td>
+      <td><%= @game.score.point_op_q1 %></td>
+      <td><%= @game.score.point_op_q2 %></td>
+      <td><%= @game.score.point_op_q3 %></td>
+      <td><%= @game.score.point_op_q4 %></td>
+      <td><%= @game.score.point_op_total %></td>
+    </tr>
+  </table>
+</div>

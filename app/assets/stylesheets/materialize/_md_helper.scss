@@ -112,17 +112,17 @@
 // .bg-default { background: $bg-default; }
 // .bg-white { background: #fff; }
 //
-// //## Truncate
-// .ellipsis {
-//     display: block;
-//     overflow: hidden;
-//     -o-text-overflow: ellipsis;
-//     text-overflow: ellipsis;
-//     white-space: nowrap
-// }
-// .word-wrap-break{
-//   word-wrap: break-word;
-// }
+//## Truncate
+.ellipsis {
+    display: block;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.word-wrap-break{
+  word-wrap: break-word;
+}
 //## Centering classes
 //Horizontal centering
 .horizontal-centering {

@@ -1,4 +1,9 @@
 <div class='row' id="tab-result">
+  <% if @team.result_games.blank? %>
+  <div class="col xs12">
+    <h3 class='padding-all'>No Result Available</h3>
+  </div>
+  <% end %>
   <% @team.result_games.each do |game| %>
   <div class="col xs12 s10 offset-s1">
     <div class="card horizontal match-card match-card-result-simple">

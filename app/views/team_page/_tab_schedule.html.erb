@@ -1,4 +1,9 @@
 <div class='row' id="tab-schedule">
+  <% if @team.schedule_games.blank? %>
+  <div class="col xs12">
+    <h3 class='padding-all'>No Game Scheduled</h3>
+  </div>
+  <% end %>
   <% @team.schedule_games.each do |game| %>
   <div class="col xs12 s10 offset-s1">
     <div class="card horizontal match-card match-card-schedule">

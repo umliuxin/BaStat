@@ -15,4 +15,9 @@
     border-top: 1px solid $divider-color;
     padding: 8px;
   }
+  @media #{$xsmall-only} {
+    &-content.no-padding-xs{
+      padding: 5px;
+    }
+  }
 }
