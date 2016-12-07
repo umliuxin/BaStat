@@ -10,6 +10,8 @@
 </head>
 <body>
   <%= render partial: 'shared/global_nav_header' %>
+  <%= render partial: 'shared/breadcrumb' %>
+
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
