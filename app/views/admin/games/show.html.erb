@@ -49,7 +49,6 @@
   </table>
   <% end %>
 </section>
-
 <section class='admin-game-form'>
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.submit %><br>
@@ -70,8 +69,8 @@
 
 
     <%= f.hidden_field :game_id, value: @game.id %>
-    <%= f.hidden_field :position, value: params[:position] %>
     <%= f.hidden_field :quarter, value: @score.recording_quarter %>
+    <div>Insert Before:<%= f.text_field :position, value: cookies[:insert_position] %> Clear if adding to the end of list</div>
 
 
 
