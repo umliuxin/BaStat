@@ -13,6 +13,7 @@ gem 'acts_as_list'
 gem 'materialize-sass'
 gem 'font-awesome-rails'
 gem 'pg'
+gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
 
 group :production do
 
