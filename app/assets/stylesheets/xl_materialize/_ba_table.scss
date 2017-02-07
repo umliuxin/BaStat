@@ -90,6 +90,7 @@
 .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
   margin-left:150px;
   .fixed-cell{width: 150px;}
+
 }
 .bootgrid-stat-full.first-item-fixed.boxscore .bootgrid-table-wrapper{
   margin-left:130px;
@@ -124,9 +125,25 @@
       padding: 5px 8px;
     }
   }
+  .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
+    margin-left:100px;
+    .fixed-cell{width: 100px;}
+
+  }
+  .bootgrid-stat-full.first-item-fixed.boxscore .bootgrid-table-wrapper{
+    margin-left:90px;
+    .fixed-cell{width: 90px;}
+  }
 }
 @media #{$xsmall-only}{
   .bootgrid-stat-full .bootgrid-table-wrapper{
     padding-top: 0;
+  }
+  .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
+    .fixed-cell{padding: 5px 2px;}
+
+  }
+  .bootgrid-stat-full.first-item-fixed.boxscore .bootgrid-table-wrapper{
+    .fixed-cell{padding: 5px 2px;}
   }
 }

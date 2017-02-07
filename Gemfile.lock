@@ -47,6 +47,7 @@ GEM
     awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    breadcrumbs_on_rails (3.0.1)
     builder (3.2.2)
     byebug (9.0.5)
     concurrent-ruby (1.0.2)
@@ -182,6 +183,7 @@ DEPENDENCIES
   active_model_serializers (~> 0.10.0)
   acts_as_list
   awesome_print
+  breadcrumbs_on_rails (~> 3.0, >= 3.0.1)
   byebug
   font-awesome-rails
   jbuilder (~> 2.0)

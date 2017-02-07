@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="card-action">
-          <%= link_to 'FULL GAME INFO', game_path(game)%>
+          <%= link_to 'FULL GAME INFO', game_path(game), class: 'js-to-game-url', :data => { :url => game_path(game) }%>
         </div>
       </div>
     </div>
