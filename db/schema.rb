@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161013042118) do
+ActiveRecord::Schema.define(version: 20170212224537) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20161013042118) do
     t.integer  "action_index", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "description"
   end
 
   add_index "actions", ["game_id"], name: "index_actions_on_game_id"
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20161013042118) do
     t.string   "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date     "birthday"
   end
 
   create_table "rosters", force: :cascade do |t|

@@ -59,7 +59,7 @@ module Admin
     private
 
     def action_params
-      params.require(:move).permit(:player_id, :action_index, :game_id, :position)
+      params.require(:move).permit(:player_id, :action_index, :game_id, :position, :description)
     end
 
     def team_params

@@ -20,6 +20,9 @@ class Player < ActiveRecord::Base
     player.avg_stat_current_season = player.current_season_avg_stat
     player.avg_stat_seasons = player.seasons_avg_stat
     player.games_current_season = player.current_season_games
+    ap '___________'
+    ap player.avg_stat_current_season
+    ap '-----------'
     player
   end
 
