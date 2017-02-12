@@ -12,6 +12,8 @@ class Player < ActiveRecord::Base
   validates :bio, length: { maximum: 1000 }
   validates :position, inclusion: { in: %w(Center Forward Guard),
     message: "%{value} is not a valid position" }
+  validates_date :birthday, on_or_before: lambda { Date.current }
+
 
   attr_accessor :avg_stat_current_season, :avg_stat_seasons, :games_current_season
 
