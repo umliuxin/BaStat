@@ -108,10 +108,10 @@
 //     }
 // }
 //
-// //## Background color classes
-// .bg-default { background: $bg-default; }
-// .bg-white { background: #fff; }
-//
+//## Background color classes
+.bg-tran { background: none; }
+.bg-white { background: #fff; }
+
 //## Truncate
 .ellipsis {
     display: block;
@@ -137,6 +137,10 @@
   top:50%;
   left: 50%;
   transform: translate(-50%,-50%);
+}
+
+.radius-50 {
+  border-radius: 50%;
 }
 
 // //## Loading background class
