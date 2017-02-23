@@ -2,6 +2,7 @@
 TEAM_NAME = '老司机'
 TEAM_LOGO_URL = 'logo-mixed.png'
 STADIUM_ADDRESS = '2800, Interstate 280, Los Altos Hills, CA 94022'
+TEAM_OPPO_LOGO_DEFAULT = 'logo-oppo.png'
 
 DEFERRED_ASSET_NAMES = {
   design: 'design_guide',

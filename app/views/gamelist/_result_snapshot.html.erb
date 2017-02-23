@@ -4,13 +4,14 @@
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
         <div class="team-logo">
-          <%= image_tag('design_guide/team_logo.svg') %>
+          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
+          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <div class="col m4 xs12 no-padding">
-            <h5 class='display-inline'><%= game.opponent%></h5>
+            <h5 class='display-inline'><%= game.opponent %></h5>
             <br class="hide-on-med-and-up">
             <span><%= format_date(game.gametime)%></span>
             <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
@@ -45,7 +46,8 @@
     <div class="card horizontal match-card match-card-result-detail hide">
       <div class="aspect-content">
         <div class="team-logo">
-          <%= image_tag('design_guide/team_logo.svg') %>
+          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
+          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
         </div>
       </div>
       <div class="card-stacked">

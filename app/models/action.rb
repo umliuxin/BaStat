@@ -7,6 +7,8 @@ class Action < ActiveRecord::Base
   validates :game_id, presence: { message: 'game_id is null'}
   validates :player_id, presence: { message: 'player is null'}
   validates :action_index, presence: { message: 'action is null'}
+  validates :description, length: { maximum: 200 }
+
 
   def move(key)
     case key

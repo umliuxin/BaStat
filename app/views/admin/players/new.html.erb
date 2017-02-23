@@ -31,6 +31,11 @@
   </p>
 
   <p>
+    <%= f.label :birthday, "Birthday" %>
+    <%= f.date_select :birthday, :order => [:day, :month, :year], :prompt =>{ day: 'Select day', month: 'Select month', year: 'Select year' }, :start_year => 1960 %>
+  </p>
+
+  <p>
     <%= f.label :bio %>
     <%= f.text_area :bio, size: "60x12" %>
   </p>

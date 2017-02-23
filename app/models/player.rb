@@ -12,6 +12,7 @@ class Player < ActiveRecord::Base
   validates :bio, length: { maximum: 1000 }
   validates :position, inclusion: { in: %w(Center Forward Guard),
     message: "%{value} is not a valid position" }
+  validate :birthday, :birthday_cannot_be_in_the_past
 
   attr_accessor :avg_stat_current_season, :avg_stat_seasons, :games_current_season
 
@@ -52,6 +53,12 @@ GROUP BY games.season_id
 
   def current_season_games
     self.current_season.recorded_games
+  end
+
+  def birthday_cannot_be_in_the_past
+   if :birthday < Date.today
+     errors.add(:birthday, "can't be in the past")
+   end
   end
 
 

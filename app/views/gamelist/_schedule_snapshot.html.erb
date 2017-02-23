@@ -3,7 +3,8 @@
   <div class="card horizontal match-card match-card-schedule">
     <div class="aspect-content">
       <div class="team-logo">
-        <%= image_tag('design_guide/team_logo.svg') %>
+        <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
+        <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
       </div>
     </div>
     <div class="card-stacked">
