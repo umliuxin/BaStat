@@ -60,6 +60,15 @@ $match-index-width:       40px !default;
         left: 11%;
         cursor: pointer;
       }
+      .player-name-text{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        z-index: 1;
+        text-align: center;
+        background-color: rgba(255,255,255,0.5);
+      }
     }
   }
 }

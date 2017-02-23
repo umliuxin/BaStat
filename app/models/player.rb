@@ -12,9 +12,9 @@ class Player < ActiveRecord::Base
   validates :bio, length: { maximum: 1000 }
   validates :position, inclusion: { in: %w(Center Forward Guard),
     message: "%{value} is not a valid position" }
-  validate :birthday, :birthday_cannot_be_in_the_past
+  # validate :birthday, :birthday_cannot_be_in_the_past
 
-  attr_accessor :avg_stat_current_season, :avg_stat_seasons, :games_current_season
+  attr_accessor :avg_stat_current_season, :avg_stat_seasons, :games_current_season, :player_image_url
 
   def self.build(id)
     player = Player.find(id)
@@ -55,10 +55,15 @@ GROUP BY games.season_id
     self.current_season.recorded_games
   end
 
-  def birthday_cannot_be_in_the_past
-   if :birthday < Date.today
-     errors.add(:birthday, "can't be in the past")
-   end
+  # def birthday_cannot_be_in_the_past
+  #  if :birthday < Date.today
+  #    errors.add(:birthday, "can't be in the past")
+  #  end
+  # end
+
+  def player_image_url
+    return PLAYER_DEFAULT_IMAGE if self.image_url.blank?
+    'players/' + self.image_url
   end
 
 
