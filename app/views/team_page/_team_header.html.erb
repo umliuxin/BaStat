@@ -25,10 +25,10 @@
             <h3><%= @team.game_win %>W - <%= @team.game_lose %>L</h3>
             <p><%= @team.current_season.name%></p>
             <% if @team.last_game.present? %>
-            <p><i class="fa fa-trophy icon-space-right-lg"></i> Last Game: VS <%= @team.last_game.opponent %>, <%= @team.last_game.win_or_lose%> <%= @team.last_game.score.point_total %> - <%= @team.last_game.score.point_op_total %></p>
+            <p><i class="fa fa-trophy icon-space-right-lg"></i> Last Game: VS <%= @team.last_game.opponent_name %>, <%= @team.last_game.win_or_lose%> <%= @team.last_game.score.point_total %> - <%= @team.last_game.score.point_op_total %></p>
             <% end %>
             <% if @team.next_game.present? %>
-            <p><i class="fa fa-calendar icon-space-right-lg"></i> Next Game: VS <%= @team.next_game.opponent %>, <%= format_datetime(@team.next_game.gametime) %></p>
+            <p><i class="fa fa-calendar icon-space-right-lg"></i> Next Game: VS <%= @team.next_game.opponent_name %>, <%= format_datetime(@team.next_game.gametime) %></p>
             <% end %>
           </div>
         </div>

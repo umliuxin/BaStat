@@ -7,7 +7,7 @@
 <% elsif action.player_id == -1 %>
   <div class="playbyplay-item item-right row fake-row">
     <div class="col xs3 s2 offset-xs1 offset-s5 text-center"><%= @playbyplayscore.point_total %> - <%= @playbyplayscore.point_op_total %></div>
-    <div class="col xs7 s5 text-align-left"><%= @game.opponent %>, <%= action_from_index(action.action_index) %> <%= action.description unless action.description.nil? %></div>
+    <div class="col xs7 s5 text-align-left"><%= @game.opponent_shortname %>, <%= action_from_index(action.action_index) %> <%= action.description unless action.description.nil? %></div>
   </div>
 <% else %>
   <div class="playbyplay-item item-left row fake-row">

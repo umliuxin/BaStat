@@ -33,6 +33,11 @@ $match-index-width:       40px !default;
       border-radius: 50%;
       color: white;
     }
+    &.logo-align-right img{
+      left: auto;
+      right: 0;
+      transform: translate(0,-50%);
+    }
   }
 
   .card-stacked{

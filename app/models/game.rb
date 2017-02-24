@@ -106,4 +106,38 @@ class Game < ActiveRecord::Base
     self.update(game_record: true)
   end
 
+  def opponent_name
+    if self.opponent.to_i == 0
+      self.opponent
+    else
+      OPPO_TEAM_ARR[self.opponent.to_i - 1][:name]
+    end
+  end
+
+  def opponent_shortname
+    unless self.opponent.to_i == 0
+      OPPO_TEAM_ARR[self.opponent.to_i - 1][:shortname]
+    else
+      self.opponent[0..2].upcase
+    end
+  end
+
+  def opponent_image
+    unless self.opponent.to_i == 0
+      image_name = OPPO_TEAM_ARR[self.opponent.to_i - 1][:logo]
+      if image_name.length == 0
+        TEAM_OPPO_LOGO_DEFAULT
+      else
+        'opponents/' + image_name
+      end
+    else
+      TEAM_OPPO_LOGO_DEFAULT
+    end
+  end
+
+  def opponent_image?
+    return false if self.opponent.to_i == 0
+    return OPPO_TEAM_ARR[self.opponent.to_i - 1][:logo].length != 0
+  end
+
 end

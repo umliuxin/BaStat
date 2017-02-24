@@ -3,7 +3,7 @@
 <section>
   <ul>
     <li>Game ID: <%= @game.id %> </li>
-    <li>Game Oppo: <%= @game.opponent %></li>
+    <li>Game Oppo: <%= @game.opponent_name %></li>
     <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
     <li><%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%></li>
   </ul>
@@ -38,7 +38,7 @@
         <td><%= @score.point_total %></td>
       </tr>
       <tr>
-        <td><%= @game.opponent %></td>
+        <td><%= @game.opponent_name %></td>
         <td width='80px'><%= f.text_field :point_op_q1, class: 'small-text-field' %></td>
         <td width='80px'><%= f.text_field :point_op_q2, class: 'small-text-field' %></td>
         <td width='80px'><%= f.text_field :point_op_q3, class: 'small-text-field' %></td>

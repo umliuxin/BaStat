@@ -4,14 +4,16 @@
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
         <div class="team-logo">
-          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
-          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <div class="col m4 xs12 no-padding">
-            <h5 class='display-inline'><%= game.opponent %></h5>
+            <h5 class='display-inline'><%= game.opponent_name %></h5>
             <br class="hide-on-med-and-up">
             <span><%= format_date(game.gametime)%></span>
             <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
@@ -48,15 +50,17 @@
     </div>
     <div class="card horizontal match-card match-card-result-detail hide">
       <div class="aspect-content">
-        <div class="team-logo">
-          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
-          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
+        <div class="team-logo logo-align-right">
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <div class="col xs12 s5 no-padding">
-            <h5 class='display-inline'><%= game.opponent%>, <%= format_date(game.gametime)%></h5>
+            <h5 class='display-inline'><%= game.opponent_name %>, <%= format_date(game.gametime)%></h5>
             <h4 class='no-margin'><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h4>
             <div>
               <table>
@@ -77,7 +81,7 @@
                   <td><%= game.score.point_total %></td>
                 </tr>
                 <tr>
-                  <td><%= game.opponent%></td>
+                  <td><%= game.opponent_shortname%></td>
                   <td><%= game.score.point_op_q1 %></td>
                   <td><%= game.score.point_op_q2 %></td>
                   <td><%= game.score.point_op_q3 %></td>

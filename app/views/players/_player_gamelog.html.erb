@@ -52,7 +52,7 @@
               <% playerstat ||= game.find_player_stat_by_player(@player) %>
               <% unless playerstat.nil? || playerstat.dnp %>
                 <tr>
-                  <td><%= game.opponent %></td>
+                  <td><%= game.opponent_shortname %></td>
                   <td><%= game.win_or_lose %></td>
                   <td><%= playerstat.points %></td>
                   <td><%= playerstat.rebound %></td>
