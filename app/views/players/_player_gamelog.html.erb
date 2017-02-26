@@ -20,6 +20,7 @@
         <table id="player_gamelog_table" class="bootgrid-table">
           <thead>
             <tr>
+              <th data-column-id="id" data-type="numeric" data-visible='false'>ID</th>
               <th data-css-class="fixed-cell ellipsis" data-header-css-class="fixed-cell" data-column-id="gameoppo" data-formatter="game-link" data-visible-in-selection="false"></th>
               <th data-column-id="game">G</th>
               <th data-column-id="pts" data-type="numeric">PTS</th>
@@ -43,40 +44,47 @@
               <th data-column-id="stl" data-type="numeric">STL</th>
               <th data-column-id="blk" data-type="numeric">BLK</th>
               <th data-column-id="pf" data-type="numeric">PF</th>
-              <th data-column-id="id" data-type="numeric" data-visible='false'>ID</th>
             </tr>
           </thead>
           <tbody>
 
             <% @player.current_season_games.each do|game| %>
               <% playerstat ||= game.find_player_stat_by_player(@player) %>
-              <% unless playerstat.nil? || playerstat.dnp %>
-                <tr>
-                  <td><%= game.opponent_shortname %></td>
-                  <td><%= game.win_or_lose %></td>
-                  <td><%= playerstat.points %></td>
-                  <td><%= playerstat.rebound %></td>
-                  <td><%= playerstat.ast %></td>
-                  <td><%= playerstat.fgm %></td>
-                  <td><%= playerstat.fga %></td>
-                  <td></td>
-                  <td><%= playerstat.field_goal_percent %></td>
-                  <td><%= playerstat.tpm %></td>
-                  <td><%= playerstat.tpa %></td>
-                  <td></td>
-                  <td><%= playerstat.three_point_percent %></td>
-                  <td><%= playerstat.ftm %></td>
-                  <td><%= playerstat.fta %></td>
-                  <td></td>
-                  <td><%= playerstat.free_throw_percent %></td>
-                  <td><%= playerstat.oreb %></td>
-                  <td><%= playerstat.dreb %></td>
-                  <td><%= playerstat.tov %></td>
-                  <td><%= playerstat.stl %></td>
-                  <td><%= playerstat.blk %></td>
-                  <td><%= playerstat.foul %></td>
-                  <td><%= playerstat.game_id %></td>
-                </tr>
+              <% unless playerstat.nil? %>
+                <% if playerstat.dnp%>
+                  <tr class='dnp-row'>
+                    <td><%= playerstat.game_id %></td>
+                    <td><%= game.opponent_shortname %></td>
+                    <td>DNP</td>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <td><%= playerstat.game_id %></td>
+                    <td><%= game.opponent_shortname %></td>
+                    <td><%= game.win_or_lose %></td>
+                    <td><%= playerstat.points %></td>
+                    <td><%= playerstat.rebound %></td>
+                    <td><%= playerstat.ast %></td>
+                    <td><%= playerstat.fgm %></td>
+                    <td><%= playerstat.fga %></td>
+                    <td></td>
+                    <td><%= playerstat.field_goal_percent %></td>
+                    <td><%= playerstat.tpm %></td>
+                    <td><%= playerstat.tpa %></td>
+                    <td></td>
+                    <td><%= playerstat.three_point_percent %></td>
+                    <td><%= playerstat.ftm %></td>
+                    <td><%= playerstat.fta %></td>
+                    <td></td>
+                    <td><%= playerstat.free_throw_percent %></td>
+                    <td><%= playerstat.oreb %></td>
+                    <td><%= playerstat.dreb %></td>
+                    <td><%= playerstat.tov %></td>
+                    <td><%= playerstat.stl %></td>
+                    <td><%= playerstat.blk %></td>
+                    <td><%= playerstat.foul %></td>
+                  </tr>
+                <% end %>
               <% end %>
             <% end %>
 

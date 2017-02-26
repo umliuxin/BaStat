@@ -53,6 +53,21 @@
   td.min-width-lg{
     min-width: 200px;
   }
+  tr.dnp-row:before{
+    left: 0;
+    right: 0;
+    line-height: 35px;
+    margin-left: 130px;
+    position: absolute;
+    content: 'DNP';
+    text-align: center;
+  }
+  tr.dnp-row.even:before{
+    background-color: #f2f2f2;
+  }
+  tr.dnp-row.odd:before{
+    background-color: #ffffff;
+  }
 }
 .bootgrid-table-wrapper{
   overflow-x: auto;
@@ -123,6 +138,9 @@
   .bootgrid-table{
     td, th{
       padding: 5px 8px;
+    }
+    tr.dnp-row:before{
+      margin-left: 90px;
     }
   }
   .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{
