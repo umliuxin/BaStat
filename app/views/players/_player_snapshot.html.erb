@@ -2,7 +2,7 @@
   <div class="card player-card player-card-stacked responsive js-to-url" data-player-id= "<%= player.id %>" data-url="<%= player_path(player)%>">
     <div class="aspect-content">
       <div class="player-image">
-        <%= image_tag('design_guide/player_image.png', class: 'activator') %>
+        <%= image_tag(player.player_image_url, class: 'activator') %>
       </div>
     </div>
     <div class="card-content grey lighten-2">

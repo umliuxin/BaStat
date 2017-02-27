@@ -4,8 +4,7 @@ $(document).ready(function(){
     {
       navigation: 0,
       formatters: {
-        "player-link": function(column, row)
-        {
+        "player-link": function(column, row){
             return "<a href='/players/" + row.id + "'>" + row.name+ "</a>";
         },
         "percent": function(column,row){

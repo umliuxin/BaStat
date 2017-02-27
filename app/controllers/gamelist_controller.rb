@@ -10,6 +10,7 @@ class GamelistController < ApplicationController
 
   def results
     @games = Game.result_game
+    @seasons = Season.order(start_date: :desc)
     add_breadcrumb "Home", home_path, :title => "Home"
     add_breadcrumb "Game Result", results_path, :title => "Game Result"
   end

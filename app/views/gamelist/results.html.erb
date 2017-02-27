@@ -3,10 +3,23 @@
     <div class="row">
       <div class="col xs12 l10 offset-l1">
         <h1>Result</h1>
+
+        <!-- Dropdown Trigger -->
+        <a id='season-dropdown-button' class='dropdown-button btn season-dropdown-button margin-bottom-lg' href='#' data-activates='result-season-dropdown'>All Seasons</a>
+
+        <!-- Dropdown Structure -->
+        <ul id='result-season-dropdown' class='dropdown-content'>
+          <li><a href="#" class="js-season-select" data-seasonid = "ALL" >All</a></li>
+          <li class="divider"></li>
+          <% @seasons.each do |season| %>
+            <li><a href="#" class="js-season-select" data-seasonid = "<%= season.id %>"><%= season.name %></a></li>
+          <% end %>
+        </ul>
       </div>
     </div>
     <div class="row">
-      <%= render partial: 'result_snapshot', collection: @games, as: :game %>
+      <% @showing_season_id = '-1' %>
+      <%= render partial: 'result_snapshot', collection: @games, as: :game, locals: {season_id: @showing_season_id} %>
     </div>
   </div>
 </div>

@@ -50,6 +50,11 @@ $(document).ready(function(){
               return row.ftm + '/'+ row.fta
             }
         }
+    },
+    labels: {
+        noResults: "No Results"
     }
   });
+
+
 });

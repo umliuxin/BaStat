@@ -598,7 +598,15 @@
                 var cells = "",
                     rowAttr = " data-row-id=\"" + ((that.identifier == null) ? index : row[that.identifier]) + "\"",
                     rowCss = "";
+                if (row.game == "DNP" || row.position == "DNP"){
+                  if (index%2){
+                    rowCss = "dnp-row even";
+                  }
+                  else{
+                    rowCss ="dnp-row odd";
+                  }
 
+                }
                 if (that.selection)
                 {
                     var selected = ($.inArray(row[that.identifier], that.selectedRows) !== -1),

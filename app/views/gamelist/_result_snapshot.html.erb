@@ -1,17 +1,27 @@
 <% top_stats = game.get_stats_top_player %>
-<div class="col xs12 l10 offset-l1">
+<%# Season Name%>
+<% if @showing_season_id != game.season_id %>
+<div class="col xs12 text-center result-item" data-seasonId="<%= game.season_id %>">
+  <h5><%= game.season.name.capitalize %></h5>
+</div>
+<% @showing_season_id = game.season_id %>
+<% end %>
+<%# Result card %>
+<div class="col xs12 l10 offset-l1 result-item" data-seasonId="<%= game.season_id%>">
   <div class="js-match-cards-flip">
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
         <div class="team-logo">
-          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
-          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <div class="col m4 xs12 no-padding">
-            <h5 class='display-inline'><%= game.opponent %></h5>
+            <h5 class='display-inline'><%= game.opponent_name %></h5>
             <br class="hide-on-med-and-up">
             <span><%= format_date(game.gametime)%></span>
             <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
@@ -21,19 +31,22 @@
               <div class="top-player-text">
                 <%= top_stats[:point].points.to_i %> PTS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:point].player_id) }) %>
+              <div class="player-name-text"><%= Player.find(top_stats[:point].player_id).name %></div>
+              <%= image_tag(Player.find(top_stats[:point].player_id).player_image_url, class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:point].player_id) }) %>
             </div>
             <div class="top-player">
               <div class="top-player-text">
                 <%= top_stats[:reb].rebound.to_i %> REBS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:reb].player_id) }) %>
+              <div class="player-name-text"><%= Player.find(top_stats[:reb].player_id).name %></div>
+              <%= image_tag(Player.find(top_stats[:reb].player_id).player_image_url, class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:reb].player_id) }) %>
             </div>
             <div class="top-player">
               <div class="top-player-text">
                 <%= top_stats[:ast].ast.to_i %> ASTS
               </div>
-              <%= image_tag('design_guide/player_image.png', class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:ast].player_id) }) %>
+              <div class="player-name-text"><%= Player.find(top_stats[:ast].player_id).name %></div>
+              <%= image_tag(Player.find(top_stats[:ast].player_id).player_image_url, class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:ast].player_id) }) %>
             </div>
 
           </div>
@@ -45,15 +58,17 @@
     </div>
     <div class="card horizontal match-card match-card-result-detail hide">
       <div class="aspect-content">
-        <div class="team-logo">
-          <%= image_tag(TEAM_OPPO_LOGO_DEFAULT) %>
-          <div class='oppo-team-short text-center absolute-centering'><%= team_name_short(game.opponent) %></div>
+        <div class="team-logo logo-align-right">
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <div class="col xs12 s5 no-padding">
-            <h5 class='display-inline'><%= game.opponent%>, <%= format_date(game.gametime)%></h5>
+            <h5 class='display-inline'><%= game.opponent_name %>, <%= format_date(game.gametime)%></h5>
             <h4 class='no-margin'><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h4>
             <div>
               <table>
@@ -74,7 +89,7 @@
                   <td><%= game.score.point_total %></td>
                 </tr>
                 <tr>
-                  <td><%= game.opponent%></td>
+                  <td><%= game.opponent_shortname%></td>
                   <td><%= game.score.point_op_q1 %></td>
                   <td><%= game.score.point_op_q2 %></td>
                   <td><%= game.score.point_op_q3 %></td>

@@ -9,7 +9,7 @@
           <div class="team-legend team-legend-home text-center"><%= image_tag(@game.team.team_logo)%> Home Team</div>
         </div>
         <div class="col xs6">
-          <div class="team-legend team-legend-away text-center"><%= image_tag("oppo-logo.png")%> Away Team</div>
+          <div class="team-legend team-legend-away text-center"><%= image_tag(@game.opponent_image)%> Away Team</div>
         </div>
       </div>
       <div class="row row-match-stat-1">
