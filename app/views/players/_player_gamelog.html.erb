@@ -5,16 +5,17 @@
     </div>
     <div class="card-panel-content no-padding-xs">
       <div class='player-gamelog-season-select hide'>
-        <div class="input-field">
-          <select>
-            <option value="" disabled selected>Choose your option</option>
-            <% @player.seasons.each do |season| %>
-            <option value="<%= season.id %>"><%= season.name %></option>
-            <% end %>
+        <!-- Dropdown Trigger -->
+        <a id='player-dropdown-button' class='dropdown-button btn season-dropdown-button margin-bottom-lg' href='#' data-activates='player-season-dropdown'>All Seasons</a>
 
-          </select>
-          <label>Season Select</label>
-        </div>
+        <!-- Dropdown Structure -->
+        <ul id='player-season-dropdown' class='dropdown-content'>
+          <li><a href="#" class="js-player-season-select" data-seasonid = "ALL" >All</a></li>
+          <li class="divider"></li>
+          <% @seasons.each do |season| %>
+            <li><a href="#" class="js-player-season-select" data-seasonid = "<%= season.id %>"><%= season.name %></a></li>
+          <% end %>
+        </ul>
       </div>
       <div class="bootgrid-container bootgrid-stat-full first-item-fixed team without-header without-footer mar-bottom-lg pos-relative">
         <table id="player_gamelog_table" class="bootgrid-table">

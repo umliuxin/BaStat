@@ -1,5 +1,13 @@
 <% top_stats = game.get_stats_top_player %>
-<div class="col xs12 l10 offset-l1">
+<%# Season Name%>
+<% if @showing_season_id != game.season_id %>
+<div class="col xs12 text-center result-item" data-seasonId="<%= game.season_id %>">
+  <h5><%= game.season.name.capitalize %></h5>
+</div>
+<% @showing_season_id = game.season_id %>
+<% end %>
+<%# Result card %>
+<div class="col xs12 l10 offset-l1 result-item" data-seasonId="<%= game.season_id%>">
   <div class="js-match-cards-flip">
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
