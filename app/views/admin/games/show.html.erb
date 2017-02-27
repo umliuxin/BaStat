@@ -1,5 +1,19 @@
 <h1>GAME Record</h1>
-
+<% if @game.opponent_name == "TBD" %>
+  <section>
+    <ul>
+      <li>Game ID: <%= @game.id %> </li>
+      <li>Game Oppo: <%= @game.opponent_name %></li>
+      <%= form_for :game, url: admin_game_update_oppo_path do |f| %>
+        <%= f.select(:opponent) do %>
+          <% opp_array = OPPO_TEAM_ARR[0..-2].map.with_index { |oppo, index| [oppo[:name], index + 1]} %>
+          <%= options_for_select(opp_array) %>
+        <% end %>
+        <%= f.submit("Update") %>
+      <% end %>
+    </ul>
+  </section>
+<% else %>
 <section>
   <ul>
     <li>Game ID: <%= @game.id %> </li>
@@ -84,3 +98,5 @@
     <p><%= action.position %>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>, <%= action.description%> <%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
 </section>
+
+<% end %>

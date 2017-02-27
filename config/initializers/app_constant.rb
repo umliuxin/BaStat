@@ -88,5 +88,6 @@ OPPO_TEAM_ARR = [
   { name:'Wolfpack', logo:'Wolfpack.jpg', shortname:'WOL'},
   { name:'人民币', logo:'RMB.jpg', shortname:'RMB'},
   { name:'西南某队', logo:'Xinan.jpg', shortname:'XNM'},
-  { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'}
+  { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'},
+  { name:'TBD', logo:'', shortname: 'TBD'}
 ]

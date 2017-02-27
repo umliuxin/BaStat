@@ -598,7 +598,6 @@
                 var cells = "",
                     rowAttr = " data-row-id=\"" + ((that.identifier == null) ? index : row[that.identifier]) + "\"",
                     rowCss = "";
-                console.log(row);
                 if (row.game == "DNP" || row.position == "DNP"){
                   if (index%2){
                     rowCss = "dnp-row even";

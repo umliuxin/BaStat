@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'games/:id', to:'games#show', as: 'game'
     get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
     post 'games/:id/update_score', to: 'games#update_score', as: 'game_update_score'
+    post 'games/:id/update_oppo', to: 'games#update_oppo', as: 'game_update_oppo'
 
     get 'games/:id/dnp', to: 'games#dnp', as: 'game_dnp'
     get 'adddnp/:game_id/:player_id', to: 'games#dnp_add', as: 'game_add_dnp'

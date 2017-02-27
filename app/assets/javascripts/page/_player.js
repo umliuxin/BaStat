@@ -34,7 +34,6 @@ $(document).ready(function(){
       navigation: 0,
       formatters: {
         "game-link": function(column, row){
-          console.log(row)
           return "<a href='/games/" + row.id + "'>" + row.gameoppo+ "</a>";
         },
         "percent": function(column,row){
