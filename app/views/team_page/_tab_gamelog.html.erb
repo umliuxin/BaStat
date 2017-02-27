@@ -38,7 +38,7 @@
             <tbody>
               <% @team.result_games_current_season.each do|game| %>
                 <tr>
-                  <td><%= game.opponent %></td>
+                  <td><%= game.opponent_shortname %></td>
                   <td><%= game.win_or_lose %></td>
                   <td><%= game.team_stat.points %></td>
                   <td><%= game.team_stat.rebound %></td>

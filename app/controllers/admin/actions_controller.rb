@@ -5,7 +5,8 @@ module Admin
 
     def create
       # if insert_position exists, action will be added in that position
-      insert_position = cookies[:insert_position]
+      # insert_position = cookies[:insert_position]
+      insert_position = action_params[:position]
 
       # if game ends and position is not set, cannot add action in the list
       if game_ends? && insert_position.blank?
@@ -16,7 +17,11 @@ module Admin
       @action = Action.create(action_params)
       if @action.valid?
         # if insert_position is set, move the new action object to insert_position
-        move_to_position(insert_position.to_i) unless insert_position.blank?
+        if insert_position.blank?
+          cookies.delete :insert_position
+        else
+          move_to_position(insert_position.to_i)
+        end
         # Update score
         update_score(action_params)
       else
@@ -54,7 +59,7 @@ module Admin
     private
 
     def action_params
-      params.require(:move).permit(:player_id, :action_index, :game_id)
+      params.require(:move).permit(:player_id, :action_index, :game_id, :position, :description)
     end
 
     def team_params

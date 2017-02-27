@@ -1,9 +1,23 @@
 <h1>GAME Record</h1>
-
+<% if @game.opponent_name == "TBD" %>
+  <section>
+    <ul>
+      <li>Game ID: <%= @game.id %> </li>
+      <li>Game Oppo: <%= @game.opponent_name %></li>
+      <%= form_for :game, url: admin_game_update_oppo_path do |f| %>
+        <%= f.select(:opponent) do %>
+          <% opp_array = OPPO_TEAM_ARR[0..-2].map.with_index { |oppo, index| [oppo[:name], index + 1]} %>
+          <%= options_for_select(opp_array) %>
+        <% end %>
+        <%= f.submit("Update") %>
+      <% end %>
+    </ul>
+  </section>
+<% else %>
 <section>
   <ul>
     <li>Game ID: <%= @game.id %> </li>
-    <li>Game Oppo: <%= @game.opponent %></li>
+    <li>Game Oppo: <%= @game.opponent_name %></li>
     <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
     <li><%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%></li>
   </ul>
@@ -38,7 +52,7 @@
         <td><%= @score.point_total %></td>
       </tr>
       <tr>
-        <td><%= @game.opponent %></td>
+        <td><%= @game.opponent_name %></td>
         <td width='80px'><%= f.text_field :point_op_q1, class: 'small-text-field' %></td>
         <td width='80px'><%= f.text_field :point_op_q2, class: 'small-text-field' %></td>
         <td width='80px'><%= f.text_field :point_op_q3, class: 'small-text-field' %></td>
@@ -49,7 +63,6 @@
   </table>
   <% end %>
 </section>
-
 <section class='admin-game-form'>
   <%= form_for :move, url: admin_create_action_path do |f| %>
     <%= f.submit %><br>
@@ -70,9 +83,9 @@
 
 
     <%= f.hidden_field :game_id, value: @game.id %>
-    <%= f.hidden_field :position, value: params[:position] %>
     <%= f.hidden_field :quarter, value: @score.recording_quarter %>
-
+    <div>Insert Before:<%= f.text_field :position, value: cookies[:insert_position] %> Clear if adding to the end of list</div>
+    <div>Description: <%= f.text_field :description, placeholder: 'OPTIONAL'%></div>
 
 
   <% end %>
@@ -82,6 +95,8 @@
   <h5>Action List</h5>
   <% @action_list.each do |action| %>
     <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
-    <p><%= action.position %>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>,<%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= action.position %>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>, <%= action.description%> <%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
   <% end %>
 </section>
+
+<% end %>

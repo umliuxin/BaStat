@@ -44,7 +44,7 @@ module Admin
     private
 
     def player_params
-      params.require(:player).permit(:name, :number, :image_url, :bio, :height, :weight, :position)
+      params.require(:player).permit(:name, :number, :image_url, :bio, :height, :weight, :position, :birthday)
     end
 
   end

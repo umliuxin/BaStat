@@ -31,7 +31,9 @@ module ApplicationHelper
     POSITION_SHORT_NAME[text.to_sym]
   end
 
-
+  def team_name_short(name)
+    name[0..2].upcase
+  end
 
 
 

@@ -9,12 +9,15 @@
     <div class="card horizontal match-card match-card-schedule">
       <div class="aspect-content">
         <div class="team-logo">
-          <%= image_tag('design_guide/team_logo.svg') %>
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h3 class='no-margin margin-bottom'><%= game.opponent %></h3>
+          <h3 class='no-margin margin-bottom'><%= game.opponent_name %></h3>
           <p><strong><%= format_datetime(game.gametime) %></strong></p>
           <p><%= STADIUM_ADDRESS %></p>
 

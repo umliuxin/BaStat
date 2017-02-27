@@ -4,17 +4,41 @@
     <h3 class='padding-all'>No Result Available</h3>
   </div>
   <% end %>
-  <% @team.result_games.each do |game| %>
   <div class="col xs12 s10 offset-s1">
+    <!-- Dropdown Trigger -->
+    <a id='season-dropdown-button' class='dropdown-button btn season-dropdown-button margin-bottom margin-top' href='#' data-activates='result-season-dropdown'>All Seasons</a>
+
+    <!-- Dropdown Structure -->
+    <ul id='result-season-dropdown' class='dropdown-content'>
+      <li><a href="#" class="js-season-select" data-seasonid = "ALL" >All</a></li>
+      <li class="divider"></li>
+      <% @seasons.each do |season| %>
+        <li><a href="#" class="js-season-select" data-seasonid = "<%= season.id %>"><%= season.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <% showing_season_id = "ALL"%>
+  <% @team.result_games.each do |game| %>
+  <%# Season Name%>
+  <% if showing_season_id != game.season_id %>
+  <div class="col xs12 text-center result-item" data-seasonid="<%= game.season_id %>">
+    <h5><%= game.season.name.capitalize %></h5>
+  </div>
+  <% showing_season_id = game.season_id %>
+  <% end %>
+  <div class="col xs12 s10 offset-s1 result-item"  data-seasonid="<%= game.season_id %>">
     <div class="card horizontal match-card match-card-result-simple">
       <div class="aspect-content">
-        <div class="team-logo js-to-url" data-url="<%= game_path(game)%>">
-          <%= image_tag('design_guide/team_logo.svg') %>
+        <div class="team-logo">
+          <%= image_tag(game.opponent_image) %>
+          <% unless game.opponent_image? %>
+            <div class='oppo-team-short text-center absolute-centering'><%= game.opponent_shortname %></div>
+          <% end %>
         </div>
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h5 class='display-inline'><%= game.opponent %></h5>
+          <h5 class='display-inline'><%= game.opponent_name %></h5>
           <br class="hide-on-med-and-up">
           <span><%= format_date(game.gametime)%></span>
           <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>

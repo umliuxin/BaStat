@@ -8,6 +8,7 @@
         <table id="match_boxscore_table" class="bootgrid-table">
           <thead>
             <tr>
+              <th data-column-id="id" data-type="numeric" data-visible='false'></th>
               <th data-css-class="fixed-cell ellipsis" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="name" data-formatter="player-link" data-visible-in-selection="false"></th>
               <th data-column-id="position">P</th>
               <th data-column-id="point" data-type="numeric">PTS</th>
@@ -25,7 +26,6 @@
               <th data-column-id="stl" data-type="numeric">STL</th>
               <th data-column-id="tov" data-type="numeric">TO</th>
               <th data-column-id="pf" data-type="numeric">PF</th>
-              <th data-column-id="id" data-type="numeric" data-visible='false'></th>
               <th data-column-id="fgm" data-type="numeric" data-visible='false'></th>
               <th data-column-id="fga" data-type="numeric" data-visible='false'></th>
               <th data-column-id="tpm" data-type="numeric" data-visible='false'></th>
@@ -36,8 +36,15 @@
           </thead>
           <tbody>
             <% @game.player_stats.each do |playerstat| %>
-              <% unless playerstat.dnp %>
+              <% if playerstat.dnp %>
+              <tr>
+                <td><%= playerstat.player_id %></td>
+                <td><%= playerstat.player.name %></td>
+                <td>DNP</td>
+              </tr>
+              <% else %>
                 <tr>
+                  <td><%= playerstat.player_id %></td>
                   <td><%= playerstat.player.name %></td>
                   <td><%= short_position(playerstat.player.position) %></td>
                   <td><%= playerstat.points %></td>
@@ -55,7 +62,6 @@
                   <td><%= playerstat.stl %></td>
                   <td><%= playerstat.tov %></td>
                   <td><%= playerstat.foul %></td>
-                  <td><%= playerstat.player_id %></td>
                   <td><%= playerstat.fgm %></td>
                   <td><%= playerstat.fga %></td>
                   <td><%= playerstat.tpm %></td>

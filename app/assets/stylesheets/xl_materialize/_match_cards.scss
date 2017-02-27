@@ -24,6 +24,20 @@ $match-index-width:       40px !default;
       left: 50%;
       transform: translate(-50%,-50%);
     }
+    .oppo-team-short{
+      position: absolute;
+      font-size: 50px;
+      width: 216px;
+      line-height: 216px;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 50%;
+      color: white;
+    }
+    &.logo-align-right img{
+      left: auto;
+      right: 0;
+      transform: translate(0,-50%);
+    }
   }
 
   .card-stacked{
@@ -50,6 +64,15 @@ $match-index-width:       40px !default;
         width: 78%;
         left: 11%;
         cursor: pointer;
+      }
+      .player-name-text{
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        z-index: 1;
+        text-align: center;
+        background-color: rgba(255,255,255,0.5);
       }
     }
   }

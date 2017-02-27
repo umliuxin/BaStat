@@ -62,6 +62,13 @@ module Admin
       redirect_to admin_game_path(params[:id])
     end
 
+    def update_oppo
+      oparams = oppo_params
+      game = Game.find(params[:id])
+      game.update(oparams)
+      redirect_to admin_game_path(params[:id])
+    end
+
     private
 
     def game_params
@@ -70,6 +77,10 @@ module Admin
 
     def score_params
       params.require(:score).permit(:point_q1, :point_q2, :point_q3, :point_q4, :point_op_q1, :point_op_q2, :point_op_q3, :point_op_q4)
+    end
+
+    def oppo_params
+      params.require(:game).permit(:opponent)
     end
   end
 end
