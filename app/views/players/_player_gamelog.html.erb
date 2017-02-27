@@ -4,19 +4,6 @@
       <h3 class="reverse-text-color">Game Logs</h3>
     </div>
     <div class="card-panel-content no-padding-xs">
-      <div class='player-gamelog-season-select hide'>
-        <!-- Dropdown Trigger -->
-        <a id='player-dropdown-button' class='dropdown-button btn season-dropdown-button margin-bottom-lg' href='#' data-activates='player-season-dropdown'>All Seasons</a>
-
-        <!-- Dropdown Structure -->
-        <ul id='player-season-dropdown' class='dropdown-content'>
-          <li><a href="#" class="js-player-season-select" data-seasonid = "ALL" >All</a></li>
-          <li class="divider"></li>
-          <% @seasons.each do |season| %>
-            <li><a href="#" class="js-player-season-select" data-seasonid = "<%= season.id %>"><%= season.name %></a></li>
-          <% end %>
-        </ul>
-      </div>
       <div class="bootgrid-container bootgrid-stat-full first-item-fixed team without-header without-footer mar-bottom-lg pos-relative">
         <table id="player_gamelog_table" class="bootgrid-table">
           <thead>
