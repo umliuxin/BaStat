@@ -1,4 +1,4 @@
-<% top_stats = game.get_stats_top_player %>
+<% top_stats ||= game.get_stats_top_player %>
 <%# Season Name%>
 <% if @showing_season_id != game.season_id %>
 <div class="col xs12 text-center result-item" data-seasonId="<%= game.season_id %>">
@@ -26,6 +26,7 @@
             <span><%= format_date(game.gametime)%></span>
             <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
           </div>
+          <% unless top_stats or top_stats.is_blank? %>
           <div class="col m8 no-padding hide-on-small-and-down top-three-players">
             <div class="top-player">
               <div class="top-player-text">
@@ -48,8 +49,8 @@
               <div class="player-name-text"><%= Player.find(top_stats[:ast].player_id).name %></div>
               <%= image_tag(Player.find(top_stats[:ast].player_id).player_image_url, class: 'top-player-image js-to-url', :data => { :url => player_path(top_stats[:ast].player_id) }) %>
             </div>
-
           </div>
+          <% end %>
         </div>
         <div class="card-action">
           <%= link_to 'FULL GAME INFO', game_path(game), class: 'js-to-game-url', :data => { :url => game_path(game) }%>
