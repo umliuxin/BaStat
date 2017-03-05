@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # Admin Route
   namespace :admin, path: '/admin' do
     get '/', to: 'index#show', as: 'index'
 
@@ -43,8 +44,7 @@ Rails.application.routes.draw do
     get '/actions/:id/position/:pos_index', to: 'actions#move', as: 'action_move_postion'
   end
 
-  # Design Guide
-
+  # Design Guide Route
   namespace :design, path: '/design' do
     get '/', to: 'design#about', as: 'about'
     get 'typography', to: 'design#typography', as: 'typography'
@@ -68,7 +68,7 @@ Rails.application.routes.draw do
 
   end
 
-  # API
+  # API Routes
   namespace :api, path: '/api' do
     get 'team', to: 'team#team'
 
@@ -80,13 +80,17 @@ Rails.application.routes.draw do
 
   end
 
-
+  # Production Routes
   resources :players, only: [:index, :show]
 
   resources :games, only: [:show]
   get '/schedules', to: 'gamelist#schedules'
   get '/results', to: 'gamelist#results'
 
+  #Video Routes
+  get 'video/vs_ttp', to: 'team_page#video'
+
+  # Homepage Routes
   root 'team_page#show', as: 'home'
 
 end
