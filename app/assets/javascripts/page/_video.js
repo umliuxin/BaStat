@@ -42,7 +42,6 @@ function onPlayerReady(event) {
 
 // 5. The API calls this function when the player's state changes.
 function onPlayerStateChange(event) {
-  console.log(event)
   if (event.data == 2){
     player1.pauseVideo();
     player2.pauseVideo();
