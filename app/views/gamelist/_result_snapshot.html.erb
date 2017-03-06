@@ -26,7 +26,7 @@
             <span><%= format_date(game.gametime)%></span>
             <h2><%= game.win_or_lose %> <%= game.score.point_total %> - <%= game.score.point_op_total %></h2>
           </div>
-          <% unless top_stats or top_stats.is_blank? %>
+          <% unless top_stats.empty? %>
           <div class="col m8 no-padding hide-on-small-and-down top-three-players">
             <div class="top-player">
               <div class="top-player-text">

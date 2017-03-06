@@ -107,7 +107,7 @@
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= number_to_percentage(@game.team_stat.three_point_percent, precision: 1)%></div>
+            <div class='data-text disadvantage'><%= number_to_percentage(@game.oppo_team_stat.three_point_percent, precision: 1)%></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">3P%</div>
         </div>
@@ -119,7 +119,7 @@
           </div>
           <div class="item-rect away-team-rect">
             <div class='data-rect padding-all-sm'>AWAY</div>
-            <div class='data-text disadvantage'><%= number_to_percentage(@game.team_stat.free_throw_percent, precision: 1)%></div>
+            <div class='data-text disadvantage'><%= number_to_percentage(@game.oppo_team_stat.free_throw_percent, precision: 1)%></div>
           </div>
           <div class="item-text font-weight-semi-bold padding-all-sm">FT%</div>
         </div>
