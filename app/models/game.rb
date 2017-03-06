@@ -63,6 +63,7 @@ class Game < ActiveRecord::Base
   def get_stats_top_player
     # points, rebs, assits
     stats = self.player_stats.where(dnp: false)
+    return Hash.new if stats.length == 0 
     {
       point: get_max_stats(stats, 'point'),
       ast: get_max_stats(stats, 'ast'),
