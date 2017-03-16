@@ -18,11 +18,13 @@
 <section id='score_only_field' class='margin-top-lg hide'>
 
   <% @playerstats.each do |playerstat| %>
+    <% unless playerstat.dnp %>
     <div>
       <%= label_tag('score['+playerstat.player_id.to_s+']', playerstat.player.name) %>
       <%= text_field_tag 'score['+playerstat.player_id.to_s+']', playerstat.score_only_score   %>
 
     </div>
+    <% end %>
   <% end %>
 </section>
   <button type="submit" name="button" class="margin-all">Update</button>
