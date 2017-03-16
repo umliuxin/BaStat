@@ -53,7 +53,7 @@
   td.min-width-lg{
     min-width: 200px;
   }
-  tr.dnp-row:before{
+  tr.dnp-row:before,tr.score-row:before{
     left: 0;
     right: 0;
     line-height: 35px;
@@ -62,12 +62,19 @@
     content: 'DNP';
     text-align: center;
   }
-  tr.dnp-row.even:before{
+  tr.score-row:before{
+    margin-left: 190px;
+    content: 'Score Only';
+  }
+  tr.dnp-row.even:before,tr.score-row.even:before{
     background-color: #f2f2f2;
   }
-  tr.dnp-row.odd:before{
+  tr.dnp-row.odd:before,tr.score-row.odd:before{
     background-color: #ffffff;
   }
+}
+.player-gamelog .bootgrid-table tr.score-row:before{
+  margin-left: 275px;
 }
 .bootgrid-table-wrapper{
   overflow-x: auto;
@@ -141,6 +148,11 @@
     }
     tr.dnp-row:before{
       margin-left: 90px;
+      line-height: 29px;
+    }
+    tr.score-row:before{
+      margin-left: 190px !important;
+      line-height: 29px;
     }
   }
   .bootgrid-stat-full.first-item-fixed.team .bootgrid-table-wrapper{

@@ -20,6 +20,7 @@
     <li>Game Oppo: <%= @game.opponent_name %></li>
     <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
     <li><%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%></li>
+    <li><%= link_to 'Only Score', admin_game_score_only_path(@game.id)%></li>
   </ul>
 </section>
 <section>

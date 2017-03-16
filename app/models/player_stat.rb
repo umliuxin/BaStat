@@ -33,6 +33,14 @@ class PlayerStat < ActiveRecord::Base
     self.update(dnp: bol)
   end
 
+  def update_score_only(score)
+    self.update(score_only_score: score, score_only: true, dnp: true)
+  end
+
+  def reset_score_only
+    self.update(score_only_score: 0, score_only: false, dnp: false)
+  end
+
   def update_from_one_action(action)
     case action.action_index
       when 0
