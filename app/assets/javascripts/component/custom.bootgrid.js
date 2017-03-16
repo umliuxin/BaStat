@@ -605,7 +605,14 @@
                   else{
                     rowCss ="dnp-row odd";
                   }
-
+                }
+                if (row.ast == "-1" || row.position == "SCORE_ONLY"){
+                  if (index%2){
+                    rowCss = "score-row even";
+                  }
+                  else{
+                    rowCss ="score-row odd";
+                  }
                 }
                 if (that.selection)
                 {

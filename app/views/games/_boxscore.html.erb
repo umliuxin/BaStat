@@ -10,7 +10,7 @@
             <tr>
               <th data-column-id="id" data-type="numeric" data-visible='false'></th>
               <th data-css-class="fixed-cell ellipsis" data-identifier="true" data-header-css-class="fixed-cell" data-column-id="name" data-formatter="player-link" data-visible-in-selection="false"></th>
-              <th data-column-id="position">P</th>
+              <th data-column-id="position" data-visible='false'>P</th>
               <th data-column-id="point" data-type="numeric">PTS</th>
               <th data-column-id="assist" data-type="numeric">AST</th>
               <th data-column-id="reb" data-type="numeric">REB</th>
@@ -36,7 +36,14 @@
           </thead>
           <tbody>
             <% @game.player_stats.each do |playerstat| %>
-              <% if playerstat.dnp %>
+              <% if playerstat.dnp && playerstat.score_only %>
+              <tr>
+                <td><%= playerstat.player_id %></td>
+                <td><%= playerstat.player.name %></td>
+                <td>SCORE_ONLY</td>
+                <td><%= playerstat.score_only_score %></td>
+              </tr>
+              <% elsif playerstat.dnp %>
               <tr>
                 <td><%= playerstat.player_id %></td>
                 <td><%= playerstat.player.name %></td>

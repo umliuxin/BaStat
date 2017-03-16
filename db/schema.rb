@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212224537) do
+ActiveRecord::Schema.define(version: 20170316034928) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -61,22 +61,24 @@ ActiveRecord::Schema.define(version: 20170212224537) do
   create_table "player_stats", force: :cascade do |t|
     t.integer  "game_id"
     t.integer  "player_id"
-    t.float    "fgm",        default: 0.0
-    t.float    "fga",        default: 0.0
-    t.float    "tpm",        default: 0.0
-    t.float    "tpa",        default: 0.0
-    t.float    "ftm",        default: 0.0
-    t.float    "fta",        default: 0.0
-    t.float    "oreb",       default: 0.0
-    t.float    "dreb",       default: 0.0
-    t.float    "ast",        default: 0.0
-    t.float    "tov",        default: 0.0
-    t.float    "stl",        default: 0.0
-    t.float    "blk",        default: 0.0
-    t.float    "foul",       default: 0.0
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "dnp",        default: false
+    t.float    "fgm",              default: 0.0
+    t.float    "fga",              default: 0.0
+    t.float    "tpm",              default: 0.0
+    t.float    "tpa",              default: 0.0
+    t.float    "ftm",              default: 0.0
+    t.float    "fta",              default: 0.0
+    t.float    "oreb",             default: 0.0
+    t.float    "dreb",             default: 0.0
+    t.float    "ast",              default: 0.0
+    t.float    "tov",              default: 0.0
+    t.float    "stl",              default: 0.0
+    t.float    "blk",              default: 0.0
+    t.float    "foul",             default: 0.0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.boolean  "dnp",              default: false
+    t.boolean  "score_only",       default: false
+    t.integer  "score_only_score", default: 0
   end
 
   add_index "player_stats", ["game_id"], name: "index_player_stats_on_game_id"

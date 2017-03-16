@@ -27,6 +27,25 @@ module Admin
       redirect_to admin_game_dnp_path(playerstat.game_id)
     end
 
+    def score_only
+      @playerstats = PlayerStat.where(game_id: params[:id])
+    end
+
+    def score_only_update
+      if params["score_only_checkbox"] && params["score_only_checkbox"] == 'on'
+        params["score"].each do |score|
+          PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).update_score_only(score[1].to_i)
+        end
+      else
+        params["score"].each do |score|
+          PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).reset_score_only
+        end
+      end
+
+      flash[:success] = "Update Successful!"
+      redirect_to admin_game_score_only_path(params[:id])
+    end
+
     def create
       unless @game = Game.create(game_params)
         flash[:danger] = @game.errors.messages[0]
@@ -82,5 +101,7 @@ module Admin
     def oppo_params
       params.require(:game).permit(:opponent)
     end
+
+
   end
 end

@@ -34,6 +34,9 @@ Rails.application.routes.draw do
     get 'adddnp/:game_id/:player_id', to: 'games#dnp_add', as: 'game_add_dnp'
     get 'removednp/:game_id/:player_id', to: 'games#dnp_remove', as: 'game_remove_dnp'
 
+    get 'games/:id/score_only', to: 'games#score_only', as: 'game_score_only'
+    post 'games/:id/score_only_update', to: 'games#score_only_update', as: 'game_score_only_update'
+
     # Action Section
     post '/actions', to: 'actions#create', as: 'create_action'
     get '/actions/quarter_end/:game_id', to: 'actions#quarter_end', as: 'quarter_end'

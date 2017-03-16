@@ -1,3 +1,14 @@
+// Roboto Google Font (not hosted)
+@import 'web-font/roboto';
+// Font Awesome
+@import "font-awesome";
+
+
+// Materialize Framework
+@import "materialize";
+@import "materialize/components/forms/forms";
+
+
 .admin-game-form{
   label{
     display: inline-block;
