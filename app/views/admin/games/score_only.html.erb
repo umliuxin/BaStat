@@ -1,0 +1,31 @@
+<h1>Only Score?</h1>
+<div>
+  <%= link_to 'back to game', admin_game_path(params[:id])  %>
+</div>
+<%= form_tag(admin_game_score_only_update_path, method: "post") do %>
+<section>
+  <!-- Switch -->
+  <div class="switch">
+    <label>
+      With Full Stat
+      <input type="checkbox" id="score_only_checkbox" name='score_only_checkbox'>
+      <span class="lever"></span>
+      Score Only
+    </label>
+  </div>
+</section>
+
+<section id='score_only_field' class='margin-top-lg hide'>
+
+  <% @playerstats.each do |playerstat| %>
+    <div>
+      <%= label_tag('score['+playerstat.player_id.to_s+']', playerstat.player.name) %>
+      <%= text_field_tag 'score['+playerstat.player_id.to_s+']', playerstat.score_only_score   %>
+
+    </div>
+  <% end %>
+</section>
+  <button type="submit" name="button" class="margin-all">Update</button>
+
+
+  <% end %>
