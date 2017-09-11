@@ -12,9 +12,9 @@ function onYouTubeIframeAPIReady() {
   player1 = new YT.Player('video1', {
     height: '270',
     width: '480',
-    videoId: 'k1Q6U5zSTCc',
+    videoId: 'SobCSTyjFWE',
     playerVars: {
-      'start': 104
+      'start': 8
     },
     events: {
       'onReady': onPlayerReady,
@@ -24,7 +24,10 @@ function onYouTubeIframeAPIReady() {
   player2 = new YT.Player('video2', {
     height: '270',
     width: '480',
-    videoId: '_Laf960OBj8',
+    videoId: 'EUVw1p2QnTo',
+    playerVars: {
+      'start': 0
+    },
     events: {
       'onReady': onPlayerReady,
       'onStateChange': onPlayerStateChange

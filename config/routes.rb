@@ -92,6 +92,7 @@ Rails.application.routes.draw do
 
   #Video Routes
   get 'video/vs_ttp', to: 'team_page#video'
+  get 'video/temp', to: 'team_page#video'
 
   # Homepage Routes
   root 'team_page#show', as: 'home'
