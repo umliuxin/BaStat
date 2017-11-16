@@ -26,21 +26,21 @@ GAME_TYPE_UNTRACK = 'untrack'
 
 # Game Action List:
 GAME_ACTION_LIST = [
-  '2PT_MADE',
-  '2PT_MISS',
-  '3PT_MADE',
-  '3PT_MISS',
-  'FT_MADE',
-  'FT_MISS',
-  'PUTBACK_MADE',
-  'PUTBACK_MISS',
-  'ASSIST',
-  'OFF_REB',
-  'DEF_REB',
-  'STEAL',
-  'FOUL',
-  'TURNOVER',
-  'BLOCK',
+  {key: 'Q', keyindex: 81 ,name: '2PT_MADE'},
+  {key: 'W', keyindex: 87 ,name: '2PT_MISS'},
+  {key: 'E', keyindex: 69 ,name: '3PT_MADE'},
+  {key: 'R', keyindex: 82 ,name: '3PT_MISS'},
+  {key: 'Z', keyindex: 90 ,name: 'FT_MADE'},
+  {key: 'X', keyindex: 88 ,name: 'FT_MISS'},
+  {key: 'C', keyindex: 67 ,name: 'PUTBACK_MADE'},
+  {key: 'V', keyindex: 86 ,name: 'PUTBACK_MISS'},
+  {key: 'A', keyindex: 65 ,name: 'ASSIST'},
+  {key: 'O', keyindex: 79 ,name: 'OFF_REB'},
+  {key: 'D', keyindex: 68 ,name: 'DEF_REB'},
+  {key: 'S', keyindex: 83 ,name: 'STEAL'},
+  {key: 'F', keyindex: 70 ,name: 'FOUL'},
+  {key: 'T', keyindex: 84 ,name: 'TURNOVER'},
+  {key: 'B', keyindex: 66 ,name: 'BLOCK'},
 ]
 
 # team and oppo team

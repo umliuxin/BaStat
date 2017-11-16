@@ -42,7 +42,7 @@ module ApplicationHelper
     if index == 15
       'QUATER ENDS'
     else
-      GAME_ACTION_LIST[index]
+      GAME_ACTION_LIST[index][:name]
     end
   end
 

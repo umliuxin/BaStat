@@ -1,5 +1,5 @@
 module Admin
-  class SeasonsController < ApplicationController
+  class SeasonsController < AdminController
 
     def index
       @seasons = Season.all.order('start_date')
@@ -20,7 +20,7 @@ module Admin
     def set_current
       @season = Season.find(params[:id])
       @season.set_default_season
-      
+
       redirect_to(admin_seasons_path)
     end
 

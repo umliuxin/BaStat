@@ -1,7 +1,7 @@
-<h1>Season</h1>
-<%= @season.name %>
+<h1><%= @season.name %> Management</h1>
+
 <section>
-  <h3>Change Season</h3>
+  <h3>Update season info</h3>
   <%= form_for :season, url: admin_update_season_path, method: :patch do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -13,7 +13,7 @@
   <% end %>
 </section>
 <section>
-  <h3>Schedule</h3>
+  <h3>Add New Game</h3>
   <%= form_for :game, url: admin_create_game_path do |f| %>
     <%= f.label :opponent %>
 
@@ -27,13 +27,23 @@
 
     <%= f.hidden_field :season_id, value: @season.id %>
 
-    <%= f.submit("Add new game") %>
+    <%= f.submit("Add") %>
   <% end %>
 </section>
 
 <section>
-  <h3>Game Schedule</h3>
-  <% @games.each do |game| %>
-    <div> <%= game.opponent_name%> <%=game.gametime %> <%= game.season%> <%= link_to 'Remove', admin_delete_game_path(game), method: :delete, data: { confirm: 'Are you sure?' }%> <%= link_to 'Track', admin_game_path(game) %></div>
+  <h3>Game list</h3>
+  <% if @games.length > 0 %>
+    <% @games.each_with_index do |game, index| %>
+      <div class="season__gamelist-item">
+        <div><%= index + 1 %> </div>
+        <div><%= link_to 'Track', admin_game_path(game) %></div>
+        <div class="team-name"><%= game.opponent_name%></div>
+        <div><%=game.gametime %></div>
+        <div><%= link_to 'Remove', admin_delete_game_path(game), method: :delete, data: { confirm: 'Are you sure?' }%></div>
+      </div>
+    <% end %>
+  <% else %>
+    No Game! Please add new one.
   <% end %>
 </section>
