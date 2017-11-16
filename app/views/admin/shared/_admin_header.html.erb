@@ -1,0 +1,25 @@
+<nav class="global-nav">
+  <div class="container">
+    <div class="nav-wrapper row">
+      <div class="col xs12">
+        <%= link_to image_tag(TEAM_LOGO_URL, class: 'margin-top'), home_path , :class => 'brand-logo' %>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars icon-space-left-lg icon-space-right-lg"></i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><%= link_to 'Admin', admin_index_path %></li>
+          <li><%= link_to 'Current Season', admin_season_path(@current_season) %></li>
+          <li><%= link_to 'Rosters', admin_rosters_path %></li>
+          <li><%= link_to 'Seasons', admin_seasons_path %></li>
+          <li><%= link_to 'Players', admin_players_path %></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to image_tag(TEAM_LOGO_URL), home_path, class:'team-logo' %> </li>
+          <li><%= link_to 'Admin', admin_index_path %></li>
+          <li><%= link_to 'Current Season', admin_season_path(@current_season) %></li>
+          <li><%= link_to 'Rosters', admin_rosters_path %></li>
+          <li><%= link_to 'Seasons', admin_seasons_path %></li>
+          <li><%= link_to 'Players', admin_players_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

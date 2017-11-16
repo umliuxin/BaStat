@@ -1,7 +1,7 @@
-<h1>Index</h1>
-
-<%= @team.team_name %>
-<%= image_tag(@team.team_logo)%>
-<p><%= link_to 'Season Admin', admin_seasons_path %></p>
-<p><%= link_to 'Player Admin', admin_players_path%></p>
-<p><%= link_to 'Roster Admin', admin_rosters_path%></p>
+<h1>Admin Homepage</h1>
+<ul class="admin-index-btns">
+  <li><%= link_to 'Current Season', admin_season_path(@current_season) %></li>
+  <li><%= link_to 'Season Admin', admin_seasons_path %></li>
+  <li><%= link_to 'Player Admin', admin_players_path%></li>
+  <li><%= link_to 'Roster Admin', admin_rosters_path%></li>
+</ul>

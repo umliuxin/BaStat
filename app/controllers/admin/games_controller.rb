@@ -1,6 +1,6 @@
 module Admin
-  class GamesController < ApplicationController
-    layout 'admin'
+  class GamesController < AdminController
+
     def show
       @game = Game.find(params[:id])
       @player_collection = @game.players
@@ -32,17 +32,21 @@ module Admin
     end
 
     def score_only_update
-      if params["score_only_checkbox"] && params["score_only_checkbox"] == 'on'
-        params["score"].each do |score|
-          PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).update_score_only(score[1].to_i)
+      if params["score"]
+        if params["score_only_checkbox"] && params["score_only_checkbox"] == 'on'
+          params["score"].each do |score|
+            PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).update_score_only(score[1].to_i)
+          end
+        else
+          params["score"].each do |score|
+            PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).reset_score_only
+          end
         end
-      else
-        params["score"].each do |score|
-          PlayerStat.find_by(player_id: score[0].to_i, game_id: params[:id].to_i).reset_score_only
-        end
-      end
 
-      flash[:success] = "Update Successful!"
+        flash[:success] = "Update Successful!"
+      else
+        flash[:danger] =" Update Fail"
+      end
       redirect_to admin_game_score_only_path(params[:id])
     end
 

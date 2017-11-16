@@ -1,5 +1,5 @@
 module Admin
-  class ActionsController < ApplicationController
+  class ActionsController < AdminController
 
     include GameConcern
 
