@@ -1,6 +1,6 @@
 module Admin
 
-  class IndexController < ApplicationController
+  class IndexController < AdminController
     def show
       @team = Team.new
     end

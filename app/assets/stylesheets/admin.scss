@@ -1,29 +1,86 @@
-// // Roboto Google Font (not hosted)
-// @import 'web-font/roboto';
-// // Font Awesome
-// @import "font-awesome";
-//
-//
-// // Materialize Framework
-// @import "materialize";
-// @import "materialize/components/forms/forms";
 
+
+
+.small-text-field{
+  max-width: 50px;
+}
+
+.container{
+  padding: 0 8px;
+}
+section {
+  margin-bottom: 20px;
+}
+
+// Admin Homepage
+.admin-index-btns {
+  li{
+    display: inline-block;
+  }
+  li > a{
+    width: 300px;
+    height: 200px;
+    margin: 0 20px 20px 0;
+    text-align: center;
+    line-height: 200px;
+    border: 1px solid #999;
+    font-size: 30px;
+    display: block;
+  }
+}
+
+
+// Season page
+.season__gamelist-item{
+  padding: 15px 0;
+  & > div{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .team-name{
+    min-width: 150px;
+  }
+}
+
+//Game Recording page
+.game__section{
+  padding: 4px 8px;
+}
 
 .admin-game-form{
-  label{
+  label > span{
     display: inline-block;
-    width: 140px;
-    height: 30px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
     margin-right:5px;
     margin-top: 10px;
     text-align: center;
   }
-  input:checked + label {
+  label > input {
+    display: none;
+  }
+  input:checked + span {
     border-color: #333;
   }
+  & > div{
+    margin-top: 10px;
+  }
 }
-
-.small-text-field{
-  max-width: 50px;
+.game__action-list{
+ max-height: 270px;
+ overflow-y: scroll;
+}
+.game__action-item{
+  padding: 5px 0;
+  & > span{
+    padding-right: 10px;
+  }
+  .player {
+    min-width: 160px;
+    display: inline-block;
+  }
+  .action {
+    min-width: 160px;
+    display: inline-block;
+  }
 }

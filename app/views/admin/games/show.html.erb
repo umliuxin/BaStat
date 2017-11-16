@@ -1,5 +1,6 @@
-<h1>GAME Record</h1>
+<h1><%= @game.opponent_name %></h1>
 <% if @game.opponent_name == "TBD" %>
+<%# When opponent is not selected, have to choose one opponent first %>
   <section>
     <ul>
       <li>Game ID: <%= @game.id %> </li>
@@ -14,90 +15,128 @@
     </ul>
   </section>
 <% else %>
-<section>
-  <ul>
-    <li>Game ID: <%= @game.id %> </li>
-    <li>Game Oppo: <%= @game.opponent_name %></li>
-    <li>Recording Quarter: <%= recording_quater(@score.recording_quarter) %> </li>
-    <li><%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%></li>
-    <li><%= link_to 'Only Score', admin_game_score_only_path(@game.id)%></li>
-  </ul>
-</section>
-<section>
-  <% unless @score.end_recording? %>
-    <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%><br>
-  <% end %>
-    <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
 
-</section>
-<section>
-  <h5>Score</h5>
-  <%= form_for @score, url: admin_game_update_score_path, method: 'post' do |f| %>
-  <%= f.submit %>
-  <table>
-    <thead>
-      <td>Team</td>
-      <td>Q1</td>
-      <td>Q2</td>
-      <td>Q3</td>
-      <td>Q4</td>
-      <td>Total</td>
-    </thead>
-    <tbody>
-      <tr>
-        <td>LSJ</td>
-        <td width='80px'><%= f.text_field :point_q1, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_q2, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_q3, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_q4, class: 'small-text-field' %></td>
-        <td><%= @score.point_total %></td>
-      </tr>
-      <tr>
-        <td><%= @game.opponent_name %></td>
-        <td width='80px'><%= f.text_field :point_op_q1, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_op_q2, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_op_q3, class: 'small-text-field' %></td>
-        <td width='80px'><%= f.text_field :point_op_q4, class: 'small-text-field' %></td>
-        <td><%= @score.point_op_total %></td>
-      </tr>
-    </tbody>
-  </table>
-  <% end %>
-</section>
-<section class='admin-game-form'>
-  <%= form_for :move, url: admin_create_action_path do |f| %>
-    <%= f.submit %><br>
-    <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) %>
-
-    <%= f.radio_button :player_id, TEAM_ID %>
-    <label for="move_player_id_0">TEAM</label>
-    <%= f.radio_button :player_id, OPPO_TEAM_ID %>
-    <label for="move_player_id_-1">OPPO</label>
-
-
-    <br><br>
-    <% GAME_ACTION_LIST.each_with_index do |val,index| %>
-      <label>
-      <%= f.radio_button :action_index, index %> <%= val %>
-      </label>
+<div class="row">
+  <div class="col s12">
+    <h3>Recording Quarter: <%= recording_quater(@score.recording_quarter) %></h3>
+    <% unless @score.end_recording? %>
+      <%= link_to 'Quarter End', admin_quarter_end_path(@game), method: 'get'%><br>
     <% end %>
+  </div>
+</div>
+<div class="row">
+  <%= form_for :move, url: admin_create_action_path do |f| %>
+
+  <section class='admin-game-form game__section col s12'>
+    <h4>Add Action</h4>
+      <%= f.submit %> (TIPS: `Shift` + `Enter` to submit)
+      <div>
+        <h5>Choose player</h5>
+        <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) do |b| %>
+          <% name_text = b.text + ' (' + b.value.to_s + ')' %>
+          <%=  b.label { b.radio_button + content_tag(:span, name_text.html_safe)} %>
+        <% end %>
+        <label for='move_player_id_0'>
+          <%= f.radio_button :player_id, TEAM_ID %>
+          <span>TEAM (-)</span>
+        </label>
+        <label for='move_player_id_-1'>
+          <%= f.radio_button :player_id, OPPO_TEAM_ID %>
+          <span>OPPO (+)</span>
+        </label>
+      </div>
+
+      <div>
+        <h5>Choose action</h5>
+        <% GAME_ACTION_LIST.each_with_index do |val,index| %>
+          <label id='key-<%= val[:keyindex]%>'>
+            <%= f.radio_button :action_index, index %> <span><%= val[:name] %> (<%= val[:key] %>)</span>
+          </label>
+        <% end %>
+      </div>
+
+      <div>Description: <%= f.text_field :description, placeholder: 'OPTIONAL'%></div>
+
+      <%= f.hidden_field :game_id, value: @game.id %>
+      <%= f.hidden_field :quarter, value: @score.recording_quarter %>
 
 
-    <%= f.hidden_field :game_id, value: @game.id %>
-    <%= f.hidden_field :quarter, value: @score.recording_quarter %>
-    <div>Insert Before:<%= f.text_field :position, value: cookies[:insert_position] %> Clear if adding to the end of list</div>
-    <div>Description: <%= f.text_field :description, placeholder: 'OPTIONAL'%></div>
+  </section>
 
+  <section class="game__section col m6">
+    <h4>Action List</h4>
+    <div>Insert Position:<%= f.text_field :position, value: cookies[:insert_position] %> Clear if adding to the end of list</div>
+    <div class="game__action-list">
+      <% @action_list.sort_by{|e| -e[:id]}.each do |action| %>
+        <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
+        <div class="game__action-item">
+          <span>Pos: <%= action.position %></span>
+          <span class="player">Player: <%= action.player_name %></span>
+          <span class="action">Action: <%=action_from_index(action.action_index)%></span>
+          <span>CTAs: <%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></span>
+          <% if action.description.length > 0 %><span>Description: <%= action.description%></span><% end %>
+        </div>
+      <% end %>
+    </div>
 
+  </section>
   <% end %>
-</section>
 
-<section>
-  <h5>Action List</h5>
-  <% @action_list.each do |action| %>
-    <%# MOVE SECTION SHOULD BE CREATED on-the-fly%>
-    <p><%= action.position %>Player: <%= action.player_name %>, Action: <%=action_from_index(action.action_index)%>, <%= action.description%> <%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-  <% end %>
-</section>
+</div>
+
+<div class="row">
+  <section class="game__section col m6">
+    <h4>CTAs</h4>
+    <ul>
+      <li>
+        <p>Migrate data from actions to player stat, team stat, oppo stat. Click when action recording is done.</p>
+        <%= link_to 'Migrate', admin_game_stat_migrate_path(@game), method: 'get'%>
+      </li>
+      <li>
+        <p>After Migration above, you can update players to DNP</p>
+        <%= link_to 'DNP Manage', admin_game_dnp_path(@game.id)%>
+      </li>
+      <li>
+        <p>When only having score for players, click here.</p>
+        <%= link_to 'Only Score', admin_game_score_only_path(@game.id)%>
+      </li>
+    </ul>
+  </section>
+  <section class="game__section col m6">
+    <h4>Score</h4>
+    <p>This section should be updated by entering actions, but can be overwriten manually.</p>
+    <%= form_for @score, url: admin_game_update_score_path, method: 'post' do |f| %>
+    <table>
+      <thead>
+        <td>Team</td>
+        <td>Q1</td>
+        <td>Q2</td>
+        <td>Q3</td>
+        <td>Q4</td>
+        <td>Total</td>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LSJ</td>
+          <td width='80px'><%= f.text_field :point_q1, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_q2, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_q3, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_q4, class: 'small-text-field' %></td>
+          <td><%= @score.point_total %></td>
+        </tr>
+        <tr>
+          <td><%= @game.opponent_name %></td>
+          <td width='80px'><%= f.text_field :point_op_q1, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_op_q2, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_op_q3, class: 'small-text-field' %></td>
+          <td width='80px'><%= f.text_field :point_op_q4, class: 'small-text-field' %></td>
+          <td><%= @score.point_op_total %></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= f.submit %>
+    <% end %>
+  </section>
+</div>
 
 <% end %>

@@ -1,5 +1,5 @@
 module Admin
-  class PlayersController < ApplicationController
+  class PlayersController < AdminController
     def index
       @players = Player.all
     end

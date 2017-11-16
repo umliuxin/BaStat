@@ -7,14 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render partial: 'shared/global_nav_header' %>
+  <%= render partial: 'admin/shared/admin_header' %>
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
   <div class="container">
       <%= yield %>
   </div>
-  <%= render partial: 'shared/global_nav_footer' %>
   <%= include_page_js %>
 </body>
 </html>

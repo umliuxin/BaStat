@@ -1,5 +1,5 @@
 module Admin
-  class RostersController < ApplicationController
+  class RostersController < AdminController
     def show
       @seasons = Season.all
     end
