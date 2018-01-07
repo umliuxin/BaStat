@@ -63,7 +63,7 @@
 
   </section>
 
-  <section class="game__section col m6">
+  <section class="game__section col s12">
     <h4>Action List</h4>
     <div>Insert Position:<%= f.text_field :position, value: cookies[:insert_position] %> Clear if adding to the end of list</div>
     <div class="game__action-list">
@@ -74,7 +74,7 @@
           <span class="player">Player: <%= action.player_name %></span>
           <span class="action">Action: <%=action_from_index(action.action_index)%></span>
           <span>CTAs: <%= link_to 'Move Up', admin_action_move_postion_path(action.id,'moveup')%>, <%= link_to 'Move Down', admin_action_move_postion_path(action.id,'movedown')%>, <%= link_to 'Remove', admin_delete_action_path(action), method: :delete, data: { confirm: 'Are you sure?' } %></span>
-          <% if action.description.length > 0 %><span>Description: <%= action.description%></span><% end %>
+          <% if action.description && action.description.length > 0 %><span>Description: <%= action.description%></span><% end %>
         </div>
       <% end %>
     </div>

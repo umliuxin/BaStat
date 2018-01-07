@@ -6,7 +6,7 @@ $('#score_only_checkbox').change(function(){
 $(window).on('keypress', function(e){
 
   if (e.shiftKey && e.which === 13){
-    $('input[type="submit"]').click();
+    $('.admin-game-form input[type="submit"]').click();
   } else if (e.which === 45){
     $('[for="move_player_id_0"]').click();
   } else if (e.which === 61) {
