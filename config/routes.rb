@@ -81,7 +81,16 @@ Rails.application.routes.draw do
 
     resources :games, only: [:index, :show]
 
+    # Video API Routes
+    get 'videos', to: 'videos#query'
+
+    post 'video', to: 'videos#update'
+
   end
+
+  # Video REST API manage
+  resources :videos, only: [:index, :show, :create, :update, :destroy]
+
 
   # Production Routes
   resources :players, only: [:index, :show]
@@ -90,9 +99,6 @@ Rails.application.routes.draw do
   get '/schedules', to: 'gamelist#schedules'
   get '/results', to: 'gamelist#results'
 
-  #Video Routes
-  get 'video/vs_ttp', to: 'team_page#video'
-  get 'video/temp', to: 'team_page#video'
 
   # Homepage Routes
   root 'team_page#show', as: 'home'

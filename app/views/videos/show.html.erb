@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Video</h1>
+  <%= form_for :video, url: video_path(), method: 'PATCH' do |f| %>
+    <%= f.label :team_1 %>
+    <%= f.text_field :team_1 %>
+    <br/>
+    <%= f.label :team_2 %>
+    <%= f.text_field :team_2 %>
+    <br/>
+    <%= f.label :game_day %>
+    <%= f.text_field :game_day %>
+    <br/>
+    <%= f.label :youtube_id %>
+    <%= f.text_field :youtube_id %>
+    <br/>
+    <%= f.label :gametime %>
+    <%= f.date_field :gametime %>
+
+    <%= f.hidden_field :season_id, value: @current_season.id %>
+    <br/>
+    <%= f.submit("Update video") %>
+  <% end %>
+</div>
+
+<div class="margin-bottom-lg"></div>

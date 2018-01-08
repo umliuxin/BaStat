@@ -4,8 +4,4 @@ class TeamPageController < ApplicationController
     @team = Team.build
     @seasons = Season.order(start_date: :desc)
   end
-
-  def video
-    
-  end
 end

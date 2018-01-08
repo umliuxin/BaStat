@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316034928) do
+ActiveRecord::Schema.define(version: 20180107020037) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -155,5 +155,18 @@ ActiveRecord::Schema.define(version: 20170316034928) do
   end
 
   add_index "team_stats", ["game_id"], name: "index_team_stats_on_game_id"
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "team_1"
+    t.string   "team_2"
+    t.integer  "game_day"
+    t.string   "youtube_id"
+    t.datetime "gametime",   null: false
+    t.integer  "season_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "videos", ["season_id"], name: "index_videos_on_season_id"
 
 end
