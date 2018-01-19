@@ -3,7 +3,9 @@
   <section class="row">
     <div class="col xs12 clearfix">
       <h1 class="pull-left">Video List</h1>
-      <div class="btn pull-right">+ Add New</div>
+      <div class="pull-right">
+        <%= link_to 'Import', video_import_path, method: :get, class: 'btn' %>
+      </div>
     </div>
   </section>
 
@@ -24,7 +26,7 @@
           <span><%= video.team_2 %></span>
           <span><%= video.game_day %></span>
           <span><%= video.youtube_id %></span>
-          <span><%= video.gametime.strftime("%H:%M %m/%d/%Y") %></span>
+          <span><%= video.gametime.strftime("%m/%d/%Y") %></span>
           <% end %>
           <%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>

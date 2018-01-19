@@ -89,7 +89,9 @@ Rails.application.routes.draw do
   end
 
   # Video REST API manage
+  get '/videos/import', to: 'videos#import', as: 'video_import'
   resources :videos, only: [:index, :show, :create, :update, :destroy]
+
 
 
   # Production Routes
