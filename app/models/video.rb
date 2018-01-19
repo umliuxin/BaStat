@@ -3,14 +3,6 @@ class Video < ActiveRecord::Base
   belongs_to :season
 
   def self.fetchVideo(options={})
-    query_str = "(team_1 = ? OR team_2 = ?) AND season_id=? AND game_day=?"
-
-    Video.where(query_str,
-      options[:team] || "*",
-      options[:team] || "*",
-      options[:season_id] || "*",
-      options[:game_day] || "*"
-    )
 
     query_obj = Video.all
     query_obj = query_obj.where("team_1 = ? OR team_2 =?", options[:team], options[:team]) unless options[:team].blank?
@@ -19,7 +11,8 @@ class Video < ActiveRecord::Base
 
     {
       :count => query_obj.count,
-      :data => query_obj
+      :data => query_obj,
+      :gamedays => query_obj.uniq.pluck(:game_day)
     }
   end
 

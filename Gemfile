@@ -14,6 +14,7 @@ gem 'materialize-sass'
 gem 'font-awesome-rails'
 gem 'pg'
 gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :production do
 
