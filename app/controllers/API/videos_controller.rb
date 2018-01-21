@@ -1,14 +1,15 @@
 module API
-
   class VideosController < ApplicationController
     def query
       render :json => Video.fetchVideo(params)
     end
 
-    def update
+    def post
+      videos = ActiveSupport::JSON.decode(params[:videos])
+      Video.postVideos(videos)
+      redirect_to videos_path
     end
 
-    # vid, team, gameday, season
 
   end
 end

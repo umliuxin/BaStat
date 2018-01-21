@@ -83,8 +83,7 @@ Rails.application.routes.draw do
 
     # Video API Routes
     get 'videos', to: 'videos#query'
-
-    post 'video', to: 'videos#update'
+    post '/videos/post', to: 'videos#post'
 
   end
 

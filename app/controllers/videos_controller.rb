@@ -24,6 +24,9 @@ class VideosController < ApplicationController
     redirect_to videos_path
   end
 
+  def import
+  end
+
   private
 
   def video_params

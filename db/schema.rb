@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119053053) do
+ActiveRecord::Schema.define(version: 20180121072212) do
 
   create_table "actions", force: :cascade do |t|
     t.integer  "game_id"
@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20180119053053) do
   create_table "videos", force: :cascade do |t|
     t.string   "team_1"
     t.string   "team_2"
-    t.integer  "game_day"
+    t.string   "game_day"
     t.string   "youtube_id"
     t.date     "gametime",   null: false
     t.integer  "season_id"

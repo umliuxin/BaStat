@@ -4,7 +4,9 @@ const CHANNEL_ID = 'UCpGB8Vaa8-IJpM2gVybJ7kg';
 
 const $videoInput = $('#video-list-id'),
   $videoInputBtn = $('#video-import-submit'),
-  $noResultText =$('#no-result');
+  $noResultText =$('#no-result'),
+  $videoPostBtn = $('#video-post-btn'),
+  $videoPostWrap = $('.post-btn-wrap');
 
 var videoDetails = [];
 
@@ -27,14 +29,15 @@ const fetchVideoFromYoutube = e => {
       timeout: 5000,
       url: 'https://www.googleapis.com/youtube/v3/playlistItems'
     }).done((response) => {
-      videoDetails = response.items;
       videoDetails = response.items.map((video) => {
         return serializeVideoDetail(video);
       });
-      console.log(videoDetails);
       $('#playlist-result').html(JSON.stringify(videoDetails));
+      $videoPostWrap.show();
+      postVideoInit();
     }).fail(function() {
       $noResultText.html('No list matched');
+      $videoPostWrap.hide();
     });
   } else {
     $noResultText.html('Please Input List ID');
@@ -42,7 +45,6 @@ const fetchVideoFromYoutube = e => {
 };
 
 const serializeVideoDetail = (video) => {
-  console.log(video)
   return {
     youtube_id: video.snippet.resourceId.videoId,
     ...fetchDataFromTitle(video.snippet.title)
@@ -51,17 +53,34 @@ const serializeVideoDetail = (video) => {
 
 const fetchDataFromTitle = (title) => {
   return {
-    gameday: title.split(' ')[0],
+    game_day: title.split(' ')[0],
     team_1:   title.substr(title.indexOf(' ')).split('vs')[0].trim(),
     team_2:   title.substr(title.indexOf(' ')).split('vs')[1].trim(),
     gametime: title.split(' ')[0]
   };
 }
 
+const postVideosToApi = () => {
+  $.ajax({
+    type: 'POST',
+    url: `${window.origin}/api/videos/post`,
+    data: {
+      videos: JSON.stringify(videoDetails)
+    }
+  }).done((res) => {
+    console.log(res);
+  })
+}
+
 const fetchVideosInit = () => {
   $videoInputBtn.on('click', fetchVideoFromYoutube);
 };
 
+const postVideoInit = () => {
+  $videoPostBtn.off('click').on('click', postVideosToApi)
+}
+
 if ($videoInput.length > 0) {
+  $videoPostWrap.hide();
   fetchVideosInit();
 }
