@@ -1,7 +1,11 @@
 module API
   class VideosController < ApplicationController
     def query
-      render :json => Video.fetchVideo(params)
+      if params[:vid].present?
+        render :json => Video.fetchVideo(params)
+      else
+        render :json => Video.fetchVideos(params)
+      end
     end
 
     def post

@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
 
   belongs_to :season
 
-  def self.fetchVideo(options={})
+  def self.fetchVideos(options={})
 
     query_obj = Video.all
     query_obj = query_obj.where("team_1 LIKE ? OR team_2 LIKE ?", "%#{options[:team]}%", "%#{options[:team]}%") unless options[:team].blank?
@@ -15,6 +15,12 @@ class Video < ActiveRecord::Base
       :count => query_obj.count,
       :data => query_obj,
       :gamedays => game_days
+    }
+  end
+
+  def self.fetchVideo(options={})
+    {
+      :data => Video.where("youtube_id = ?", options[:vid])
     }
   end
 
