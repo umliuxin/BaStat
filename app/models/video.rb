@@ -6,15 +6,15 @@ class Video < ActiveRecord::Base
   def self.fetchVideo(options={})
 
     query_obj = Video.all
-    query_obj = query_obj.where("team_1 = ? OR team_2 =?", options[:team], options[:team]) unless options[:team].blank?
+    query_obj = query_obj.where("team_1 LIKE ? OR team_2 LIKE ?", "%#{options[:team]}%", "%#{options[:team]}%") unless options[:team].blank?
     query_obj = query_obj.where("season_id = ?", options[:season_id]) unless options[:season_id].blank?
     query_obj = query_obj.where("game_day = ?", options[:game_day]) unless options[:game_day].blank?
     query_obj = query_obj.limit(options[:limit]) unless options[:limit].blank?
-
+    game_days = Video.all.uniq.pluck(:game_day)
     {
       :count => query_obj.count,
       :data => query_obj,
-      :gamedays => query_obj.uniq.pluck(:game_day)
+      :gamedays => game_days
     }
   end
 
