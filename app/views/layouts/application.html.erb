@@ -18,5 +18,7 @@
   <%= yield %>
   <%= render partial: 'shared/global_nav_footer' %>
   <%= include_page_js %>
+  <%= (javascript_include_tag 'video_import', 'data-turbolinks-track' => true).html_safe %>
+
 </body>
 </html>
