@@ -1,0 +1,60 @@
+<div class="container" id="video-index-page">
+  <%# Add new button%>
+  <section class="row">
+    <div class="col xs12 clearfix">
+      <h1 class="pull-left">Video List</h1>
+      <div class="pull-right">
+        <%= link_to 'Import', video_import_path, method: :get, class: 'btn' %>
+      </div>
+    </div>
+  </section>
+
+  <%# Video List %>
+  <section>
+    <ul class="video-list">
+      <li>
+        <span>Team 1</span>
+        <span>Team 2</span>
+        <span>Game day</span>
+        <span>Youtube ID</span>
+        <span>Game time</span>
+      </li>
+      <% @videos.each do |video| %>
+        <li>
+          <%= link_to video_path(video) do %>
+          <span><%= video.team_1 %></span>
+          <span><%= video.team_2 %></span>
+          <span><%= video.game_day %></span>
+          <span><%= video.youtube_id %></span>
+          <span><%= video.gametime.strftime("%m/%d/%Y") %></span>
+          <% end %>
+          <%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </ul>
+  </section>
+
+  <section>
+      <h3>Add new video record</h5>
+      <%= form_for :video, url: videos_path, method: 'POST' do |f| %>
+        <%= f.label :team_1 %>
+        <%= f.text_field :team_1 %>
+        <br/>
+        <%= f.label :team_2 %>
+        <%= f.text_field :team_2 %>
+        <br/>
+        <%= f.label :game_day %>
+        <%= f.text_field :game_day %>
+        <br/>
+        <%= f.label :youtube_id %>
+        <%= f.text_field :youtube_id %>
+        <br/>
+        <%= f.label :gametime %>
+        <%= f.date_field :gametime %>
+        <br/>
+        <%= f.hidden_field :season_id, value: @current_season.id %>
+
+        <%= f.submit("Add video") %>
+      <% end %>
+  </section>
+</div>
+<div class="margin-bottom-lg"></div>
