@@ -91,3 +91,34 @@ OPPO_TEAM_ARR = [
   { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'},
   { name:'TBD', logo:'', shortname: 'TBD'}
 ]
+
+VIDEO_TEAM_LIST = [
+  {"name":"恒星","id":0,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010091/75/75/c/1504847607.jpg"},
+  {"name":"Blue Archer","id":1,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1007392/75/75/c/1452471589.jpg"},
+  {"name":"Broncos","id":2,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1009107/75/75/c/1485128502.jpeg"},
+  {"name":"Captain No Shoot","id":3,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008321/75/75/c/1467263364.jpg"},
+  {"name":"Dragons","id":4,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010219/75/75/c/1504759903.png"},
+  {"name":"Goat","id":5,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008323/75/75/c/1467331673.jpg"},
+  {"name":"ILG","id":6,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1003010/75/75/c/1441188936.jpg"},
+  {"name":"MLB","id":7,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008291/75/75/c/1466900917.jpg"},
+  {"name":"NK Infernal","id":8,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1007002/75/75/c/1504763562.jpg"},
+  {"name":"OmniVision","id":9,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010089/75/75/c/1504762386.JPG"},
+  {"name":"Pandas","id":10,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010218/75/75/c/1504763785.png"},
+  {"name":"Pegasi","id":11,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008328/75/75/c/1470085399.gif"},
+  {"name":"Splash City","id":12,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008452/75/75/c/1504849500.jpg"},
+  {"name":"Team All-in","id":13,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010093/75/75/c/1501906122.jpg"},
+  {"name":"BOBA","id":14,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1007474/75/75/c/1489818868.JPG"},
+  {"name":"The Cereal Killers","id":15,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1009106/75/75/c/1504847733.jpg"},
+  {"name":"THUrsday","id":16,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1007008/75/75/c/1458540318.png"},
+  {"name":"TITANS","id":17,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1006994/75/75/c/1504763698.png"},
+  {"name":"ToT","id":18,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010105/75/75/c/1502673753.jpg"},
+  {"name":"Trust the Process","id":19,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1009102/75/75/c/1487137168.JPG"},
+  {"name":"VIPERS","id":20,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010092/75/75/c/1504763451.png"},
+  {"name":"WACH","id":21,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010157/75/75/c/1503276675.jpg"},
+  {"name":"Wolfpack","id":22,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008289/75/75/c/1466884659.jpg"},
+  {"name":"人民币","id":23,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1004715/75/75/c/1441188791.jpg"},
+  {"name":"江湖","id":24,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010072/75/75/c/1502749364.png"},
+  {"name":"老司机","id":25,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/905734/75/75/c/1441189061.jpg"},
+  {"name":"西南某队","id":26,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008331/75/75/c/1467051767.jpg"},
+  {"name":"野","id":27,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010212/75/75/c/1504849791.png"}
+]

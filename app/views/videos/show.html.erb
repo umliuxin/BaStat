@@ -1,11 +1,19 @@
 <div class="container">
   <h1>Video</h1>
-  <%= form_for :video, url: video_path(), method: 'PATCH' do |f| %>
+  <%= form_for @video, url: video_path(), method: 'PATCH' do |f| %>
     <%= f.label :team_1 %>
-    <%= f.text_field :team_1 %>
+    <%= f.select(:team_1) do %>
+      <%= options_for_select([@video[:team_1]]) %>
+      <% opp_array = VIDEO_TEAM_LIST.map.with_index { |oppo, index| [oppo[:name], oppo[:name]]} %>
+      <%= options_for_select(opp_array) %>
+    <% end %>
     <br/>
     <%= f.label :team_2 %>
-    <%= f.text_field :team_2 %>
+    <%= f.select(:team_2) do %>
+      <%= options_for_select([@video[:team_2]]) %>
+      <% opp_array = VIDEO_TEAM_LIST.map.with_index { |oppo, index| [oppo[:name], oppo[:name]]} %>
+      <%= options_for_select(opp_array) %>
+    <% end %>
     <br/>
     <%= f.label :game_day %>
     <%= f.text_field :game_day %>

@@ -54,7 +54,7 @@ const serializeVideoDetail = (video) => {
 const fetchDataFromTitle = (title) => {
   return {
     game_day: title.split(' ')[0],
-    team_1:   title.substr(title.indexOf(' ')).split('vs')[0].trim(),
+    team_1:   title.substr(title.indexOf(' ')).split('vs')[0].trim().replace('SVCBA ',''),
     team_2:   title.substr(title.indexOf(' ')).split('vs')[1].trim(),
     gametime: title.split(' ')[0]
   };
