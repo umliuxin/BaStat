@@ -120,5 +120,9 @@ VIDEO_TEAM_LIST = [
   {"name":"江湖","id":24,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010072/75/75/c/1502749364.png"},
   {"name":"老司机","id":25,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/905734/75/75/c/1441189061.jpg"},
   {"name":"西南某队","id":26,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1008331/75/75/c/1467051767.jpg"},
-  {"name":"野","id":27,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010212/75/75/c/1504849791.png"}
+  {"name":"野","id":27,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010212/75/75/c/1504849791.png"},
+  {"name":"Pretty Women","id":28,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010214/75/75/c/1504429374.jpg"},
+  {"name":"老A战队","id":29,"image":"http://a.espncdn.com/combiner/i?img=/redesign/assets/img/icons/ESPN-icon-basketball.png&w=288&h=288&transparent=true"},
+  {"name":"蓝鲸队","id":30,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010216/75/75/c/1504760864.jpg"},
+  {"name":"辣妈天团","id":31,"image":"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010213/75/75/c/1504415654.jpg"}
 ]
