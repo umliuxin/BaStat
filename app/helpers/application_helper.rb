@@ -1,3 +1,5 @@
+require 'string/similarity'
+
 module ApplicationHelper
 
 
@@ -34,6 +36,23 @@ module ApplicationHelper
   def team_name_short(name)
     name[0..2].upcase
   end
+
+ def team_name_match(name)
+   similar_team = VIDEO_TEAM_LIST[0][:name]
+   similarity = String::Similarity.cosine name, similar_team
+   VIDEO_TEAM_LIST.each do |team|
+     if name == team[:name]
+       return "SAME"
+     else
+      this_s = String::Similarity.cosine name, team[:name]
+      if similarity < this_s
+        similarity = this_s
+        similar_team = team[:name]
+      end
+     end
+   end
+   return similar_team
+ end
 
 
 

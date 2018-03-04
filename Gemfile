@@ -16,6 +16,7 @@ gem 'pg'
 gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
+gem 'string-similarity'
 
 group :production do
 
