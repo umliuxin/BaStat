@@ -4,6 +4,7 @@ module Admin
 
     layout 'application_admin'
 
+    before_action :authenticate_model!
     before_action :set_current_season
 
 

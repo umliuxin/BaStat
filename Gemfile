@@ -15,6 +15,7 @@ gem 'font-awesome-rails'
 gem 'pg'
 gem 'breadcrumbs_on_rails', '~> 3.0', '>= 3.0.1'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'devise'
 
 group :production do
 
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'rspec-rails', '~> 3.5'
-
 
 end
 

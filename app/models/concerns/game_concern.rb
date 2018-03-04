@@ -23,7 +23,6 @@ module GameConcern
         end
       elsif item == 'point'
         if playerstat.points > max_stat.points
-          ap 'CHANGE'
           max_stat = playerstat
         end
       end
