@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :models
   # Admin Route
   namespace :admin, path: '/admin' do
     get '/', to: 'index#show', as: 'index'

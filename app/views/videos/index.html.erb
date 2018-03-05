@@ -11,26 +11,30 @@
 
   <%# Video List %>
   <section>
-    <ul class="video-list">
-      <li>
-        <span>Team 1</span>
-        <span>Team 2</span>
-        <span>Game day</span>
-        <span>Youtube ID</span>
-        <span>Game time</span>
-      </li>
-      <% @videos.each do |video| %>
-        <li>
-          <%= link_to video_path(video) do %>
-          <span><%= video.team_1 %></span>
-          <span><%= video.team_2 %></span>
-          <span><%= video.game_day %></span>
-          <span><%= video.youtube_id %></span>
-          <span><%= video.gametime.strftime("%m/%d/%Y") %></span>
-          <% end %>
-          <%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% end %>
-    </ul>
+    <table class="video-list">
+      <thead>
+        <tr>
+          <td>Team 1</td>
+          <td>Team 2</td>
+          <td>Game day</td>
+          <td>Youtube ID</td>
+          <td>Game time</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @videos.each do |video| %>
+          <tr>
+            <td><%= video.team_1 %> <span><%= "("+team_name_match(video.team_1)+"?)" unless team_name_match(video.team_1) == "SAME"%></span></td>
+            <td><%= video.team_2 %> <span><%= "("+team_name_match(video.team_2)+"?)" unless team_name_match(video.team_2)  == "SAME"%></span></td>
+            <td><%= video.game_day %></td>
+            <td><%= video.youtube_id %></td>
+            <td><%= video.gametime.strftime("%m/%d/%Y") %></td>
+            <td><%= link_to 'edit', video_path(video) %></td>
+            <td><%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </section>
 
   <section>
