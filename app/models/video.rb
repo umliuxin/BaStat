@@ -12,7 +12,7 @@ class Video < ActiveRecord::Base
     game_days = Video.all.uniq.pluck(:game_day)
     {
       :count => query_obj.count,
-      :data => query_obj,
+      :data => query_obj.order(gametime: :desc),
       :gamedays => game_days
     }
   end
