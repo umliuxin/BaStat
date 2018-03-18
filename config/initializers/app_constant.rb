@@ -89,7 +89,9 @@ OPPO_TEAM_ARR = [
   { name:'人民币', logo:'RMB.jpg', shortname:'RMB'},
   { name:'西南某队', logo:'Xinan.jpg', shortname:'XNM'},
   { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'},
+  { name:'恒星', logo:"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010091/75/75/c/1504847607.jpg", shortname: 'HEX'},
   { name:'TBD', logo:'', shortname: 'TBD'}
+
 ]
 
 VIDEO_TEAM_LIST = [
