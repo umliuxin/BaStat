@@ -9,6 +9,10 @@ module Admin
 
     end
 
+    def edit
+        @game = Game.find(params[:id])
+    end
+
     def dnp
       @game = Game.find(params[:id])
       @ingame = PlayerStat.where(game_id: params[:id], dnp: false)
@@ -92,6 +96,13 @@ module Admin
       redirect_to admin_game_path(params[:id])
     end
 
+    def update
+      oparams = game_params
+      game = Game.find(params[:id])
+      game.update(oparams)
+      redirect_to admin_game_path(params[:id])
+    end
+
     private
 
     def game_params
@@ -105,6 +116,7 @@ module Admin
     def oppo_params
       params.require(:game).permit(:opponent)
     end
+
 
 
   end

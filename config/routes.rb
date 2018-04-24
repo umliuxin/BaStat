@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     post '/games/create', to: 'games#create', as: 'create_game'
     delete '/games/:id/delete', to:'games#delete', as:'delete_game'
     get 'games/:id', to:'games#show', as: 'game'
+    get 'games/:id/edit', to:'games#edit', as: 'edit_game'
+    patch 'games/:id/update', to:'games#update', as: 'update_game'
     get 'games/:id/migrate_to_stat', to:'games#migrate', as: 'game_stat_migrate'
     post 'games/:id/update_score', to: 'games#update_score', as: 'game_update_score'
     post 'games/:id/update_oppo', to: 'games#update_oppo', as: 'game_update_oppo'

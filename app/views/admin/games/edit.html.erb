@@ -1,0 +1,19 @@
+<section>
+    <h1>Game ID: <%= @game.id %> </h1>
+    <%= form_for :game, url: admin_update_game_path, method: :patch do |f| %>
+      <%= f.label :opponent %>
+
+      <%= f.select(:opponent) do %>
+        <% opp_array = OPPO_TEAM_ARR.map.with_index { |oppo, index| [oppo[:name], index + 1]} %>
+        <%= options_for_select(opp_array) %>
+      <% end %>
+
+      <%= f.label :gametime %>
+      <%= f.datetime_local_field :gametime, value: @game.gametime %>
+
+      <%= f.hidden_field :season_id, value: @game.season_id %>
+
+      <%= f.submit("UPDATE") %>
+    <% end %>
+    <%= link_to 'Cancel', admin_season_path(@game.season) %>
+</section>

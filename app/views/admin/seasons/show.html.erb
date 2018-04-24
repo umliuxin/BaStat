@@ -40,6 +40,7 @@
         <div><%= link_to 'Track', admin_game_path(game) %></div>
         <div class="team-name"><%= game.opponent_name%></div>
         <div><%=game.gametime %></div>
+        <div><%= link_to 'Edit', admin_edit_game_path(game)%></div>
         <div><%= link_to 'Remove', admin_delete_game_path(game), method: :delete, data: { confirm: 'Are you sure?' }%></div>
       </div>
     <% end %>
