@@ -88,7 +88,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
-    materialize-sass (1.0.0)
+    materialize-sass (0.97.7)
       autoprefixer-rails (>= 6.0.3)
     mini_mime (1.0.1)
     mini_portile2 (2.3.0)
