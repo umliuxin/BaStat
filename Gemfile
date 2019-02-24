@@ -12,14 +12,13 @@ gem 'awesome_print'
 gem 'acts_as_list'
 gem 'materialize-sass', '0.97.7'
 gem 'font-awesome-rails'
-gem 'pg'
 gem 'breadcrumbs_on_rails'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise'
 gem 'string-similarity'
 
 group :production do
-
+  gem 'pg'
   gem 'rails_12factor'
 end
 
