@@ -12,7 +12,7 @@ $(window).on('keypress', function(e){
   } else if (e.which === 61) {
     $('[for="move_player_id_-1"]').click();
   } else if (e.which > 48 && e.which < 58) {
-    $('[for="move_player_id_'+ (e.which - 48)+'"]').click();
+    $('.playerkey'+ (e.which - 48)).click();
   } else{
     var upperId = '#key-' + e.which;
     var lowerKey = e.which - 32;

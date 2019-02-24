@@ -98,6 +98,7 @@ OPPO_TEAM_ARR = [
   { name:'恒星', logo:"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1010091/75/75/c/1504847607.jpg", shortname: 'HEX'},
   { name:'一步到WAY', logo:"oneway.jpg", shortname: 'WAY'},
   { name:'Will Be In', logo:"", shortname: 'WBI'},
+  { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'},
   { name:'TBD', logo:'', shortname: 'TBD'}
 
 ]

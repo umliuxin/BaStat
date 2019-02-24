@@ -32,10 +32,16 @@
       <%= f.submit %> (TIPS: `Shift` + `Enter` to submit)
       <div>
         <h5>Choose player</h5>
-        <%= f.collection_radio_buttons(:player_id, @player_collection, :id, :name) do |b| %>
-          <% name_text = b.text + ' (' + b.value.to_s + ')' %>
-          <%=  b.label { b.radio_button + content_tag(:span, name_text.html_safe)} %>
+
+        <% @player_collection.each_with_index do |player, idx|
+          idxplus = idx + 1
+          classText =  'playerkey' + idxplus.to_s %>
+          <label for="move_player_id_<%=player.id%>" class=<%= classText%>>
+            <%= f.radio_button :player_id, player.id %>
+            <span><%= "#{player.name} (#{idxplus})" %></span>
+          </label>
         <% end %>
+
         <label for='move_player_id_0'>
           <%= f.radio_button :player_id, TEAM_ID %>
           <span>TEAM (-)</span>
