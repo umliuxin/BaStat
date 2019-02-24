@@ -23,13 +23,17 @@
       </thead>
       <tbody>
         <% @videos.each do |video| %>
+          <% prefect_match = team_name_match(video.team_1) == "SAME" && team_name_match(video.team_2) == "SAME" %>
           <tr>
             <td><%= video.team_1 %> <span><%= "("+team_name_match(video.team_1)+"?)" unless team_name_match(video.team_1) == "SAME"%></span></td>
             <td><%= video.team_2 %> <span><%= "("+team_name_match(video.team_2)+"?)" unless team_name_match(video.team_2)  == "SAME"%></span></td>
+            <td>
+              <%= render partial: 'form', locals: {video: video, hide: true, show_match: true } unless prefect_match %>
+            </td>
             <td><%= video.game_day %></td>
             <td><%= video.youtube_id %></td>
             <td><%= video.gametime.strftime("%m/%d/%Y") %></td>
-            <td><%= link_to 'edit', video_path(video) %></td>
+            <td><%= link_to 'edit', video_path(video), target: '_blank' %></td>
             <td><%= link_to 'delete', video_path(video), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

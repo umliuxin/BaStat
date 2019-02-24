@@ -1,0 +1,33 @@
+<%= form_for video, url: video_path(video.id), method: 'PATCH' do |f| %>
+    <%= f.label :team_1 %>
+    <%= f.select(:team_1) do %>
+      <%= options_for_select([video[:team_1]]) %>
+      <% opp_array = VIDEO_TEAM_LIST.map.with_index { |oppo, index| [oppo[:name], oppo[:name]]} %>
+      <%= options_for_select(opp_array) %>
+    <% end %>
+    <br/>
+    <%= f.label :team_2 %>
+    <%= f.select(:team_2) do %>
+      <% if show_match %>
+        <%= options_for_select([team_name_match(video[:team_2])]) %>
+      <% else %>
+        <%= options_for_select([video[:team_2]]) %>
+      <% end %>
+      <% opp_array = VIDEO_TEAM_LIST.map.with_index { |oppo, index| [oppo[:name], oppo[:name]]} %>
+      <%= options_for_select(opp_array) %>
+    <% end %>
+    <br/>
+    <div class="<%= 'hide' if hide%>">
+        <%= f.label :game_day %>
+        <%= f.text_field :game_day %>
+        <br/>
+        <%= f.label :youtube_id %>
+        <%= f.text_field :youtube_id %>
+        <br/>
+        <%= f.label :gametime %>
+        <%= f.date_field :gametime %>
+    </div>
+    <%= f.hidden_field :season_id, value: @current_season.id %>
+    <br/>
+    <%= f.submit("Update video") %>
+  <% end %>

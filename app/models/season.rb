@@ -21,7 +21,7 @@ class Season < ActiveRecord::Base
   end
 
   def recorded_games
-    self.games.where(game_record: true)
+    self.games.where(game_record: true).order(gametime: :desc)
   end
 
 

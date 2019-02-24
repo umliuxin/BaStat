@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
   before_action :get_current_season
   def index
-    @videos = Video.all
+    @videos = Video.all.order(gametime: :desc)
   end
 
   def show
