@@ -3,9 +3,6 @@ class PlayersController < ApplicationController
     add_breadcrumb "Home", home_path, :title => "Home"
     add_breadcrumb "Players", players_path, :title => "Players"
 
-    puts '________'
-    puts @current_season
-    
     @in_season_player_collection = @current_season.players
     @out_season_player_collection = Player.where.not(id: @in_season_player_collection.pluck(:id))
 
