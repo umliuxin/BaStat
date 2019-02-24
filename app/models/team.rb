@@ -43,7 +43,7 @@ class Team
   end
 
   def result_games_current_season
-    @result_games_current_season ||= Game.result_game(Season.get_current_season.id)
+    @result_games_current_season ||= Game.result_game(Season.get_current_season.id).order(gametime: :desc)
   end
 
   def current_season_avg_stat

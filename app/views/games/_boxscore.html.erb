@@ -35,7 +35,7 @@
             </tr>
           </thead>
           <tbody>
-            <% @game.player_stats.each do |playerstat| %>
+            <% @game.player_stats.order(:dnp).each do |playerstat| %>
               <% if playerstat.dnp && playerstat.score_only %>
               <tr>
                 <td><%= playerstat.player_id %></td>

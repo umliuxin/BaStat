@@ -6,7 +6,12 @@
       </div>
     </div>
     <div class="row">
-      <%= render partial: 'player_snapshot', collection: @players, as: :player %>
+      <%= render partial: 'player_snapshot', collection: @in_season_player_collection, as: :player %>
+    </div>
+
+    <div class="row">
+      <h5></h5>
+      <%= render partial: 'player_snapshot', collection: @out_season_player_collection, as: :player %>
     </div>
   </div>
 </div>

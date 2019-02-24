@@ -47,6 +47,7 @@ LEFT JOIN games
 ON player_stats.game_id=games.id
 WHERE dnp='f' AND player_id="+ self.id.to_s+" AND games.game_record ='t' AND dnp='f'
 GROUP BY games.season_id
+ORDER BY season_id DESC
 "
     PlayerStat.find_by_sql(sql)
   end
