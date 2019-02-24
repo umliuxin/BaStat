@@ -33,7 +33,7 @@
       <div>
         <h5>Choose player</h5>
 
-        <% @player_collection.each_with_index do |player, idx|
+        <% @player_collection.order(:number).each_with_index do |player, idx|
           idxplus = idx + 1
           classText =  'playerkey' + idxplus.to_s %>
           <label for="move_player_id_<%=player.id%>" class=<%= classText%>>
