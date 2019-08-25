@@ -99,7 +99,7 @@ OPPO_TEAM_ARR = [
   { name:'一步到WAY', logo:"oneway.jpg", shortname: 'WAY'},
   { name:'Will Be In', logo:"", shortname: 'WBI'},
   { name:'达快速递', logo:'DaDa.jpg', shortname:'DKS'},
-  { name:'Team All-in',logo:"http://d31217d8r00rg3.cloudfront.net/thumb/team/logo/1011811/75/75/c/1536453734.jpg",shortname:'TAI'},
+  { name:'Team All-in',logo:"allin.jpg",shortname:'TAI'},
   { name:'TBD', logo:'', shortname: 'TBD'}
 
 ]
