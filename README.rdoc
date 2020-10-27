@@ -30,3 +30,7 @@ URL: http://www.lsjball.club/
 
 * Set up
 1. Goto `/admin` to create one season and set it to `current_season`
+
+
+* Backup Database
+https://devcenter.heroku.com/articles/heroku-postgres-backups
